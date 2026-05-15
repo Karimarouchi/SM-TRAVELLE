@@ -1,0 +1,3079 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="icon" type="image/png" href="IMAGE/faicone.png" />
+  <title>SM Travel – Agence d'accompagnement aux études à l'étranger | Tunisie</title>
+  <meta name="description"
+    content="SM Travel vous accompagne de A à Z pour étudier en Europe : visa, admission, logement, accueil aéroport. 98% de réussite visa. Contactez-nous à Tunis." />
+  <meta property="og:title" content="SM Travel – Études à l'étranger" />
+  <meta property="og:description" content="Votre agence experte en orientation internationale depuis 2020." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "SM Travel",
+    "url": "https://smtravel.fr",
+    "email": "services@smtravel.fr",
+    "telephone": "+21656819899",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4 Bis Rue du Mali, 4e étage, bureau n°4",
+      "addressLocality": "Tunis",
+      "postalCode": "1002",
+      "addressCountry": "TN"
+    },
+    "sameAs": [
+      "https://www.facebook.com/Marstrip1/",
+      "https://www.instagram.com/smtravel_agency_/"
+    ]
+  }
+  </script>
+  <!-- Son d'ouverture : bruit décollage avion -->
+  <audio id="intro-sound" preload="auto">
+    <source src="SONG/bruit-decollage-avion_j3LekOTX.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: "#6d28d9",
+            "brand-dark": "#4c1d95",
+            "brand-light": "#ede9fe",
+            accent: "#0ea5e9",
+            "accent-light": "#e0f2fe",
+            teal: "#0d9488",
+            "teal-light": "#ccfbf1",
+            dark: "#0f172a",
+            mid: "#334155",
+            muted: "#64748b",
+            surface: "#f8fafc",
+            border: "#e2e8f0",
+          },
+          fontFamily: {
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Be Vietnam Pro", "sans-serif"],
+            caps: ["Space Grotesk", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+
+    /* ═══ SCROLL REVEAL ═══ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.delay-1 {
+      transition-delay: 0.10s;
+    }
+
+    .reveal.delay-2 {
+      transition-delay: 0.20s;
+    }
+
+    .reveal.delay-3 {
+      transition-delay: 0.30s;
+    }
+
+    .reveal.delay-4 {
+      transition-delay: 0.40s;
+    }
+
+    .reveal.delay-5 {
+      transition-delay: 0.50s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ═══ NAV ═══ */
+    .nav-link {
+      position: relative;
+      color: rgba(255, 255, 255, .85);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 4px;
+      transition: color .2s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: width .3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #fff;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* scrolled state */
+    #navbar.scrolled .nav-link {
+      color: #334155;
+    }
+
+    #navbar.scrolled .nav-link:hover,
+    #navbar.scrolled .nav-link.active {
+      color: #6d28d9;
+    }
+
+    #navbar.scrolled .nav-link::after {
+      background: #6d28d9;
+    }
+
+    /* ═══ CARDS ═══ */
+    .card {
+      background: #fff;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 18px rgba(15, 23, 42, .06);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 56px rgba(109, 40, 217, .15);
+    }
+
+    /* ═══ SECTION LABEL BADGE ═══ */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: #ede9fe;
+      color: #6d28d9;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 99px;
+    }
+
+    /* ═══ HERO ═══ */
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(7, 0, 30, .93) 0%, rgba(76, 29, 149, .72) 55%, rgba(7, 0, 30, .88) 100%);
+    }
+
+    /* ═══ STATS BAR ═══ */
+    .stat-bar {
+      background: #07001e;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-num {
+      background: linear-gradient(135deg, #fff 30%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ═══ ICON CIRCLE ═══ */
+    .icon-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    /* ═══ TABLE ═══ */
+    tbody tr:hover {
+      background: #f1f5f9;
+    }
+
+    /* ═══ TESTIMONIAL CARD ═══ */
+    .testi-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-bottom: 4px solid #6d28d9;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, .06);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .testi-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(109, 40, 217, .12);
+    }
+
+    /* ═══ PROCESS STEPS ═══ */
+    .step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #ede9fe;
+      color: #6d28d9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .3s, color .3s, transform .3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-card:hover .step-num {
+      background: #6d28d9;
+      color: #fff;
+      transform: scale(1.12);
+    }
+
+    .step-card {
+      transition: transform .3s;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* ═══ MÉTHODE — Instagram Deep Purple ═══ */
+    #methode {
+      background: #07001e;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Radial glow blobs (animated on entry) */
+    .methode-glow-1 {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(109, 0, 200, .45) 0%, transparent 68%);
+      top: -180px;
+      left: 50%;
+      transform: translateX(-50%) scale(.6);
+      filter: blur(50px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease, transform 1.4s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .methode-glow-2 {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13, 148, 136, .3) 0%, transparent 70%);
+      bottom: -60px;
+      right: 8%;
+      filter: blur(60px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease .35s, transform 1.2s ease .35s;
+      transform: scale(.6);
+    }
+
+    /* Grid overlay (puzzle vibe) */
+    .methode-grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(124, 58, 237, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 58, 237, .07) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+
+    /* Connector line draw */
+    .methode-connector {
+      position: absolute;
+      top: 26px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: linear-gradient(90deg, #7c3aed, #06b6d4);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 1s cubic-bezier(.4, 0, .2, 1) .3s;
+      border-radius: 99px;
+      box-shadow: 0 0 10px rgba(124, 58, 237, .7);
+    }
+
+    /* Step cards animation */
+    .methode-step {
+      opacity: 0;
+      transform: translateY(44px);
+      transition: opacity .65s ease, transform .65s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .methode-step.s1 {
+      transition-delay: .05s;
+    }
+
+    .methode-step.s2 {
+      transition-delay: .2s;
+    }
+
+    .methode-step.s3 {
+      transition-delay: .35s;
+    }
+
+    .methode-step.s4 {
+      transition-delay: .5s;
+    }
+
+    .methode-step.s5 {
+      transition-delay: .65s;
+    }
+
+    /* Active state (entered viewport) */
+    #methode.methode-active .methode-glow-1 {
+      opacity: 1;
+      transform: translateX(-50%) scale(1.08);
+    }
+
+    #methode.methode-active .methode-glow-2 {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #methode.methode-active .methode-connector {
+      transform: scaleX(1);
+    }
+
+    #methode.methode-active .methode-step {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Exit state (scrolled past) */
+    #methode.methode-exit .methode-step {
+      opacity: 0;
+      transform: translateY(-28px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    #methode.methode-exit .methode-glow-1,
+    #methode.methode-exit .methode-glow-2 {
+      opacity: 0;
+      transform: translateX(-50%) scale(.6);
+    }
+
+    #methode.methode-exit .methode-connector {
+      transform: scaleX(0);
+      transition-delay: 0s;
+    }
+
+    /* Glowing step number circle */
+    .step-num-glow {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, .22), 0 0 28px rgba(139, 92, 246, .55);
+      transition: box-shadow .3s, transform .3s;
+    }
+
+    .step-num-glow::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(196, 181, 253, .35);
+    }
+
+    .methode-step:hover .step-num-glow {
+      box-shadow: 0 0 0 7px rgba(139, 92, 246, .3), 0 0 48px rgba(167, 139, 250, .9);
+      transform: scale(1.14);
+    }
+
+    @keyframes neon-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 4px rgba(139, 92, 246, .22), 0 0 28px rgba(139, 92, 246, .55);
+      }
+
+      50% {
+        box-shadow: 0 0 0 7px rgba(139, 92, 246, .35), 0 0 48px rgba(167, 139, 250, .8);
+      }
+    }
+
+    #methode.methode-active .step-num-glow {
+      animation: neon-pulse 3s ease-in-out infinite;
+    }
+
+    /* Step icon glass pill */
+    .step-icon-glow {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(139, 92, 246, .15);
+      border: 1px solid rgba(196, 181, 253, .25);
+      color: #c4b5fd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      transition: background .3s;
+    }
+
+    .methode-step:hover .step-icon-glow {
+      background: rgba(139, 92, 246, .32);
+    }
+
+    /* Mobile dark card */
+    .methode-mob-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(196, 181, 253, .12);
+      border-radius: 16px;
+      padding: 1.25rem;
+      backdrop-filter: blur(10px);
+      transition: background .3s, border-color .3s;
+    }
+
+    .methode-mob-card:hover {
+      background: rgba(139, 92, 246, .13);
+      border-color: rgba(196, 181, 253, .32);
+    }
+
+    /* ═══ SERVICES — Playing Cards ═══ */
+    #services {
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes svcFadeA {
+
+      0%,
+      38% {
+        opacity: 1;
+      }
+
+      50%,
+      90% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes svcFadeB {
+
+      0%,
+      38% {
+        opacity: 0;
+      }
+
+      50%,
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .svc-bg-a {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      animation: svcFadeA 11s ease-in-out infinite;
+    }
+
+    .svc-bg-b {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: svcFadeB 11s ease-in-out infinite;
+    }
+
+    .svc-card {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      height: 500px;
+      cursor: pointer;
+      border: 1px solid rgba(196, 181, 253, .1);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .07);
+      opacity: 0;
+      transform: translateY(100px) rotate(var(--cr, 0deg));
+      transition: transform .7s cubic-bezier(.34, 1.56, .64, 1),
+        box-shadow .45s ease, opacity .6s ease;
+    }
+
+    .svc-card.s1 {
+      --cr: -8deg;
+      transition-delay: .05s;
+    }
+
+    .svc-card.s2 {
+      --cr: 0deg;
+      transition-delay: .22s;
+    }
+
+    .svc-card.s3 {
+      --cr: 8deg;
+      transition-delay: .40s;
+    }
+
+    #services.svc-active .svc-card.s1 {
+      opacity: 1;
+      transform: rotate(-3deg) translateY(10px);
+    }
+
+    #services.svc-active .svc-card.s2 {
+      opacity: 1;
+      transform: rotate(0deg) translateY(0);
+    }
+
+    #services.svc-active .svc-card.s3 {
+      opacity: 1;
+      transform: rotate(3deg) translateY(10px);
+    }
+
+    #services.svc-exit .svc-card {
+      opacity: 0;
+      transform: translateY(-50px) rotate(0deg) scale(.95);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-24px) rotate(0deg) scale(1.04) !important;
+      box-shadow: 0 44px 90px rgba(109, 40, 217, .55),
+        0 0 0 1.5px rgba(167, 139, 250, .5),
+        inset 0 1px 0 rgba(255, 255, 255, .15);
+      z-index: 10;
+    }
+
+    .svc-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(7, 0, 30, .93) 30%,
+          rgba(7, 0, 30, .45) 60%,
+          rgba(7, 0, 30, .12) 100%);
+      transition: background .45s ease;
+    }
+
+    .svc-card:hover .svc-card-overlay {
+      background: linear-gradient(to top,
+          rgba(60, 10, 130, .92) 30%,
+          rgba(60, 10, 130, .55) 65%,
+          rgba(60, 10, 130, .18) 100%);
+    }
+
+    .svc-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1.75rem;
+    }
+
+    .svc-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(139, 92, 246, .22);
+      border: 1.5px solid rgba(196, 181, 253, .3);
+      color: #c4b5fd;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: .85rem;
+      margin-bottom: .9rem;
+      transition: background .3s, box-shadow .3s;
+    }
+
+    .svc-card:hover .svc-num {
+      background: rgba(139, 92, 246, .5);
+      box-shadow: 0 0 16px rgba(167, 139, 250, .7);
+    }
+
+    /* ═══ TÉMOIGNAGES — Infinite carousel ═══ */
+    #temoignages {
+      background: #07001e;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .testi-track-wrapper {
+      overflow: visible;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      position: relative;
+    }
+
+    /* Dégradés latéraux via pseudo-éléments — ne coupent pas verticalement */
+    .testi-track-wrapper::before,
+    .testi-track-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 10%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .testi-track-wrapper::before {
+      left: 0;
+      background: linear-gradient(90deg, #07001e 0%, transparent 100%);
+    }
+
+    .testi-track-wrapper::after {
+      right: 0;
+      background: linear-gradient(270deg, #07001e 0%, transparent 100%);
+    }
+
+    .testi-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: testi-scroll 36s linear infinite;
+    }
+
+    .testi-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes testi-scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .testi-glass-card {
+      flex: 0 0 340px;
+      border-radius: 24px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(196, 181, 253, .12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform .45s cubic-bezier(.34, 1.56, .64, 1),
+        box-shadow .45s ease, background .45s ease;
+      cursor: default;
+    }
+
+    .testi-glass-card:hover {
+      transform: translateY(-18px) scale(1.05);
+      background: rgba(109, 28, 217, .2);
+      border-color: rgba(196, 181, 253, .38);
+      box-shadow: 0 36px 72px rgba(76, 29, 149, .45),
+        0 0 0 1.5px rgba(167, 139, 250, .35);
+      position: relative;
+      z-index: 10;
+    }
+
+    .testi-stars {
+      color: #fbbf24;
+      letter-spacing: .1em;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .testi-quote {
+      color: rgba(196, 181, 253, .8);
+      font-size: .88rem;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1.4rem;
+    }
+
+    .testi-name {
+      color: #e9d5ff;
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    .testi-role {
+      color: rgba(196, 181, 253, .55);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    /* ═══ CTA BAND — Deep Purple (même style que Méthode) ═══ */
+    #cta-band {
+      background: #07001e;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-glow-1 {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(109, 0, 200, .5) 0%, transparent 68%);
+      top: -180px;
+      left: 40%;
+      transform: translateX(-50%) scale(.6);
+      filter: blur(55px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease, transform 1.4s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .cta-glow-2 {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13, 148, 136, .35) 0%, transparent 70%);
+      bottom: -50px;
+      right: 8%;
+      filter: blur(50px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease .3s, transform 1.2s ease .3s;
+      transform: scale(.6);
+    }
+
+    .cta-item {
+      opacity: 0;
+      transform: translateY(42px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .cta-item.d1 {
+      transition-delay: .08s;
+    }
+
+    .cta-item.d2 {
+      transition-delay: .24s;
+    }
+
+    .cta-item.d3 {
+      transition-delay: .42s;
+    }
+
+    #cta-band.cta-active .cta-glow-1 {
+      opacity: 1;
+      transform: translateX(-50%) scale(1.1);
+    }
+
+    #cta-band.cta-active .cta-glow-2 {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #cta-band.cta-active .cta-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #cta-band.cta-exit .cta-item {
+      opacity: 0;
+      transform: translateY(-28px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    #cta-band.cta-exit .cta-glow-1,
+    #cta-band.cta-exit .cta-glow-2 {
+      opacity: 0;
+      transition-delay: 0s;
+    }
+
+    /* ═══ FAQ ACCORDION ═══ */
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .faq-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: .975rem;
+      color: #0f172a;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      gap: 1rem;
+      transition: color .2s;
+    }
+
+    .faq-btn:hover {
+      color: #6d28d9;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #ede9fe;
+      color: #6d28d9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      font-weight: 300;
+      line-height: 1;
+      transition: transform .35s, background .3s, color .3s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: #6d28d9;
+      color: #fff;
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .45s ease;
+    }
+
+    .faq-body-inner {
+      padding-bottom: 1.25rem;
+      color: #64748b;
+      font-size: .93rem;
+      line-height: 1.78;
+    }
+
+    /* ═══ SHIMMER BUTTON ═══ */
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    .btn-shimmer {
+      background-size: 200% auto;
+      background-image: linear-gradient(90deg, #3b0764 0%, #6d28d9 25%, #a78bfa 50%, #6d28d9 75%, #3b0764 100%);
+      animation: shimmer 3.5s linear infinite;
+    }
+
+    /* ═══ GRADIENT TEXT ═══ */
+    .grad-text {
+      background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ═══ DOT GRID DECORATION ═══ */
+    .dot-bg {
+      background-image: radial-gradient(circle, rgba(109, 40, 217, .12) 1.5px, transparent 1.5px);
+      background-size: 22px 22px;
+    }
+
+    /* ═══ VALUE CARDS ═══ */
+    .value-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform .45s cubic-bezier(.22, 1, .36, 1), box-shadow .45s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 60%, #7c3aed 100%);
+      opacity: 0;
+      transition: opacity .4s ease;
+      border-radius: inherit;
+      z-index: 0;
+    }
+
+    .value-card:hover::before {
+      opacity: 1;
+    }
+
+    .value-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .value-card .vc-icon {
+      transition: background .35s ease, color .35s ease, box-shadow .35s ease, transform .45s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .value-card:hover .vc-icon {
+      background: rgba(255, 255, 255, .18) !important;
+      color: #fff !important;
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, .1);
+      transform: scale(1.18) rotate(-6deg);
+    }
+
+    .value-card .vc-title {
+      transition: color .3s ease;
+    }
+
+    .value-card:hover .vc-title {
+      color: #fff !important;
+    }
+
+    .value-card .vc-text {
+      transition: color .3s ease;
+    }
+
+    .value-card:hover .vc-text {
+      color: rgba(221, 214, 254, .85) !important;
+    }
+
+    .value-card .vc-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, #a78bfa, #fff);
+      transition: width .45s cubic-bezier(.22, 1, .36, 1);
+      border-radius: 0 0 0 1rem;
+    }
+
+    .value-card:hover .vc-line {
+      width: 100%;
+    }
+
+    .value-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 32px 64px rgba(76, 29, 149, .35);
+    }
+
+    /* ═══ WHATSAPP BUBBLE ═══ */
+    /* ── Liquid Glass (Apple visionOS style) ── */
+    .liquid-glass-btn {
+      position: relative;
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, .35);
+      box-shadow:
+        0 4px 24px rgba(0, 0, 0, .18),
+        inset 0 1px 0 rgba(255, 255, 255, .45),
+        inset 0 -1px 0 rgba(0, 0, 0, .08);
+      overflow: hidden;
+      transition: transform .25s cubic-bezier(.34, 1.56, .64, 1),
+        box-shadow .25s ease,
+        background .25s ease;
+    }
+
+    /* top specular highlight */
+    .liquid-glass-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(160deg, rgba(255, 255, 255, .35) 0%, rgba(255, 255, 255, 0) 55%);
+      pointer-events: none;
+    }
+
+    /* inner edge gloss */
+    .liquid-glass-btn::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 6px;
+      right: 6px;
+      height: 40%;
+      border-radius: 99px 99px 60% 60%;
+      background: rgba(255, 255, 255, .18);
+      filter: blur(4px);
+      pointer-events: none;
+    }
+
+    .liquid-glass-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      background: rgba(255, 255, 255, .2);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, .22),
+        inset 0 1px 0 rgba(255, 255, 255, .55),
+        inset 0 -1px 0 rgba(0, 0, 0, .08);
+    }
+
+    .liquid-glass-btn:active {
+      transform: scale(.98);
+    }
+
+    /* ═══ SCROLL-TO-TOP ═══ */
+    #scrollTop {
+      position: fixed;
+      bottom: 6.5rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: #6d28d9;
+      color: #fff;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(109, 40, 217, .4);
+      cursor: pointer;
+      z-index: 998;
+      transition: opacity .3s, transform .3s;
+    }
+
+    #scrollTop.visible {
+      display: flex;
+    }
+
+    #scrollTop:hover {
+      transform: scale(1.1);
+    }
+
+    /* ═══ MOBILE MENU ═══ */
+    #mobileMenu {
+      display: none;
+    }
+
+    #mobileMenu.open {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-dark font-body antialiased">
+
+  <!-- ═══ ÉCRAN D'ACCUEIL (garantit la lecture audio sur tous les navigateurs) ═══ -->
+  <div id="splash-screen" style="
+    position:fixed;inset:0;z-index:9999;
+    background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    cursor:pointer;transition:opacity .6s ease;
+  ">
+    <img src="IMAGE/Logo blanc.png" alt="SM Travel" style="height:80px;margin-bottom:32px;" />
+    <p
+      style="color:rgba(255,255,255,.75);font-family:sans-serif;font-size:1rem;margin-bottom:28px;letter-spacing:.05em;">
+      Agence d'accompagnement aux études à l'étranger
+    </p>
+    <button id="splash-btn" style="
+      background:#6d28d9;color:#fff;border:none;border-radius:50px;
+      padding:14px 40px;font-size:1.1rem;font-family:sans-serif;font-weight:600;
+      cursor:pointer;box-shadow:0 4px 24px rgba(109,40,217,.5);
+      transition:transform .15s,box-shadow .15s;
+    " onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 6px 32px rgba(109,40,217,.7)'"
+      onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 24px rgba(109,40,217,.5)'">✈&nbsp; Entrer
+      sur le site</button>
+  </div>
+
+  <script>
+      (function () {
+        var splash = document.getElementById('splash-screen');
+        var btn = document.getElementById('splash-btn');
+        var audio = document.getElementById('intro-sound');
+        var alreadyPlayed = sessionStorage.getItem('introPlayed');
+
+        function dismiss() {
+          // Lance le son (ici on est DANS un clic → jamais bloqué)
+          if (!alreadyPlayed) {
+            audio.currentTime = 0;
+            audio.play().catch(function () { });
+            sessionStorage.setItem('introPlayed', '1');
+          }
+          // Fait disparaître l'écran
+          splash.style.opacity = '0';
+          setTimeout(function () { splash.style.display = 'none'; }, 650);
+        }
+
+        // Si déjà joué dans cette session, on cache l'écran instantanément
+        if (alreadyPlayed) {
+          splash.style.display = 'none';
+        } else {
+          splash.addEventListener('click', dismiss);
+        }
+      })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════ NAVIGATION ═══ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-transparent"
+    style="background:transparent;transition:background .4s ease,border-color .4s ease,box-shadow .4s ease;">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#accueil" class="flex items-center">
+        <img id="navLogo" src="IMAGE/Logo blanc.png" alt="SM Travel" class="h-8 w-auto object-contain"
+          style="transition:opacity .3s ease;" />
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#accueil" class="nav-link active">Accueil</a>
+        <a href="#programmes" class="nav-link">Programmes</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#methode" class="nav-link">Méthode</a>
+        <a href="#apropos" class="nav-link">À propos</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- CTA + burger -->
+      <div class="flex items-center gap-4">
+        <a id="navCta" href="#contact"
+          class="hidden md:inline-flex items-center gap-2 border-2 border-white/80 text-white hover:bg-white hover:text-brand font-semibold text-sm px-5 py-2.5 rounded-full transition-all">
+          Commencer
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+        <button id="burgerBtn" class="md:hidden p-2 rounded-lg" aria-label="Menu">
+          <span class="material-symbols-outlined" style="color:#fff;transition:color .4s" id="burgerIcon">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu VRFRFRF-->
+    <div id="mobileMenu" class="md:hidden bg-white border-t border-border px-6 py-4 space-y-3">
+      <a href="#accueil" onclick="closeMobile()"
+        class="block text-mid font-medium py-2 hover:text-brand transition-colors">Accueil</a>
+      <a href="#programmes" onclick="closeMobile()"
+        class="block text-mid font-medium py-2 hover:text-brand transition-colors">Programmes</a>
+      <a href="#services" onclick="closeMobile()"
+        class="block text-mid font-medium py-2 hover:text-brand transition-colors">Services</a>
+      <a href="#methode" onclick="closeMobile()"
+        class="block text-mid font-medium py-2 hover:text-brand transition-colors">Méthode</a>
+      <a href="#apropos" onclick="closeMobile()"
+        class="block text-mid font-medium py-2 hover:text-brand transition-colors">À propos</a>
+      <a href="#faq" onclick="closeMobile()"
+        class="block text-mid font-medium py-2 hover:text-brand transition-colors">FAQ</a>
+      <a href="#contact" onclick="closeMobile()"
+        class="block text-mid font-medium py-2 hover:text-brand transition-colors">Contact</a>
+      <a href="#contact"
+        class="block w-full text-center bg-brand text-white font-bold py-3 rounded-full mt-2">Commencer</a>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════ HERO ═══════ -->
+  <section id="accueil" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0 z-0">
+      <img src="IMAGE/hf_20260430_120002_3c2ef801-8390-4675-b6ac-0a66bdf48149.png" alt="Ville moderne – SM Travel"
+        class="w-full h-full object-cover" />
+      <div class="absolute inset-0"
+        style="background:linear-gradient(135deg,rgba(7,0,30,.62) 0%,rgba(76,29,149,.42) 55%,rgba(7,0,30,.55) 100%);">
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full"
+      style="padding-top:clamp(7rem,18vh,12rem);padding-bottom:clamp(4rem,10vh,8rem);">
+      <div class="max-w-4xl">
+
+        <!-- Main title -->
+        <h1
+          style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-height:1.08;letter-spacing:-.02em;color:#fff;margin-bottom:1.75rem;font-size:clamp(2.6rem,7vw,5.5rem);text-shadow:0 4px 32px rgba(15,23,42,.35);">
+          Étudier à l'étranger<br />
+          avec&nbsp;<span
+            style="-webkit-text-fill-color:transparent;background:linear-gradient(100deg,#e9d5ff 0%,#a78bfa 40%,#7c3aed 100%);-webkit-background-clip:text;background-clip:text;display:inline;">SM
+            Travel</span>
+        </h1>
+
+        <!-- Divider accent -->
+        <div
+          style="width:64px;height:3px;border-radius:99px;background:linear-gradient(90deg,#a78bfa,#5eead4);margin-bottom:1.5rem;">
+        </div>
+
+        <!-- Subtitle -->
+        <p
+          style="color:rgba(255,255,255,.78);font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.75;max-width:520px;margin-bottom:2.5rem;">
+          Nous vous accompagnons dans vos projets d'études à l'international avec expertise et passion.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact"
+            class="btn-shimmer inline-flex items-center gap-2 text-white font-bold px-9 py-4 rounded-full shadow-xl hover:-translate-y-1 transition-all"
+            style="font-size:.95rem;">
+            Évaluer mon dossier gratuitement
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </a>
+          <a href="https://wa.me/48451041469?text=Bonjour%20SM%20Travel%2C%20je%20souhaite%20évaluer%20mon%20dossier%20pour%20étudier%20à%20l'étranger."
+            target="_blank"
+            class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-8 py-4 rounded-full transition-all"
+            style="font-size:.95rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            WhatsApp direct
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating scroll indicator -->
+    <div
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/50 text-xs">
+      <span class="material-symbols-outlined animate-bounce">keyboard_arrow_down</span>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ═════════════════════════════════════ PROGRAMMES POPULAIRES ═══ -->
+  <section id="programmes" class="py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Heading -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <span class="section-label">Destinations d'excellence</span>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-dark mt-2">Les Programmes Populaires</h2>
+        </div>
+        <p class="text-muted max-w-sm text-base leading-relaxed">
+          Explorez des universités de classe mondiale dans des pays offrant un équilibre parfait entre éducation et
+          qualité de vie.
+        </p>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Latvia -->
+        <article class="card group">
+          <div class="h-64 overflow-hidden relative">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrTaCeXhHa0Jb7pnLLuz-XYaiF2wtXwq2cE8y1czVPIyNFSBvw0hNX3RsiqMEBMcfZJtZpuNQgIkr1qZiCAV8N6iHwFtH352wtBwCoXQ43f6fGG0g9AuZ7xZHbXy-M_K_2UB9Y3-mRXcz5R_5npMuq5vOWcsEOVL6DkWg2IpElBMsmNo3Huu7pnOkZ8XwMPcAWOQ5dCiG3aiZWxIfNxmahREpEunmlHnP_bMoy7z1usqAC2ed9VqO4EZ8Qfbs5rRt7MIJrYB1jk6w"
+              alt="Riga, Lettonie"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute top-4 right-4 bg-brand text-white text-xs font-caps px-3 py-1 rounded-full shadow">🇱🇻
+              Latvia</div>
+          </div>
+          <div class="p-7">
+            <div class="text-xs font-caps text-accent uppercase tracking-widest mb-1">Bachelor &amp; Master</div>
+            <h3 class="font-display font-bold text-xl text-dark mb-3">Riga Technical University</h3>
+            <p class="text-muted text-sm leading-relaxed mb-6">
+              Étudiez en Europe dès <strong class="text-brand">3 000 €/an</strong> en Lettonie — sans compte bloqué. Un
+              pôle d'innovation technologique au cœur des pays baltes.
+            </p>
+            <a href="#lettonie"
+              class="inline-flex items-center gap-1 text-brand font-bold text-sm hover:gap-3 transition-all">
+              Lire la suite <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Austria -->
+        <article class="card group md:-mt-10">
+          <div class="h-64 overflow-hidden relative">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzGGDmdE7jtNzaZnzV-L3GZPb6byQAHzPUmQZU8I-9bn_xhBZRabgZJx0yFUCPmZpfe6MZ9jX3EeV6Ta20nBCCcPt6jvqOa7RdVe5QmAAk5DHXzerUEmx9M68NdcakUvzuZGKZNS6WSnyK7EGMJLbfBpUzIkY36-GRNrVJ2sfuetZRv8qK7lKvBibwLh1PPqMrIJ4iyP-PEw_z2PDdE3wy5RRvkCedNYxjD-kfyrhRt28lwMIvB2biJFwib-eoP2sqMEGIRyefLTc"
+              alt="Vienne, Autriche"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute top-4 right-4 bg-accent text-white text-xs font-caps px-3 py-1 rounded-full shadow">
+              🇦🇹 Autriche</div>
+          </div>
+          <div class="p-7">
+            <div class="text-xs font-caps text-accent uppercase tracking-widest mb-1">Bachelor &amp; Master</div>
+            <h3 class="font-display font-bold text-xl text-dark mb-3">Université de Vienne</h3>
+            <p class="text-muted text-sm leading-relaxed mb-6">
+              Vos études de rêve à partir de <strong class="text-brand">750 €/semestre</strong> — qualité, prestige et
+              prix imbattable. Sans compte bloqué.
+            </p>
+            <a href="#contact"
+              class="inline-flex items-center gap-1 text-brand font-bold text-sm hover:gap-3 transition-all">
+              Lire la suite <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Lithuania -->
+        <article class="card group">
+          <div class="h-64 overflow-hidden relative">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcmH7tuLMFg3TtuR-p-Zc2zK0q774wOrEHj0Wfpe7zT79UaNyiipRKBNZf56MZ6zVmx_qpHWAyB6l0yyYlL5TJCVBdZ5yhWBuU9mlWUeMlvDnEF2jSpfN8c6YRxqIt7BBg-SfiBlcGSQcTu15uUAphPvkUzNO5jpB25rEeHAfGPXO9vzIY7kJy7qvxtI4GErllLJmHhJ26_pYkzndItWbCxnbZ7Q3Z2zcfUoNsKqOhgkdPKUHv7Xj2wlittSCtHfo_LHNX3SnuBYs"
+              alt="Vilnius, Lituanie"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div
+              class="absolute top-4 right-4 bg-purple-600 text-white text-xs font-caps px-3 py-1 rounded-full shadow">
+              🇱🇹 Lituanie</div>
+          </div>
+          <div class="p-7">
+            <div class="text-xs font-caps text-accent uppercase tracking-widest mb-1">Bachelor &amp; Master</div>
+            <h3 class="font-display font-bold text-xl text-dark mb-3">Vilnius University</h3>
+            <p class="text-muted text-sm leading-relaxed mb-6">
+              Étudiez dans des universités européennes à coût réduit et sans compte bloqué. Une tradition académique
+              séculaire alliée à un dynamisme moderne.
+            </p>
+            <a href="#contact"
+              class="inline-flex items-center gap-1 text-brand font-bold text-sm hover:gap-3 transition-all">
+              Lire la suite <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-14">
+        <a href="#contact"
+          class="inline-flex items-center gap-2 border-2 border-brand text-brand font-bold px-8 py-4 rounded-full hover:bg-brand hover:text-white transition-all">
+          Voir tous les programmes
+          <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════ SERVICES ═══ -->
+  <section id="services" class="py-24 overflow-hidden">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="text-center mb-16 reveal">
+        <span class="section-label">Ce que nous offrons</span>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-dark mt-3">Les Services Populaires</h2>
+        <p class="text-muted max-w-lg mx-auto mt-4 text-base leading-relaxed">Des services variés conçus pour
+          transformer votre expérience d'études à l'étranger.</p>
+      </div>
+
+      <!-- ░░ Playing Cards ░░ -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pb-4">
+
+        <!-- Card 1 — Visa -->
+        <div class="svc-card s1">
+          <div class="svc-bg-a" style="background-image:url('IMAGE/VISA.jpg');background-position:center;"></div>
+          <div class="svc-bg-b"
+            style="background-image:url('IMAGE/Passeport_tunisien,_2017.jpg');background-position:center top;"></div>
+          <div class="svc-card-overlay"></div>
+          <div class="svc-card-content">
+            <div class="svc-num">01</div>
+            <h3 class="font-display font-bold text-xl mb-3" style="color:#fff;">Traitement de dossier de Visa</h3>
+            <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Notre équipe d'experts gère
+              l'intégralité de votre dossier visa avec 98% de taux d'acceptation et un traitement express disponible.
+            </p>
+            <a href="#contact"
+              class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
+              Lire la suite <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 — Consultation -->
+        <div class="svc-card s2">
+          <div class="svc-bg-a"
+            style="background-image:url('IMAGE/developpement-des-marches.jpg');background-position:center;"></div>
+          <div class="svc-bg-b"
+            style="background-image:url('IMAGE/Untitled-design-13.png');background-position:center;"></div>
+          <div class="svc-card-overlay"></div>
+          <div class="svc-card-content">
+            <div class="svc-num">02</div>
+            <h3 class="font-display font-bold text-xl mb-3" style="color:#fff;">Consultation Stratégique</h3>
+            <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Analyse personnalisée de votre
+              profil pour identifier les meilleures destinations et programmes. Réseau dans 40+ pays.</p>
+            <a href="#contact"
+              class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
+              Prendre rendez-vous <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 — Aéroport -->
+        <div class="svc-card s3">
+          <div class="svc-bg-a" style="background-image:url('IMAGE/welcomee.webp');background-position:center;"></div>
+          <div class="svc-bg-b"
+            style="background-image:url('IMAGE/agent-d-escale-916x600.jpg');background-position:center;"></div>
+          <div class="svc-card-overlay"></div>
+          <div class="svc-card-content">
+            <div class="svc-num">03</div>
+            <h3 class="font-display font-bold text-xl mb-3" style="color:#fff;">Accueil à l'Aéroport</h3>
+            <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Chauffeurs bilingues, gestion
+              des bagages et transfert vers votre logement. Suivi des vols en temps réel, 24h/24.</p>
+            <a href="#contact"
+              class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
+              Lire la suite <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════ COMMENT ÇA MARCHE ═══ -->
+  <section id="methode" class="py-24 overflow-hidden">
+
+    <!-- Background decorations -->
+    <div class="methode-grid"></div>
+    <div class="methode-glow-1"></div>
+    <div class="methode-glow-2"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 methode-step s1">
+        <span class="section-label"
+          style="background:rgba(139,92,246,.15);color:#c4b5fd;border-color:rgba(196,181,253,.25);">Notre méthode</span>
+        <h2 class="font-display font-bold text-4xl md:text-5xl mt-3" style="color:#fff;">Comment ça marche ?</h2>
+        <p class="max-w-xl mx-auto mt-4 text-base leading-relaxed" style="color:rgba(196,181,253,.75);">Un
+          accompagnement structuré et transparent, de votre premier contact jusqu'à votre premier cours à l'étranger.
+        </p>
+      </div>
+
+      <!-- Steps desktop -->
+      <div class="hidden md:grid grid-cols-5 gap-6 relative mb-14">
+        <!-- connector line -->
+        <div class="methode-connector"></div>
+
+        <div class="methode-step s1 flex flex-col items-center text-center">
+          <div class="step-num-glow mb-4">1</div>
+          <h3 class="font-display font-bold text-sm mb-2" style="color:#e9d5ff;">Analyse de profil</h3>
+          <p class="text-xs leading-relaxed" style="color:rgba(196,181,253,.65);">Étude de votre dossier, objectifs et
+            budget.</p>
+        </div>
+        <div class="methode-step s2 flex flex-col items-center text-center">
+          <div class="step-num-glow mb-4">2</div>
+          <h3 class="font-display font-bold text-sm mb-2" style="color:#e9d5ff;">Choix du programme</h3>
+          <p class="text-xs leading-relaxed" style="color:rgba(196,181,253,.65);">Pays, université et cursus adaptés à
+            votre projet.</p>
+        </div>
+        <div class="methode-step s3 flex flex-col items-center text-center">
+          <div class="step-num-glow mb-4">3</div>
+          <h3 class="font-display font-bold text-sm mb-2" style="color:#e9d5ff;">Candidature</h3>
+          <p class="text-xs leading-relaxed" style="color:rgba(196,181,253,.65);">Dossier complet soumis aux
+            établissements retenus.</p>
+        </div>
+        <div class="methode-step s4 flex flex-col items-center text-center">
+          <div class="step-num-glow mb-4">4</div>
+          <h3 class="font-display font-bold text-sm mb-2" style="color:#e9d5ff;">Préparation visa</h3>
+          <p class="text-xs leading-relaxed" style="color:rgba(196,181,253,.65);">Constitution du dossier visa — 98% de
+            réussite.</p>
+        </div>
+        <div class="methode-step s5 flex flex-col items-center text-center">
+          <div class="step-num-glow mb-4">5</div>
+          <h3 class="font-display font-bold text-sm mb-2" style="color:#e9d5ff;">Départ & installation</h3>
+          <p class="text-xs leading-relaxed" style="color:rgba(196,181,253,.65);">Accueil aéroport, logement et suivi
+            sur place.</p>
+        </div>
+      </div>
+
+      <!-- Steps mobile -->
+      <div class="md:hidden space-y-4 mb-12">
+        <div class="methode-mob-card methode-step s1">
+          <div class="step-num-glow flex-shrink-0">1</div>
+          <div>
+            <h3 class="font-display font-bold mb-1" style="color:#e9d5ff;">Analyse de profil</h3>
+            <p class="text-sm" style="color:rgba(196,181,253,.7);">Étude de votre dossier académique, objectifs et
+              budget pour identifier les meilleures options.</p>
+          </div>
+        </div>
+        <div class="methode-mob-card methode-step s2">
+          <div class="step-num-glow flex-shrink-0">2</div>
+          <div>
+            <h3 class="font-display font-bold mb-1" style="color:#e9d5ff;">Choix du programme</h3>
+            <p class="text-sm" style="color:rgba(196,181,253,.7);">Sélection du pays, de l'université et du cursus
+              adapté à votre projet personnel.</p>
+          </div>
+        </div>
+        <div class="methode-mob-card methode-step s3">
+          <div class="step-num-glow flex-shrink-0">3</div>
+          <div>
+            <h3 class="font-display font-bold mb-1" style="color:#e9d5ff;">Candidature & admission</h3>
+            <p class="text-sm" style="color:rgba(196,181,253,.7);">Dossier complet préparé et soumis aux établissements
+              retenus.</p>
+          </div>
+        </div>
+        <div class="methode-mob-card methode-step s4">
+          <div class="step-num-glow flex-shrink-0">4</div>
+          <div>
+            <h3 class="font-display font-bold mb-1" style="color:#e9d5ff;">Préparation du visa</h3>
+            <p class="text-sm" style="color:rgba(196,181,253,.7);">Constitution du dossier visa avec notre expertise —
+              98% de réussite.</p>
+          </div>
+        </div>
+        <div class="methode-mob-card methode-step s5">
+          <div class="step-num-glow flex-shrink-0">5</div>
+          <div>
+            <h3 class="font-display font-bold mb-1" style="color:#e9d5ff;">Départ & installation</h3>
+            <p class="text-sm" style="color:rgba(196,181,253,.7);">Accueil à l'aéroport, aide au logement et suivi
+              continu dans le pays de destination.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center methode-step s5" style="transition-delay:.8s;">
+        <a href="#contact"
+          class="btn-shimmer inline-flex items-center gap-2 text-white font-bold px-9 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-all">
+          Démarrer mon projet
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════ À PROPOS ═══ -->
+  <section id="apropos" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Values grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+        <div>
+          <span class="section-label">Nos valeurs</span>
+          <h3 class="font-display font-bold text-3xl md:text-4xl text-dark mt-2 mb-4">Pourquoi choisir SM Travel ?</h3>
+          <p class="text-muted text-base leading-relaxed">
+            Plus qu'une simple agence, nous sommes votre concierge académique global, assurant chaque étape de votre
+            transition vers l'inconnu.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+          <!-- Card 1 -->
+          <div class="value-card bg-white border border-border rounded-2xl p-7 shadow-sm cursor-default">
+            <div class="vc-line"></div>
+            <div class="vc-icon icon-circle w-14 h-14 rounded-2xl mb-5" style="background:#ede9fe;color:#6d28d9;">
+              <span class="material-symbols-outlined text-[26px]">travel_explore</span>
+            </div>
+            <p class="font-caps text-[10px] uppercase tracking-[.15em] text-brand mb-2 vc-text" style="color:#6d28d9;">
+              500+ universités</p>
+            <h4 class="vc-title font-display font-bold text-lg text-dark mb-2">Expertise Mondiale</h4>
+            <p class="vc-text text-muted text-sm leading-relaxed">Accès direct à plus de 500 universités partenaires à
+              travers l'Europe, l'Amérique et l'Asie.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="value-card bg-white border border-border rounded-2xl p-7 shadow-sm cursor-default sm:translate-y-6">
+            <div class="vc-line"></div>
+            <div class="vc-icon icon-circle w-14 h-14 rounded-2xl mb-5" style="background:#e0f2fe;color:#0ea5e9;">
+              <span class="material-symbols-outlined text-[26px]">verified_user</span>
+            </div>
+            <p class="font-caps text-[10px] uppercase tracking-[.15em] mb-2 vc-text" style="color:#0ea5e9;">98% de
+              réussite</p>
+            <h4 class="vc-title font-display font-bold text-lg text-dark mb-2">Fiabilité Totale</h4>
+            <p class="vc-text text-muted text-sm leading-relaxed">Accompagnement administratif et visa sécurisé avec un
+              taux de réussite de 98%.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="value-card bg-white border border-border rounded-2xl p-7 shadow-sm cursor-default">
+            <div class="vc-line"></div>
+            <div class="vc-icon icon-circle w-14 h-14 rounded-2xl mb-5" style="background:#f5f3ff;color:#7c3aed;">
+              <span class="material-symbols-outlined text-[26px]">rocket_launch</span>
+            </div>
+            <p class="font-caps text-[10px] uppercase tracking-[.15em] mb-2 vc-text" style="color:#7c3aed;">Stratégie
+              carrière</p>
+            <h4 class="vc-title font-display font-bold text-lg text-dark mb-2">Accélération de Carrière</h4>
+            <p class="vc-text text-muted text-sm leading-relaxed">Conseils stratégiques pour aligner vos études avec les
+              besoins du marché global.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="value-card bg-white border border-border rounded-2xl p-7 shadow-sm cursor-default sm:translate-y-6">
+            <div class="vc-line"></div>
+            <div class="vc-icon icon-circle w-14 h-14 rounded-2xl mb-5" style="background:#f0fdf4;color:#16a34a;">
+              <span class="material-symbols-outlined text-[26px]">diversity_3</span>
+            </div>
+            <p class="font-caps text-[10px] uppercase tracking-[.15em] mb-2 vc-text" style="color:#16a34a;">Communauté
+              active</p>
+            <h4 class="vc-title font-display font-bold text-lg text-dark mb-2">Réseau d'Alumni</h4>
+            <p class="vc-text text-muted text-sm leading-relaxed">Rejoignez une communauté vibrante de nomades modernes
+              et de leaders de demain.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ TÉMOIGNAGES ════ -->
+  <section id="temoignages" class="py-24 overflow-x-hidden">
+    <div class="methode-grid"></div>
+    <div class="methode-glow-1" style="background:radial-gradient(circle,rgba(109,0,200,.38) 0%,transparent 68%);">
+    </div>
+    <div class="methode-glow-2" style="background:radial-gradient(circle,rgba(13,148,136,.25) 0%,transparent 70%);">
+    </div>
+
+    <div class="relative z-10">
+      <div class="text-center mb-14 px-6 reveal">
+        <span class="section-label"
+          style="background:rgba(139,92,246,.15);color:#c4b5fd;border-color:rgba(196,181,253,.25);">Témoignages</span>
+        <h2 class="font-display font-bold text-4xl md:text-5xl mt-3" style="color:#fff;">Avis de nos clients</h2>
+        <p class="max-w-lg mx-auto mt-4 text-base leading-relaxed" style="color:rgba(196,181,253,.7);">Ils ont fait
+          confiance à SM Travel pour réaliser leurs projets d'études à l'étranger.</p>
+      </div>
+
+      <!-- Infinite carousel -->
+      <div class="testi-track-wrapper">
+        <div class="testi-track">
+
+          <!-- ── Set 1 (original) ── -->
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Un accompagnement de qualité du début à la fin ! L'équipe de SM Travel a fait preuve
+              de professionnalisme, de réactivité et d'écoute. Tout a été bien expliqué et géré, ce qui m'a permis
+              d'avancer sereinement dans mon projet."</p>
+            <p class="testi-name">Marc-Antoine D.</p>
+            <p class="testi-role">MBA · Université de Toronto</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Grâce à SM Travel, j'ai pu concrétiser mon projet d'études en Europe sans le moindre
+              stress. Leur accompagnement a été fluide, professionnel et transparent à chaque étape. Une agence fiable
+              qui tient ses promesses."</p>
+            <p class="testi-name">Sophie Lefebvre</p>
+            <p class="testi-role">Master Design · École Boulle Paris</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"SM Travel m'a aidé à trouver une bourse et m'a préparé pour tous les entretiens. Une
+              agence à l'écoute et proactive. Grâce à eux, je poursuis mes rêves dans une institution de prestige."</p>
+            <p class="testi-name">Kévin Moreau</p>
+            <p class="testi-role">Informatique · University of Sydney</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Dès le premier contact, j'ai senti que j'étais entre de bonnes mains. Le visa a été
+              obtenu en un temps record et mon intégration à Riga s'est faite sans aucune difficulté. Je conseille SM
+              Travel à tous mes amis."</p>
+            <p class="testi-name">Yasmine B.</p>
+            <p class="testi-role">Médecine · Université de Lettonie</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Le suivi personnalisé m'a vraiment surpris. Ils ont géré mon dossier de A à Z, des
+              candidatures jusqu'à l'accueil à l'aéroport. Une équipe passionnée et sérieuse — merci infiniment pour ce
+              service exceptionnel !"</p>
+            <p class="testi-name">Rayan Chérif</p>
+            <p class="testi-role">Ingénierie · TU Wien, Autriche</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Je n'aurais jamais cru que l'obtention d'un visa étudiant pouvait être aussi simple.
+              SM Travel s'est occupé de tout. Aujourd'hui je suis à Vilnius et je vis la meilleure expérience de ma vie.
+              Merci !"</p>
+            <p class="testi-name">Lina Mansouri</p>
+            <p class="testi-role">Commerce · ISM University, Lituanie</p>
+          </div>
+
+          <!-- ── Set 2 (duplicate for seamless loop) ── -->
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Un accompagnement de qualité du début à la fin ! L'équipe de SM Travel a fait preuve
+              de professionnalisme, de réactivité et d'écoute. Tout a été bien expliqué et géré, ce qui m'a permis
+              d'avancer sereinement dans mon projet."</p>
+            <p class="testi-name">Marc-Antoine D.</p>
+            <p class="testi-role">MBA · Université de Toronto</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Grâce à SM Travel, j'ai pu concrétiser mon projet d'études en Europe sans le moindre
+              stress. Leur accompagnement a été fluide, professionnel et transparent à chaque étape. Une agence fiable
+              qui tient ses promesses."</p>
+            <p class="testi-name">Sophie Lefebvre</p>
+            <p class="testi-role">Master Design · École Boulle Paris</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"SM Travel m'a aidé à trouver une bourse et m'a préparé pour tous les entretiens. Une
+              agence à l'écoute et proactive. Grâce à eux, je poursuis mes rêves dans une institution de prestige."</p>
+            <p class="testi-name">Kévin Moreau</p>
+            <p class="testi-role">Informatique · University of Sydney</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Dès le premier contact, j'ai senti que j'étais entre de bonnes mains. Le visa a été
+              obtenu en un temps record et mon intégration à Riga s'est faite sans aucune difficulté. Je conseille SM
+              Travel à tous mes amis."</p>
+            <p class="testi-name">Yasmine B.</p>
+            <p class="testi-role">Médecine · Université de Lettonie</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Le suivi personnalisé m'a vraiment surpris. Ils ont géré mon dossier de A à Z, des
+              candidatures jusqu'à l'accueil à l'aéroport. Une équipe passionnée et sérieuse — merci infiniment pour ce
+              service exceptionnel !"</p>
+            <p class="testi-name">Rayan Chérif</p>
+            <p class="testi-role">Ingénierie · TU Wien, Autriche</p>
+          </div>
+
+          <div class="testi-glass-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Je n'aurais jamais cru que l'obtention d'un visa étudiant pouvait être aussi simple.
+              SM Travel s'est occupé de tout. Aujourd'hui je suis à Vilnius et je vis la meilleure expérience de ma vie.
+              Merci !"</p>
+            <p class="testi-name">Lina Mansouri</p>
+            <p class="testi-role">Commerce · ISM University, Lituanie</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════ FAQ ════ -->
+  <section id="faq" class="py-24 bg-surface">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-14 reveal">
+        <span class="section-label">Questions fréquentes</span>
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-dark mt-3">Vos questions, nos réponses</h2>
+        <p class="text-muted mt-4 max-w-lg mx-auto">Tout ce que vous devez savoir avant de nous contacter. Une autre
+          question ? Écrivez-nous directement.</p>
+      </div>
+
+      <div class="reveal delay-1">
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Comment démarrer mon projet d'études à l'étranger avec SM Travel ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Commencez par remplir notre formulaire de contact ou contactez-nous directement
+              sur WhatsApp. Un conseiller analysera votre profil (niveau d'études, budget, destination souhaitée) et
+              vous proposera un plan d'action personnalisé dans les plus brefs délais.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Dois-je fournir un compte bloqué pour étudier en Lettonie ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Non — c'est l'un des grands avantages de la Lettonie par rapport à d'autres
+              destinations Schengen. La Lettonie ne demande pas de compte bloqué pour l'obtention du visa étudiant. Nos
+              conseillers vous expliquent les exigences exactes selon votre situation. <em
+                class="text-amber-600 not-italic block mt-2 text-xs">Repère actualisé 2024 — vérifiez toujours les
+                conditions officielles avant dépôt.</em></div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Quel est le taux de réussite de SM Travel pour les visas étudiants ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Notre taux d'acceptation dépasse 98%. Ce résultat s'explique par une préparation
+              rigoureuse de chaque dossier, une vérification systématique de toutes les pièces requises et une
+              connaissance approfondie des critères examinés par les consulats.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Quel est le budget minimum pour étudier en Europe ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Le budget varie selon le pays. En Lettonie, comptez entre 6 000 et 11 000 € par
+              an tout compris (frais de scolarité + logement + vie courante). En Autriche, les frais universitaires
+              démarrent à 750 €/semestre. Nos conseillers vous aident à trouver la destination qui correspond à votre
+              enveloppe budgétaire.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Puis-je travailler pendant mes études en Europe ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Dans la plupart des pays européens, les étudiants étrangers sont autorisés à
+              travailler à temps partiel (généralement 20 h/semaine). Les règles varient selon le pays et le type de
+              visa. SM Travel vous informe des règles en vigueur dans votre pays de destination et vous aide à anticiper
+              votre budget.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Combien de temps prend l'obtention d'un visa étudiant ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Le délai moyen est de 3 à 8 semaines selon le consulat et la période de l'année.
+              Nous vous recommandons de commencer les démarches au moins 3 mois avant votre rentrée souhaitée. SM Travel
+              optimise la constitution de votre dossier pour réduire les risques de retard ou de refus.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10 reveal delay-2">
+        <p class="text-muted mb-4">Vous avez une question spécifique à votre situation ?</p>
+        <button onclick="toggleChat()"
+          class="inline-flex items-center gap-2 border-2 border-brand text-brand font-bold px-7 py-3.5 rounded-full hover:bg-brand hover:text-white transition-all">
+          Posez-nous votre question
+          <span class="material-symbols-outlined text-[18px]">chat</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════ FINAL CTA BAND ════ -->
+  <section id="cta-band" class="py-24 relative overflow-hidden">
+
+    <!-- Background decorations -->
+    <div class="methode-grid"></div>
+    <div class="cta-glow-1"></div>
+    <div class="cta-glow-2"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center">
+
+      <!-- Label -->
+      <p class="cta-item d1 font-caps text-xs uppercase tracking-[.25em] mb-4" style="color:rgba(196,181,253,.7);">
+        Commençons ensemble</p>
+
+      <!-- Title -->
+      <h2 class="cta-item d2 font-display font-extrabold text-4xl md:text-5xl mb-6 leading-tight" style="color:#fff;">
+        Prêt à transformer<br />votre avenir ?
+      </h2>
+
+      <!-- Divider -->
+      <div class="cta-item d2 mx-auto mb-6"
+        style="width:64px;height:3px;border-radius:99px;background:linear-gradient(90deg,#a78bfa,#5eead4);"></div>
+
+      <!-- Subtitle -->
+      <p class="cta-item d2"
+        style="color:rgba(196,181,253,.75);font-size:1.1rem;max-width:520px;margin:0 auto 2.5rem;line-height:1.75;">
+        Des étudiants de Tunisie font confiance à SM Travel chaque année. Votre projet d'études à l'étranger commence
+        par un simple échange.
+      </p>
+
+      <!-- Buttons -->
+      <div class="cta-item d3 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact"
+          class="btn-shimmer inline-flex items-center justify-center gap-2 text-white font-bold px-9 py-4 rounded-full shadow-xl hover:-translate-y-1 transition-all">
+          Évaluer mon dossier
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </a>
+        <a href="https://wa.me/48451041469?text=Bonjour%20SM%20Travel%2C%20je%20voudrais%20évaluer%20mon%20dossier."
+          target="_blank"
+          class="liquid-glass-btn inline-flex items-center justify-center gap-2 font-bold px-9 py-4 rounded-full">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          WhatsApp direct
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════ CONTACT ════ -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Gauche : titre + info -->
+        <div>
+          <span class="section-label">Parlons de votre projet</span>
+          <h2 class="font-display font-bold text-4xl md:text-5xl mt-4 mb-6"
+            style="line-height:1.1;-webkit-text-fill-color:transparent;background:linear-gradient(110deg,#4c1d95 0%,#6d28d9 50%,#7c3aed 100%);-webkit-background-clip:text;background-clip:text;">
+            Nous sommes là pour vous guider
+          </h2>
+          <p class="text-muted text-base leading-relaxed mb-10">
+            Remplissez le formulaire et un expert SM Travel vous contacte sous 24h pour évaluer votre dossier
+            gratuitement.
+          </p>
+
+          <!-- Infos rapides -->
+          <div class="space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background:#ede9fe;">
+                <span class="material-symbols-outlined text-[18px]" style="color:#6d28d9;">call</span>
+              </div>
+              <a href="tel:+21656819899" class="text-sm text-mid hover:text-brand transition-colors">+216 56 819 899</a>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background:#ede9fe;">
+                <span class="material-symbols-outlined text-[18px]" style="color:#6d28d9;">chat</span>
+              </div>
+              <a href="https://wa.me/48451041469" target="_blank"
+                class="text-sm text-mid hover:text-brand transition-colors">WhatsApp : +48 451 041 469</a>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background:#ede9fe;">
+                <span class="material-symbols-outlined text-[18px]" style="color:#6d28d9;">alternate_email</span>
+              </div>
+              <a href="mailto:services@smtravel.fr"
+                class="text-sm text-mid hover:text-brand transition-colors">services@smtravel.fr</a>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background:#ede9fe;">
+                <span class="material-symbols-outlined text-[18px]" style="color:#6d28d9;">location_on</span>
+              </div>
+              <p class="text-sm text-mid">4 Bis Rue du Mali, 4ᵉ étage, bureau n°4<br />Jeanne d'Arc, Tunis 1002</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Droite : formulaire -->
+        <div class="rounded-3xl p-8 md:p-10 shadow-sm" style="background:#f8fafc;border:1px solid #e2e8f0;">
+          <form id="contactForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Prénom *</label>
+                <input id="f-prenom" type="text" placeholder="Votre prénom" required
+                  class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
+                  style="border:1px solid #e2e8f0;"
+                  onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
+                  onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'" />
+              </div>
+              <div>
+                <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Nom *</label>
+                <input id="f-nom" type="text" placeholder="Votre nom" required
+                  class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
+                  style="border:1px solid #e2e8f0;"
+                  onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
+                  onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Email *</label>
+                <input id="f-email" type="email" placeholder="votre@email.com" required
+                  class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
+                  style="border:1px solid #e2e8f0;"
+                  onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
+                  onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'" />
+              </div>
+              <div>
+                <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Téléphone</label>
+                <input id="f-tel" type="tel" placeholder="+216 XX XXX XXX"
+                  class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
+                  style="border:1px solid #e2e8f0;"
+                  onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
+                  onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Destination
+                souhaitée</label>
+              <select id="f-destination"
+                class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
+                style="border:1px solid #e2e8f0;" onfocus="this.style.borderColor='#6d28d9'"
+                onblur="this.style.borderColor='#e2e8f0'">
+                <option value="" disabled selected>Choisissez une destination</option>
+                <option>Lettonie 🇱🇻</option>
+                <option>Autriche 🇦🇹</option>
+                <option>Lituanie 🇱🇹</option>
+                <option>Autre pays</option>
+                <option>Je ne sais pas encore — conseillez-moi</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Votre message</label>
+              <textarea rows="4" placeholder="Décrivez votre projet d'études…"
+                class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all resize-none bg-white"
+                style="border:1px solid #e2e8f0;"
+                onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
+                onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'"></textarea>
+            </div>
+            <button type="submit"
+              class="btn-shimmer w-full text-white font-bold py-4 rounded-xl text-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[.98] transition-transform shadow-lg">
+              Envoyer ma demande
+              <span class="material-symbols-outlined text-[18px]">send</span>
+            </button>
+            <div id="formSuccess" class="hidden text-center font-medium py-2 rounded-xl"
+              style="color:#6d28d9;background:#ede9fe;border:1px solid #c4b5fd;">
+              ✓ Message envoyé ! Nous vous répondrons sous 24h.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════ FOOTER ════ -->
+  <footer class="bg-dark text-white pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+
+        <!-- Contact -->
+        <div class="md:col-span-1">
+          <h5 class="font-caps text-xs uppercase tracking-widest text-brand mb-6">Contact</h5>
+          <ul class="space-y-4">
+            <li>
+              <p class="text-slate-500 text-xs uppercase tracking-wide mb-0.5">Téléphone</p>
+              <a href="tel:+21656819899" class="text-slate-300 text-sm hover:text-white transition-colors">+216 56 819
+                899</a>
+            </li>
+            <li>
+              <p class="text-slate-500 text-xs uppercase tracking-wide mb-0.5">WhatsApp</p>
+              <a href="https://wa.me/48451041469" target="_blank"
+                class="text-slate-300 text-sm hover:text-white transition-colors">+48 451 041 469</a>
+            </li>
+            <li>
+              <p class="text-slate-500 text-xs uppercase tracking-wide mb-0.5">Email</p>
+              <a href="mailto:services@smtravel.fr"
+                class="text-slate-300 text-sm hover:text-white transition-colors">services@smtravel.fr</a>
+            </li>
+            <li>
+              <p class="text-slate-500 text-xs uppercase tracking-wide mb-0.5">Adresse</p>
+              <p class="text-slate-300 text-sm">4 Bis Rue du Mali, 4ᵉ étage,<br />bureau n°4, Jeanne d'Arc,<br />Tunis
+                1002</p>
+            </li>
+          </ul>
+          <div class="mt-6 pt-6 border-t border-slate-800">
+            <p class="text-slate-500 text-xs uppercase tracking-widest mb-3">Suivez-nous</p>
+            <div class="flex gap-2 flex-wrap">
+              <a href="https://www.facebook.com/Marstrip1/" target="_blank"
+                class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
+                aria-label="Facebook">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/smtravel_agency_/" target="_blank"
+                class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
+                aria-label="Instagram">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
+              </a>
+              <a href="https://www.tiktok.com/@sahbi_mars1" target="_blank"
+                class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
+                aria-label="TikTok">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.01-8.28a8.26 8.26 0 004.83 1.55V5.12a4.84 4.84 0 01-1.05-.43z" />
+                </svg>
+              </a>
+              <a href="https://www.youtube.com/@sahbi_mars" target="_blank"
+                class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all"
+                aria-label="YouTube">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Destinations -->
+        <div>
+          <h5 class="font-caps text-xs uppercase tracking-widest text-brand mb-6">Destinations</h5>
+          <ul class="space-y-3 text-slate-400 text-sm">
+            <li><a href="#lettonie" class="hover:text-white transition-colors">🇱🇻 Lettonie</a></li>
+            <li><a href="#programmes" class="hover:text-white transition-colors">🇦🇹 Autriche</a></li>
+            <li><a href="#programmes" class="hover:text-white transition-colors">🇱🇹 Lituanie</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h5 class="font-caps text-xs uppercase tracking-widest text-brand mb-6">Services</h5>
+          <ul class="space-y-3 text-slate-400 text-sm">
+            <li><a href="#services" class="hover:text-white transition-colors">Dossier Visa</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Consultation</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Accueil Aéroport</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h5 class="font-caps text-xs uppercase tracking-widest text-brand mb-6">Newsletter</h5>
+          <p class="text-slate-400 text-sm mb-4">Recevez les dernières offres et conseils voyage.</p>
+          <form class="flex gap-2" onsubmit="return false;">
+            <input type="email" placeholder="Email"
+              class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white w-full focus:outline-none focus:border-brand" />
+            <button
+              class="bg-brand px-4 py-2 rounded-lg text-white hover:bg-brand-dark transition-colors flex-shrink-0">
+              <span class="material-symbols-outlined text-[18px]">send</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-500 text-xs uppercase tracking-widest">© 2026 Antigoneagency. Tous droits réservés.</p>
+        <div class="flex gap-6 text-slate-500 text-xs uppercase tracking-widest">
+          <a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a>
+          <a href="#" class="hover:text-white transition-colors">Conditions d'utilisation</a>
+          <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════ FLOATING BUTTONS ════ -->
+
+  <!-- Scroll to top -->
+  <div id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" role="button" aria-label="Retour en haut">
+    <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════ SCRIPTS ════ -->
+  <script>
+    /* ── Mobile menu ── */
+    const burger = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+
+    /* ── Scroll-to-top + navbar transition ── */
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const navbar = document.getElementById('navbar');
+    const navCta = document.getElementById('navCta');
+    const burgerIcon = document.getElementById('burgerIcon');
+    function updateNavbar() {
+      const scrolled = window.scrollY > 60;
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+      const navLogo = document.getElementById('navLogo');
+      if (scrolled) {
+        navbar.classList.add('scrolled');
+        navbar.style.background = 'rgba(255,255,255,0.97)';
+        navbar.style.borderColor = '#e2e8f0';
+        navbar.style.boxShadow = '0 4px 24px rgba(15,23,42,.1)';
+        navbar.style.backdropFilter = 'blur(12px)';
+        navCta.style.background = '#6d28d9';
+        navCta.style.borderColor = '#6d28d9';
+        navCta.style.color = '#fff';
+        navCta.onmouseover = () => { navCta.style.background = '#4c1d95'; navCta.style.borderColor = '#4c1d95'; };
+        navCta.onmouseout = () => { navCta.style.background = '#6d28d9'; navCta.style.borderColor = '#6d28d9'; };
+        if (burgerIcon) burgerIcon.style.color = '#334155';
+        if (navLogo) navLogo.src = 'IMAGE/Logo 2 (1).png';
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.style.background = 'transparent';
+        navbar.style.borderColor = 'transparent';
+        navbar.style.boxShadow = 'none';
+        navbar.style.backdropFilter = 'none';
+        if (navLogo) navLogo.src = 'IMAGE/Logo blanc.png';
+        navCta.style.background = 'transparent';
+        navCta.style.borderColor = 'rgba(255,255,255,.8)';
+        navCta.style.color = '#fff';
+        navCta.onmouseover = () => { navCta.style.background = '#fff'; navCta.style.color = '#6d28d9'; };
+        navCta.onmouseout = () => { navCta.style.background = 'transparent'; navCta.style.color = '#fff'; };
+        if (burgerIcon) burgerIcon.style.color = '#fff';
+      }
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar(); // run on load
+
+    /* ── Active nav link on scroll ── */
+    const navSections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    navSections.forEach(s => navObserver.observe(s));
+
+    /* ── Scroll reveal ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+
+    /* Observe all .reveal elements + immediately reveal those already in viewport */
+    function setupReveal() {
+      document.querySelectorAll('.reveal').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('visible'); // already in viewport on load
+        } else {
+          revealObserver.observe(el);
+        }
+      });
+    }
+    setupReveal();
+
+    /* ── Services cards: deal-in + exit animation ── */
+    const svcSection = document.getElementById('services');
+    if (svcSection) {
+      const svcObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            svcSection.classList.remove('svc-exit');
+            svcSection.classList.add('svc-active');
+          } else {
+            const rect = svcSection.getBoundingClientRect();
+            if (rect.bottom < 0) {
+              svcSection.classList.add('svc-exit');
+              svcSection.classList.remove('svc-active');
+            } else {
+              svcSection.classList.remove('svc-active', 'svc-exit');
+            }
+          }
+        });
+      }, { threshold: 0.12 });
+      svcObs.observe(svcSection);
+    }
+
+    /* ── Méthode section: entry + exit animation ── */
+    const methodeSection = document.getElementById('methode');
+    if (methodeSection) {
+      const methodeObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            methodeSection.classList.remove('methode-exit');
+            methodeSection.classList.add('methode-active');
+          } else {
+            // Detect if user scrolled PAST (section is above viewport)
+            const rect = methodeSection.getBoundingClientRect();
+            if (rect.bottom < 0) {
+              methodeSection.classList.add('methode-exit');
+              methodeSection.classList.remove('methode-active');
+            } else {
+              // Scrolled back up (section is below viewport) — reset to un-played state
+              methodeSection.classList.remove('methode-active', 'methode-exit');
+            }
+          }
+        });
+      }, { threshold: 0.12 });
+      methodeObs.observe(methodeSection);
+    }
+
+    /* ── CTA Band: entry + exit animation ── */
+    const ctaBand = document.getElementById('cta-band');
+    if (ctaBand) {
+      const ctaObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            ctaBand.classList.remove('cta-exit');
+            ctaBand.classList.add('cta-active');
+          } else {
+            const rect = ctaBand.getBoundingClientRect();
+            if (rect.bottom < 0) {
+              ctaBand.classList.add('cta-exit');
+              ctaBand.classList.remove('cta-active');
+            } else {
+              ctaBand.classList.remove('cta-active', 'cta-exit');
+            }
+          }
+        });
+      }, { threshold: 0.12 });
+      ctaObs.observe(ctaBand);
+    }
+
+    /* ── Témoignages: start/pause glow on scroll ── */
+    const testiSection = document.getElementById('temoignages');
+    if (testiSection) {
+      const testiGlows = testiSection.querySelectorAll('.methode-glow-1, .methode-glow-2');
+      const testiObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          testiGlows.forEach(g => {
+            g.style.opacity = entry.isIntersecting ? '1' : '0';
+            g.style.transform = entry.isIntersecting ? (g.classList.contains('methode-glow-1') ? 'translateX(-50%) scale(1.08)' : 'scale(1)') : (g.classList.contains('methode-glow-1') ? 'translateX(-50%) scale(.6)' : 'scale(.6)');
+          });
+        });
+      }, { threshold: 0.1 });
+      testiObs.observe(testiSection);
+    }
+
+    /* Auto-add reveal to cards & value cards for scroll animation */
+    document.querySelectorAll('#programmes .card, #lettonie .card, .testi-card').forEach((el, i) => {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal', 'delay-' + ((i % 4) + 1));
+        revealObserver.observe(el);
+      }
+    });
+    document.querySelectorAll('#apropos .grid > div').forEach((el, i) => {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal', 'delay-' + ((i % 4) + 1));
+        revealObserver.observe(el);
+      }
+    });
+
+    /* ── Animated counters ── */
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+      const run = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(target * ease) + suffix;
+        if (p < 1) requestAnimationFrame(run);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(run);
+    }
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = '1';
+          animateCounter(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+
+    /* ── FAQ accordion ── */
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const body = item.querySelector('.faq-body');
+      const isOpen = item.classList.contains('open');
+      /* Close all open items */
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-body').style.maxHeight = '0';
+      });
+      /* Open clicked item if it was closed */
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    }
+
+    /* ── Form submit ── */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('formSuccess').classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => document.getElementById('formSuccess').classList.add('hidden'), 5000);
+    }
+  </script>
+
+  <!-- ═══ CHATBOT SM TRAVEL ═══ -->
+
+  <!-- Bouton bulle -->
+  <button id="chat-toggle" aria-label="Ouvrir le chat" onclick="toggleChat()">
+    <svg id="chat-icon-open" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+      stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <svg id="chat-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+    <span id="chat-notif">1</span>
+  </button>
+
+  <!-- Fenêtre chat -->
+  <div id="chat-window" aria-live="polite">
+    <!-- En-tête -->
+    <div id="chat-header">
+      <div id="chat-header-avatar">✈</div>
+      <div>
+        <div id="chat-header-name">Conseiller SM Travel</div>
+        <div id="chat-header-status"><span id="chat-dot"></span>En ligne</div>
+      </div>
+      <button id="chat-close-btn" onclick="toggleChat()" aria-label="Fermer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chat-messages"></div>
+
+    <!-- Suggestions rapides -->
+    <div id="chat-suggestions"></div>
+
+    <!-- Saisie -->
+    <div id="chat-input-bar">
+      <input id="chat-input" type="text" placeholder="Écrivez votre message…" autocomplete="off"
+        onkeydown="if(event.key==='Enter')sendMessage()" />
+      <button id="chat-send-btn" onclick="sendMessage()" aria-label="Envoyer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <style>
+    /* ── Bouton bulle ── */
+    #chat-toggle {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 1.5rem;
+      z-index: 1100;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
+      box-shadow: 0 8px 28px rgba(109, 40, 217, .5);
+      transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s ease;
+    }
+
+    #chat-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 36px rgba(109, 40, 217, .6);
+    }
+
+    #chat-notif {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #ef4444;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+      transition: opacity .3s;
+    }
+
+    /* ── Fenêtre chat ── */
+    #chat-window {
+      position: fixed;
+      bottom: 9rem;
+      right: 1.5rem;
+      z-index: 1099;
+      width: 360px;
+      max-height: 520px;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, .22), 0 4px 20px rgba(109, 40, 217, .18);
+      border: 1px solid rgba(109, 40, 217, .15);
+      background: #f8fafc;
+      opacity: 0;
+      transform: translateY(20px) scale(.97);
+      pointer-events: none;
+      transition: opacity .3s ease, transform .3s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    #chat-window.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    @media(max-width:480px) {
+      #chat-window {
+        width: calc(100vw - 2rem);
+        right: 1rem;
+        bottom: 8rem;
+      }
+    }
+
+    /* ── En-tête ── */
+    #chat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
+      flex-shrink: 0;
+    }
+
+    #chat-header-avatar {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, .2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    #chat-header-name {
+      color: #fff;
+      font-weight: 700;
+      font-size: .95rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    #chat-header-status {
+      color: rgba(255, 255, 255, .8);
+      font-size: .75rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #chat-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse-dot 1.8s infinite;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .4;
+      }
+    }
+
+    #chat-close-btn {
+      margin-left: auto;
+      background: none;
+      border: none;
+      cursor: pointer;
+      opacity: .75;
+      transition: opacity .2s;
+    }
+
+    #chat-close-btn:hover {
+      opacity: 1;
+    }
+
+    /* ── Messages ── */
+    #chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 14px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-behavior: smooth;
+    }
+
+    #chat-messages::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    #chat-messages::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 4px;
+    }
+
+    .msg {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      max-width: 88%;
+    }
+
+    .msg.bot {
+      align-self: flex-start;
+    }
+
+    .msg.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .msg-avatar {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #7c3aed, #4c1d95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .msg-bubble {
+      padding: 10px 14px;
+      border-radius: 18px;
+      font-size: .875rem;
+      line-height: 1.5;
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+
+    .msg.bot .msg-bubble {
+      background: #fff;
+      color: #0f172a;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .07);
+    }
+
+    .msg.user .msg-bubble {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    /* Indicateur "..." */
+    .typing-bubble {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      padding: 12px 16px;
+    }
+
+    .typing-bubble span {
+      width: 7px;
+      height: 7px;
+      background: #a78bfa;
+      border-radius: 50%;
+      animation: bounce 1.2s infinite;
+    }
+
+    .typing-bubble span:nth-child(2) {
+      animation-delay: .2s;
+    }
+
+    .typing-bubble span:nth-child(3) {
+      animation-delay: .4s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* ── Suggestions rapides ── */
+    #chat-suggestions {
+      padding: 6px 12px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .chip {
+      background: #ede9fe;
+      color: #6d28d9;
+      border: 1px solid #ddd6fe;
+      border-radius: 99px;
+      padding: 5px 12px;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+
+    .chip:hover {
+      background: #ddd6fe;
+      transform: scale(1.04);
+    }
+
+    /* ── Zone de saisie ── */
+    #chat-input-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-top: 1px solid #e2e8f0;
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    #chat-input {
+      flex: 1;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 9px 14px;
+      font-size: .875rem;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+      color: #0f172a;
+      background: #f8fafc;
+    }
+
+    #chat-input:focus {
+      border-color: #7c3aed;
+      background: #fff;
+    }
+
+    #chat-send-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #7c3aed, #4c1d95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(109, 40, 217, .35);
+      transition: transform .2s, box-shadow .2s;
+      flex-shrink: 0;
+    }
+
+    #chat-send-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 18px rgba(109, 40, 217, .5);
+    }
+  </style>
+
+  <script>
+    (function () {
+      /* ───── BASE DE DONNÉES FAQ ───── */
+      const FAQ = [
+        {
+          tags: ['pays', 'destination', 'etudier', 'programme', 'propose', 'disponible', 'offre', 'choisir'],
+          q: '🌍 Quels pays proposez-vous ?',
+          a: 'Nous accompagnons les étudiants vers la <strong>France 🇫🇷, la Belgique 🇧🇪, l\'Allemagne 🇩🇪, la Pologne 🇵🇱, la Lettonie 🇱🇻, l\'Autriche 🇦🇹</strong> et d\'autres destinations européennes. Chaque destination a ses spécificités — souhaitez-vous en savoir plus sur l\'une d\'elles ?'
+        },
+        {
+          tags: ['inscrire', 'inscription', 'comment', 'dossier', 'candidature', 'commencer', 'debut', 'etape'],
+          q: '📋 Comment s\'inscrire ?',
+          a: 'L\'inscription se fait en <strong>3 étapes simples</strong> :<br>1️⃣ Choisir votre pays et université<br>2️⃣ Soumettre votre dossier de candidature<br>3️⃣ Attendre la confirmation d\'admission<br><br>Notre équipe vous accompagne à chaque étape. Contactez-nous pour démarrer !'
+        },
+        {
+          tags: ['visa', 'ambassade', 'refus', 'accepter', 'document', 'obtenir'],
+          q: '🛂 Comment obtenir un visa ?',
+          a: 'Nous gérons <strong>tout le processus visa</strong> pour vous : constitution du dossier, rendez-vous à l\'ambassade, et suivi. Notre taux de réussite visa est de <strong>98%</strong>. Vous n\'avez pas à vous inquiéter !'
+        },
+        {
+          tags: ['frais', 'cout', 'prix', 'tarif', 'combien', 'budget', 'argent', 'payer'],
+          q: '💰 Quels sont les frais ?',
+          a: 'Nos frais d\'accompagnement dépendent du programme choisi. En moyenne, les frais de scolarité en Europe varient de <strong>500€ à 5 000€/an</strong> selon le pays et l\'université. Contactez-nous pour un devis personnalisé selon votre profil.'
+        },
+        {
+          tags: ['logement', 'maison', 'appartement', 'hebergement', 'loger', 'chambre'],
+          q: '🏠 Aidez-vous pour le logement ?',
+          a: 'Oui ! Nous vous aidons à trouver un <strong>logement adapté</strong> à votre destination : résidence universitaire, colocation, ou appartement privé. Nous vous orientons aussi sur les aides au logement disponibles.'
+        },
+        {
+          tags: ['contact', 'telephone', 'email', 'appel', 'rappel', 'joindre', 'conseiller', 'humain', 'whatsapp'],
+          q: '📞 Contacter un conseiller',
+          a: 'Vous pouvez nous joindre par :<br>📱 <strong>WhatsApp : +216 56 819 899</strong><br>📧 <strong>services@smtravel.fr</strong><br>Ou remplissez le formulaire de contact sur notre site et nous vous rappellerons sous 24h.'
+        },
+        {
+          tags: ['delai', 'duree', 'temps', 'quand', 'combien de temps', 'traitement'],
+          q: '⏳ Quel est le délai de traitement ?',
+          a: 'Le traitement complet (admission + visa) prend généralement entre <strong>4 et 8 semaines</strong> selon le pays et la période. Il est conseillé de commencer <strong>au moins 3 mois avant</strong> la rentrée souhaitée.'
+        },
+        {
+          tags: ['bachelor', 'master', 'licence', 'bts', 'formation', 'diplome', 'niveau', 'filiere'],
+          q: '🎓 Quelles formations proposez-vous ?',
+          a: 'Nous accompagnons les étudiants vers des formations <strong>Bachelor, Licence, Master et BTS</strong> dans des domaines variés : commerce, ingénierie, santé, informatique, droit et plus encore.'
+        },
+        {
+          tags: ['meilleur', 'pays', 'etudier', 'etranger', 'destination', 'recommande', 'conseille', 'choisir pays'],
+          q: '🌍 Quels sont les meilleurs pays pour étudier à l\'étranger ?',
+          a: 'Cela dépend de votre budget, niveau d\'anglais et objectif :<br><br>🇭🇺 <strong>Hongrie</strong> → Bon rapport qualité/prix<br>🇱🇹 <strong>Lituanie</strong> → Procédure simple et coût abordable<br>🇵🇱 <strong>Pologne</strong> → Universités reconnues et coût raisonnable<br>🇮🇹 <strong>Italie</strong> → Possibilités de bourses intéressantes<br>🇩🇪 <strong>Allemagne</strong> → Excellente qualité académique'
+        },
+        {
+          tags: ['moins cher', 'economique', 'pas cher', 'abordable', 'budget', 'economie', 'cout faible'],
+          q: '💶 Quel pays est le moins cher pour les étudiants internationaux ?',
+          a: '🇱🇹 <strong>Lituanie</strong> → Budget économique<br>🇵🇱 <strong>Pologne</strong> → Frais raisonnables<br>🇭🇺 <strong>Hongrie</strong> → Bon équilibre qualité/prix<br>🇮🇹 <strong>Italie</strong> → Dépend de la ville<br>🇩🇪 <strong>Allemagne</strong> → Études parfois gratuites mais coût de vie plus élevé'
+        },
+        {
+          tags: ['visa facile', 'visa etudiant', 'facilement', 'acceptation visa', 'taux visa', 'obtenir visa'],
+          q: '🛂 Quel pays donne facilement le visa étudiant ?',
+          a: 'Le visa dépend surtout d\'un dossier complet et solide :<br><br>🇱🇹 <strong>Lituanie</strong> → Procédure généralement fluide avec un dossier complet<br>🇭🇺 <strong>Hongrie</strong> → Bon taux d\'acceptation pour les étudiants sérieux<br>🇮🇹 <strong>Italie</strong> → Importance de la motivation et des justificatifs financiers<br>🇩🇪 <strong>Allemagne</strong> → Procédure plus stricte, surtout pour le compte bloqué et l\'entretien'
+        },
+        {
+          tags: ['travailler', 'travail', 'job', 'emploi', 'etudes', 'heures', 'mi-temps', 'pendant'],
+          q: '💼 Puis-je travailler pendant mes études ?',
+          a: 'Oui ! Selon les règles du pays, vous pouvez généralement travailler <strong>jusqu\'à 20 heures par semaine</strong> pendant les périodes de cours. C\'est une excellente façon de compléter votre budget.'
+        },
+        {
+          tags: ['moyenne', 'note', 'resultat', 'scolaire', 'academique', 'bac', 'admission', 'requis'],
+          q: '📊 Quelle moyenne faut-il avoir ?',
+          a: '<strong>10/20</strong> → Acceptable dans certaines universités<br><strong>11–12/20</strong> → Bon profil académique<br><strong>13/20 et plus</strong> → Meilleures chances d\'admission'
+        },
+        {
+          tags: ['delai admission', 'temps admission', 'acceptation', 'reponse universite', 'combien temps universite'],
+          q: '⏱️ Combien de temps prend l\'acceptation universitaire ?',
+          a: '🇵🇱 <strong>Pologne</strong> → Environ 2 à 6 semaines<br>🇭🇺 <strong>Hongrie</strong> → Environ 1 à 4 semaines<br>🇱🇹 <strong>Lituanie</strong> → Environ 3 à 5 semaines<br>🇮🇹 <strong>Italie</strong> → Environ 4 à 8 semaines (parfois plus)<br>🇩🇪 <strong>Allemagne</strong> → Environ 4 à 12 semaines'
+        },
+        {
+          tags: ['anglais', 'niveau anglais', 'langue', 'b2', 'a2', 'certificat langue', 'ielts', 'toefl'],
+          q: '🗣️ Quel niveau d\'anglais est demandé ?',
+          a: '📘 <strong>Niveau B2</strong> → Pour les programmes de Bachelor et de Master<br>📗 <strong>Niveau A2/B2</strong> → Pour les programmes des années préparatoires'
+        },
+        {
+          tags: ['sans certificat', 'sans ielts', 'sans toefl', 'entretien anglais', 'test anglais', 'dispense'],
+          q: '📝 Puis-je étudier en anglais sans certificat ?',
+          a: 'Oui ! Dans certaines universités, un certificat n\'est pas obligatoire. Certaines acceptent également un <strong>entretien en anglais</strong> comme alternative au certificat officiel.'
+        },
+        {
+          tags: ['cout etudes', 'frais scolarite', 'tuition', 'combien etudes', 'prix universite', 'frais universitaires'],
+          q: '🎓 Combien coûtent les études ?',
+          a: '🇱🇹 <strong>Lituanie</strong> → Environ 3 000 € – 5 000 €/an<br>🇵🇱 <strong>Pologne</strong> → Environ 4 000 € – 6 000 €/an<br>🇭🇺 <strong>Hongrie</strong> → Environ 6 000 € – 8 000 €/an<br>🇮🇹 <strong>Italie</strong> → Quasiment gratuit dans plusieurs universités publiques<br>🇩🇪 <strong>Allemagne</strong> → Frais faibles dans plusieurs universités publiques'
+        },
+        {
+          tags: ['cout vie', 'vie quotidienne', 'depenses', 'loyer', 'nourriture', 'mensuel', 'mois'],
+          q: '🏙️ Quel est le coût de la vie ?',
+          a: '🇵🇱 Pologne / 🇭🇺 Hongrie / 🇱🇹 Lituanie → Environ <strong>400 € – 800 €/mois</strong><br>🇮🇹 Italie / 🇩🇪 Allemagne → Environ <strong>600 € – 1 200 €/mois</strong>'
+        },
+        {
+          tags: ['compte bloque', 'sperrkonto', 'garantie financiere', 'justificatif financier', 'banque', 'fonds'],
+          q: '🏦 Combien faut-il dans le compte bloqué ?',
+          a: '🇩🇪 <strong>Allemagne</strong> → Environ <strong>11 904 €</strong><br>🇮🇹 <strong>Italie</strong> → Environ <strong>10 000 €</strong><br>🇵🇱 <strong>Pologne</strong> → Environ <strong>8 000 €</strong><br>🇭🇺 Hongrie / 🇱🇹 Lituanie → Extrait bancaire de <strong>8 000 €</strong>'
+        },
+        {
+          tags: ['payer plusieurs fois', 'versement', 'echeance', 'mensualite', 'frais annuels', 'paiement'],
+          q: '💳 Puis-je payer les frais en plusieurs fois ?',
+          a: 'Le mode de paiement varie selon les universités et les pays. Certains établissements exigent un <strong>paiement annuel</strong>, d\'autres acceptent des versements échelonnés. Notre équipe vous précisera les modalités selon votre université.'
+        },
+        {
+          tags: ['logement universite', 'residence universitaire', 'cite u', 'dortoir', 'hebergement campus', 'logement campus'],
+          q: '🏠 L\'université propose-t-elle un logement ?',
+          a: 'Oui ! Les universités proposent généralement des <strong>résidences universitaires</strong>, mais les places sont limitées dans certaines villes. Il est aussi possible de choisir un <strong>logement privé</strong>.<br><br>✅ <em>Notre agence peut vous aider dans la recherche de logement !</em>'
+        },
+        {
+          tags: ['conseil profil', 'selon profil', 'recommandation', 'quel pays moi', 'adapte profil', 'pour moi'],
+          q: '🎯 Quel pays me conseillez-vous selon mon profil ?',
+          a: '💰 <strong>Petit budget</strong> → 🇱🇹 Lituanie<br>🎓 <strong>Recherche de qualité académique</strong> → 🇩🇪 Allemagne, 🇮🇹 Italie<br>⚡ <strong>Procédure plus rapide</strong> → 🇱🇹 Lituanie, 🇭🇺 Hongrie<br>🏆 <strong>Intérêt pour les bourses</strong> → 🇮🇹 Italie'
+        },
+      ];
+
+      const SUGGESTIONS = [
+        '🌍 Meilleurs pays pour étudier',
+        '💶 Pays le moins cher',
+        '🛂 Visa étudiant facile',
+        '📊 Moyenne requise',
+        '🏦 Compte bloqué',
+        '🎯 Quel pays selon mon profil',
+        '📋 Comment s\'inscrire ?',
+        '📞 Contact',
+      ];
+
+      const OLLAMA_ENDPOINT = 'http://localhost:11434/api/generate';
+      const OLLAMA_TIMEOUT_MS = 120000;
+      const FALLBACK = 'Je n\'ai pas encore la réponse à cette question précise. Mais un de nos conseillers peut vous aider rapidement ! 📞 <strong>+216 56 819 899</strong> ou remplissez notre <a href="#contact" onclick="toggleChat()" style="color:#7c3aed;text-decoration:underline">formulaire de contact</a>.';
+
+      /* ───── ÉTAT ───── */
+      let open = false;
+      const win = document.getElementById('chat-window');
+      const msgs = document.getElementById('chat-messages');
+      const input = document.getElementById('chat-input');
+      const notif = document.getElementById('chat-notif');
+      const sugg = document.getElementById('chat-suggestions');
+      const iconO = document.getElementById('chat-icon-open');
+      const iconC = document.getElementById('chat-icon-close');
+
+      /* ───── OUVRIR / FERMER ───── */
+      window.toggleChat = function () {
+        open = !open;
+        win.classList.toggle('open', open);
+        iconO.style.display = open ? 'none' : 'block';
+        iconC.style.display = open ? 'block' : 'none';
+        notif.style.opacity = '0';
+        if (open) {
+          if (msgs.children.length === 0) initChat();
+          setTimeout(() => input.focus(), 350);
+        }
+      };
+
+      /* ───── INIT BIENVENUE ───── */
+      function initChat() {
+        addBotMsg('👋 Bonjour ! Je suis le <strong>conseiller virtuel de SM Travel</strong>.<br>Je peux répondre à vos questions sur les études à l\'étranger. Comment puis-je vous aider ?', 0);
+        buildSuggestions(SUGGESTIONS);
+      }
+
+      /* ───── SUGGESTIONS ───── */
+      function buildSuggestions(list) {
+        sugg.innerHTML = '';
+        list.forEach(label => {
+          const chip = document.createElement('button');
+          chip.className = 'chip';
+          chip.innerHTML = label;
+          chip.onclick = () => { sendMessage(label.replace(/^[^\w\s]*/u, '').trim()); };
+          sugg.appendChild(chip);
+        });
+      }
+
+      /* ───── ENVOYER ───── */
+      window.sendMessage = async function (text) {
+        const raw = (text || input.value).trim();
+        if (!raw) return;
+        input.value = '';
+        sugg.innerHTML = '';
+        addUserMsg(raw);
+        showTyping();
+        let timeoutId;
+        try {
+          const controller = new AbortController();
+          timeoutId = setTimeout(() => controller.abort(), OLLAMA_TIMEOUT_MS);
+          const res = await fetch(OLLAMA_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ model: 'smtravelle', prompt: raw, stream: false }),
+            signal: controller.signal
+          });
+          if (!res.ok) throw new Error('Ollama indisponible');
+          const data = await res.json();
+          if (!data.response) throw new Error('Réponse vide depuis Ollama');
+          removeTyping();
+          addBotMsg(data.response.replace(/\n/g, '<br>'));
+        } catch (e) {
+          console.error('Erreur Ollama:', e);
+          removeTyping();
+          const answer = findAnswer(raw);
+          addBotMsg(answer);
+        }
+        finally {
+          if (timeoutId) clearTimeout(timeoutId);
+        }
+        buildSuggestions(['🌍 Meilleurs pays', '💶 Pays moins cher', '🏦 Compte bloqué', '🎯 Mon profil', '📞 Contact']);
+      };
+
+      /* ───── RECHERCHE RÉPONSE ───── */
+      function findAnswer(text) {
+        const norm = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        let best = null, bestScore = 0;
+        FAQ.forEach(item => {
+          let score = item.tags.reduce((s, t) => s + (norm.includes(t) ? 1 : 0), 0);
+          if (score > bestScore) { bestScore = score; best = item; }
+        });
+        return bestScore > 0 ? best.a : FALLBACK;
+      }
+
+      /* ───── AJOUTER MESSAGES ───── */
+      function addBotMsg(html, delay = 0) {
+        const wrap = document.createElement('div');
+        wrap.className = 'msg bot';
+        wrap.innerHTML = `<div class="msg-avatar">✈</div><div class="msg-bubble">${html}</div>`;
+        wrap.style.opacity = '0';
+        wrap.style.transform = 'translateY(8px)';
+        msgs.appendChild(wrap);
+        setTimeout(() => {
+          wrap.style.transition = 'opacity .3s,transform .3s';
+          wrap.style.opacity = '1';
+          wrap.style.transform = 'translateY(0)';
+          msgs.scrollTop = msgs.scrollHeight;
+        }, delay);
+      }
+      function addUserMsg(text) {
+        const wrap = document.createElement('div');
+        wrap.className = 'msg user';
+        wrap.innerHTML = `<div class="msg-bubble">${text}</div>`;
+        msgs.appendChild(wrap);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
+      function showTyping() {
+        const t = document.createElement('div');
+        t.className = 'msg bot'; t.id = 'typing';
+        t.innerHTML = '<div class="msg-avatar">✈</div><div class="msg-bubble"><div class="typing-bubble"><span></span><span></span><span></span></div></div>';
+        msgs.appendChild(t);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
+      function removeTyping() {
+        const t = document.getElementById('typing');
+        if (t) t.remove();
+      }
+
+      /* Notification initiale après 3s */
+      setTimeout(() => { notif.style.opacity = '1'; }, 3000);
+    })();
+  </script>
+
+</body>
+
+</html>
