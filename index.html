@@ -2180,6 +2180,10 @@
               Envoyer ma demande
               <span class="material-symbols-outlined text-[18px]">send</span>
             </button>
+            <div id="formToast" style="display:none;align-items:center;gap:10px;padding:.85rem 1.1rem;border-radius:12px;font-size:.875rem;font-weight:600;background:#fef3c7;border:1px solid #fde68a;color:#92400e;">
+              <span class="material-symbols-outlined" style="font-size:18px;color:#d97706;">schedule</span>
+              <span id="formToastMsg">Veuillez patienter quelques secondes avant de renvoyer.</span>
+            </div>
           </form>
         </div>
 
@@ -2565,7 +2569,11 @@
 
       // Anti-spam : 30s de délai entre deux envois
       if (handleFormSubmit._lastSent && Date.now() - handleFormSubmit._lastSent < 30000) {
-        alert('Veuillez patienter quelques secondes avant de renvoyer.');
+        const remaining = Math.ceil((30000 - (Date.now() - handleFormSubmit._lastSent)) / 1000);
+        const toast = document.getElementById('formToast');
+        document.getElementById('formToastMsg').textContent = `Veuillez patienter encore ${remaining} seconde${remaining > 1 ? 's' : ''} avant de renvoyer.`;
+        toast.style.display = 'flex';
+        setTimeout(() => { toast.style.display = 'none'; }, 4000);
         btn.disabled = false;
         btn.innerHTML = originalHTML;
         return;
@@ -2623,14 +2631,17 @@
       // Show success overlay
       form.style.display = 'none';
       const overlay = document.getElementById('formSuccessOverlay');
+      overlay.style.display = ''; // efface tout style inline pour laisser la classe CSS agir
       overlay.classList.add('show');
       spawnSuccessParticles();
     }
 
     function resetContactForm() {
-      document.getElementById('formSuccessOverlay').classList.remove('show');
-      document.getElementById('formSuccessOverlay').style.display = 'none';
+      const overlay = document.getElementById('formSuccessOverlay');
+      overlay.classList.remove('show');
+      overlay.style.display = ''; // laisse le CSS reprendre (display:none par défaut)
       document.getElementById('contactForm').style.display = '';
+      document.getElementById('formToast').style.display = 'none';
     }
 
     function spawnSuccessParticles() {
