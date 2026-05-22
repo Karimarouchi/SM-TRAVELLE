@@ -1105,6 +1105,106 @@
     #mobileMenu.open {
       display: block;
     }
+
+    /* ═══ FORM SUCCESS OVERLAY ═══ */
+    #formSuccessOverlay {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 420px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #formSuccessOverlay.show {
+      display: flex;
+      animation: fsiFadeUp 0.65s cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    @keyframes fsiFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fsi-circle {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6d28d9, #a78bfa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 0 0 rgba(109, 40, 217, .45);
+      animation: fsiPulse 1.8s ease-out 0.4s infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fsiPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(109, 40, 217, .45);
+      }
+
+      70% {
+        box-shadow: 0 0 0 22px rgba(109, 40, 217, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(109, 40, 217, 0);
+      }
+    }
+
+    .fsi-svg {
+      width: 48px;
+      height: 48px;
+      overflow: visible;
+    }
+
+    .fsi-check {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: fsiDraw 0.5s ease 0.5s forwards;
+    }
+
+    @keyframes fsiDraw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .fsi-particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: fsiParticle 1.1s ease-out forwards;
+    }
+
+    @keyframes fsiParticle {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
+      }
+    }
   </style>
 </head>
 
@@ -1296,7 +1396,7 @@
           <span class="section-label">Destinations d'excellence</span>
           <h2 class="font-display font-bold text-4xl md:text-5xl text-dark mt-2">Les Programmes Populaires</h2>
         </div>
-       
+
       </div>
 
       <!-- Cards grid -->
@@ -1992,7 +2092,29 @@
         </div>
 
         <!-- Droite : formulaire -->
-        <div class="rounded-3xl p-8 md:p-10 shadow-sm" style="background:#f8fafc;border:1px solid #e2e8f0;">
+        <div class="rounded-3xl p-8 md:p-10 shadow-sm"
+          style="background:#f8fafc;border:1px solid #e2e8f0;position:relative;overflow:hidden;">
+
+          <!-- ── Overlay succès ── -->
+          <div id="formSuccessOverlay">
+            <div class="fsi-circle" id="fsiCircle">
+              <svg class="fsi-svg" viewBox="0 0 48 48">
+                <polyline class="fsi-check" points="10,26 20,36 38,14" />
+              </svg>
+            </div>
+            <h3
+              style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:800;color:#0f172a;margin-bottom:.6rem;">
+              Message envoyé avec succès !</h3>
+            <p style="color:#64748b;font-size:.95rem;max-width:320px;line-height:1.6;margin-bottom:2rem;">Merci pour
+              votre confiance&nbsp;✨<br>Notre équipe vous contactera sous <strong
+                style="color:#6d28d9;">24&nbsp;heures</strong>.</p>
+            <button type="button" onclick="resetContactForm()"
+              style="background:linear-gradient(135deg,#6d28d9,#a78bfa);color:#fff;border:none;border-radius:12px;padding:.85rem 2rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(109,40,217,.35);transition:transform .2s;"
+              onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+              ✉ Envoyer un autre message
+            </button>
+          </div>
+
           <form id="contactForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
@@ -2047,7 +2169,7 @@
             </div>
             <div>
               <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Votre message</label>
-              <textarea rows="4" placeholder="Décrivez votre projet d'études…"
+              <textarea id="f-message" rows="4" placeholder="Décrivez votre projet d'études…"
                 class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all resize-none bg-white"
                 style="border:1px solid #e2e8f0;"
                 onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
@@ -2058,10 +2180,6 @@
               Envoyer ma demande
               <span class="material-symbols-outlined text-[18px]">send</span>
             </button>
-            <div id="formSuccess" class="hidden text-center font-medium py-2 rounded-xl"
-              style="color:#6d28d9;background:#ede9fe;border:1px solid #c4b5fd;">
-              ✓ Message envoyé ! Nous vous répondrons sous 24h.
-            </div>
           </form>
         </div>
 
@@ -2420,11 +2538,115 @@
     }
 
     /* ── Form submit ── */
-    function handleFormSubmit(e) {
+    async function handleFormSubmit(e) {
       e.preventDefault();
-      document.getElementById('formSuccess').classList.remove('hidden');
-      e.target.reset();
-      setTimeout(() => document.getElementById('formSuccess').classList.add('hidden'), 5000);
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const originalHTML = btn.innerHTML;
+
+      // Show spinner
+      btn.disabled = true;
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="animation:spin .8s linear infinite;margin-right:6px"><path d="M12 2a10 10 0 0 1 10 10"/></svg>Envoi en cours…';
+      if (!document.getElementById('fsiSpinStyle')) {
+        const s = document.createElement('style');
+        s.id = 'fsiSpinStyle';
+        s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+        document.head.appendChild(s);
+      }
+
+      const payload = {
+        prenom: document.getElementById('f-prenom').value,
+        nom: document.getElementById('f-nom').value,
+        email: document.getElementById('f-email').value,
+        telephone: document.getElementById('f-tel').value,
+        destination: document.getElementById('f-destination').value,
+        message: document.getElementById('f-message').value,
+      };
+
+      const urls = [
+        
+        'https://antigoneconsulting.app.n8n.cloud/webhook/smfrom',
+      ];
+      const jsonStr = JSON.stringify(payload);
+
+      console.log('[SM Travel] Envoi du formulaire vers les webhooks…', payload);
+
+      for (const url of urls) {
+        // Méthode 1 : fetch normal avec application/json (n8n cloud supporte CORS)
+        try {
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: jsonStr,
+          });
+          console.log('[SM Travel] fetch OK →', url, res.status);
+          continue;
+        } catch (err1) {
+          console.warn('[SM Travel] fetch application/json échoué :', err1.message);
+        }
+
+        // Méthode 2 : no-cors + text/plain (simple request, pas de preflight)
+        try {
+          await fetch(url, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain' },
+            body: jsonStr,
+          });
+          console.log('[SM Travel] fetch no-cors OK →', url);
+          continue;
+        } catch (err2) {
+          console.warn('[SM Travel] fetch no-cors échoué :', err2.message);
+        }
+
+        // Méthode 3 : sendBeacon (fire-and-forget, ignore CORS response)
+        try {
+          const ok = navigator.sendBeacon(url, new Blob([jsonStr], { type: 'application/json' }));
+          console.log('[SM Travel] sendBeacon →', url, ok ? 'accepté' : 'refusé');
+        } catch (err3) {
+          console.error('[SM Travel] sendBeacon échoué :', err3.message);
+        }
+      }
+
+      form.reset();
+      btn.disabled = false;
+      btn.innerHTML = originalHTML;
+
+      // Show success overlay
+      form.style.display = 'none';
+      const overlay = document.getElementById('formSuccessOverlay');
+      overlay.classList.add('show');
+      spawnSuccessParticles();
+    }
+
+    function resetContactForm() {
+      document.getElementById('formSuccessOverlay').classList.remove('show');
+      document.getElementById('formSuccessOverlay').style.display = 'none';
+      document.getElementById('contactForm').style.display = '';
+    }
+
+    function spawnSuccessParticles() {
+      const overlay = document.getElementById('formSuccessOverlay');
+      const colors = ['#6d28d9', '#a78bfa', '#0ea5e9', '#f59e0b', '#10b981', '#ec4899'];
+      for (let i = 0; i < 24; i++) {
+        const p = document.createElement('div');
+        p.className = 'fsi-particle';
+        const size = 6 + Math.random() * 8;
+        const angle = (Math.PI * 2 * i) / 24;
+        const dist = 80 + Math.random() * 100;
+        p.style.cssText = [
+          'width:' + size + 'px',
+          'height:' + size + 'px',
+          'background:' + colors[i % colors.length],
+          'left:calc(50% - ' + size / 2 + 'px)',
+          'top:calc(50% - 120px)',
+          '--tx:' + (Math.cos(angle) * dist).toFixed(1) + 'px',
+          '--ty:' + (Math.sin(angle) * dist).toFixed(1) + 'px',
+          'animation-delay:' + (Math.random() * 0.3).toFixed(2) + 's',
+        ].join(';');
+        overlay.appendChild(p);
+        p.addEventListener('animationend', () => p.remove());
+      }
     }
   </script>
 
@@ -3010,7 +3232,7 @@
           try {
             const data = JSON.parse(raw_text);
             reply = data.output || data.response || data.text || data.message || raw_text;
-          } catch (_) {}
+          } catch (_) { }
           if (!reply) throw new Error('Réponse vide depuis le webhook');
           removeTyping();
           addBotMsg(reply.replace(/\n/g, '<br>'));
