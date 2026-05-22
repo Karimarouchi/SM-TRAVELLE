@@ -2169,38 +2169,46 @@
               </div>
             </div>
             <div>
-              <label for="f-destination"
-                class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Destination souhaitée *</label>
-              <!-- Custom dropdown -->
+              <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Destination souhaitée *</label>
+              <!-- Hidden real input for form validation -->
               <input type="hidden" id="f-destination" name="destination" required />
-              <div id="dest-dropdown" style="position:relative;">
+              <!-- Custom dropdown -->
+              <div id="destDropdown" style="position:relative;user-select:none;">
                 <!-- Trigger -->
-                <button type="button" id="dest-trigger" aria-haspopup="listbox" aria-expanded="false"
-                  onclick="toggleDestDropdown()"
-                  style="width:100%;display:flex;align-items:center;justify-content:space-between;
-                         gap:8px;padding:12px 16px;background:#fff;border:1px solid #e2e8f0;
-                         border-radius:12px;font-size:.875rem;color:#94a3b8;cursor:pointer;
-                         transition:border-color .2s,box-shadow .2s;text-align:left;">
-                  <span id="dest-label">Choisissez une destination</span>
-                  <svg id="dest-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round"
-                    style="flex-shrink:0;transition:transform .25s;">
-                    <polyline points="6 9 12 15 18 9"/>
-                  </svg>
-                </button>
-                <!-- Panel -->
-                <ul id="dest-panel" role="listbox" aria-label="Destination souhaitée"
-                  style="display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);
-                         background:#fff;border:1px solid #e2e8f0;border-radius:14px;
-                         box-shadow:0 8px 32px rgba(109,40,217,.13),0 2px 8px rgba(0,0,0,.07);
-                         overflow:hidden;z-index:50;padding:6px;list-style:none;margin:0;
-                         animation:ddSlide .18s ease;">
-                  <li role="option" data-value="Lettonie "  onclick="selectDest(this)" class="dest-opt">🇱🇻&nbsp; Lettonie</li>
-                  <li role="option" data-value="Autriche "  onclick="selectDest(this)" class="dest-opt">🇦🇹&nbsp; Autriche</li>
-                  <li role="option" data-value="Lituanie "  onclick="selectDest(this)" class="dest-opt">🇱🇹&nbsp; Lituanie</li>
-                  <li role="option" data-value="Autre pays"     onclick="selectDest(this)" class="dest-opt">🌍&nbsp; Autre pays</li>
-                  <li role="option" data-value="Je ne sais pas encore — conseillez-moi" onclick="selectDest(this)" class="dest-opt" style="color:#6d28d9;font-style:italic;">✨&nbsp; Je ne sais pas encore — conseillez-moi</li>
+                <div id="destTrigger" tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="destList"
+                  style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-radius:12px;border:1px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.875rem;transition:border-color .2s,box-shadow .2s;"
+                  onclick="toggleDestDropdown()" onkeydown="destKeyNav(event)">
+                  <span id="destLabel" style="color:#94a3b8;">Choisissez une destination</span>
+                  <svg id="destChevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;transition:transform .25s;"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <!-- List -->
+                <ul id="destList" role="listbox" aria-label="Destination"
+                  style="display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:50;background:#fff;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 8px 32px rgba(109,40,217,.13);overflow:hidden;padding:6px 0;list-style:none;margin:0;">
+                  <li role="option" data-value="Lettonie 🇱🇻" tabindex="-1" onclick="selectDest(this)"
+                    style="display:flex;align-items:center;gap:10px;padding:11px 16px;font-size:.875rem;cursor:pointer;transition:background .15s;"
+                    onmouseenter="this.style.background='#f5f3ff'" onmouseleave="this.style.background=''">
+                    <span style="font-size:1.2rem;">🇱🇻</span><span>Lettonie</span>
+                  </li>
+                  <li role="option" data-value="Autriche 🇦🇹" tabindex="-1" onclick="selectDest(this)"
+                    style="display:flex;align-items:center;gap:10px;padding:11px 16px;font-size:.875rem;cursor:pointer;transition:background .15s;"
+                    onmouseenter="this.style.background='#f5f3ff'" onmouseleave="this.style.background=''">
+                    <span style="font-size:1.2rem;">🇦🇹</span><span>Autriche</span>
+                  </li>
+                  <li role="option" data-value="Lituanie 🇱🇹" tabindex="-1" onclick="selectDest(this)"
+                    style="display:flex;align-items:center;gap:10px;padding:11px 16px;font-size:.875rem;cursor:pointer;transition:background .15s;"
+                    onmouseenter="this.style.background='#f5f3ff'" onmouseleave="this.style.background=''">
+                    <span style="font-size:1.2rem;">🇱🇹</span><span>Lituanie</span>
+                  </li>
+                  <li role="option" data-value="Autre pays" tabindex="-1" onclick="selectDest(this)"
+                    style="display:flex;align-items:center;gap:10px;padding:11px 16px;font-size:.875rem;cursor:pointer;transition:background .15s;"
+                    onmouseenter="this.style.background='#f5f3ff'" onmouseleave="this.style.background=''">
+                    <span style="font-size:1.2rem;">🌍</span><span>Autre pays</span>
+                  </li>
+                  <li role="option" data-value="Je ne sais pas encore — conseillez-moi" tabindex="-1" onclick="selectDest(this)"
+                    style="display:flex;align-items:center;gap:10px;padding:11px 16px;font-size:.875rem;cursor:pointer;transition:background .15s;border-top:1px solid #f1f5f9;"
+                    onmouseenter="this.style.background='#f5f3ff'" onmouseleave="this.style.background=''">
+                    <span style="font-size:1.2rem;">✨</span><span>Je ne sais pas encore — conseillez-moi</span>
+                  </li>
                 </ul>
               </div>
               <p class="field-error" id="err-destination"
@@ -2585,32 +2593,73 @@
       }
     }
 
-    /* ── Dropdown destination ── */
-    .dest-opt {
-      padding: 10px 14px;
-      border-radius: 9px;
-      font-size: .875rem;
-      color: #1e1b4b;
-      cursor: pointer;
-      transition: background .15s, color .15s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    /* ── Custom Destination Dropdown ── */
+    function toggleDestDropdown(forceClose) {
+      const list = document.getElementById('destList');
+      const trigger = document.getElementById('destTrigger');
+      const chevron = document.getElementById('destChevron');
+      const open = list.style.display === 'block';
+      if (forceClose || open) {
+        list.style.display = 'none';
+        trigger.setAttribute('aria-expanded','false');
+        chevron.style.transform = '';
+        trigger.style.borderColor = '#e2e8f0';
+        trigger.style.boxShadow = 'none';
+      } else {
+        list.style.display = 'block';
+        trigger.setAttribute('aria-expanded','true');
+        chevron.style.transform = 'rotate(180deg)';
+        trigger.style.borderColor = '#6d28d9';
+        trigger.style.boxShadow = '0 0 0 3px rgba(109,40,217,.12)';
+      }
     }
-    .dest-opt:hover, .dest-opt.active {
-      background: linear-gradient(110deg,#ede9fe,#f5f3ff);
-      color: #6d28d9;
-      font-weight: 600;
+    function selectDest(el) {
+      const val = el.dataset.value;
+      document.getElementById('f-destination').value = val;
+      document.getElementById('destLabel').textContent = el.querySelector('span:last-child').textContent;
+      document.getElementById('destLabel').style.color = '#1e1b4b';
+      // Mark selected item
+      document.querySelectorAll('#destList li').forEach(li => {
+        li.style.background = '';
+        li.style.fontWeight = '';
+        li.style.color = '';
+        const dot = li.querySelector('.dest-dot');
+        if (dot) dot.remove();
+      });
+      el.style.background = 'linear-gradient(90deg,#f5f3ff,#ede9fe)';
+      el.style.fontWeight = '600';
+      el.style.color = '#6d28d9';
+      // Add check dot
+      const dot = document.createElement('span');
+      dot.className = 'dest-dot';
+      dot.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto"><polyline points="20 6 9 17 4 12"/></svg>';
+      dot.style.marginLeft = 'auto';
+      el.appendChild(dot);
+      toggleDestDropdown(true);
+      // Clear error
+      const errEl = document.getElementById('err-destination');
+      if (errEl) errEl.style.display = 'none';
+      const trigger = document.getElementById('destTrigger');
+      trigger.style.borderColor = '#10b981';
+      trigger.style.boxShadow = '0 0 0 3px rgba(16,185,129,.1)';
     }
-    .dest-opt.selected {
-      background: linear-gradient(110deg,#6d28d9,#7c3aed);
-      color: #fff !important;
-      font-weight: 700;
+    function destKeyNav(e) {
+      const list = document.getElementById('destList');
+      const open = list.style.display === 'block';
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleDestDropdown(); }
+      if (e.key === 'Escape') toggleDestDropdown(true);
+      if (!open) return;
+      const items = [...list.querySelectorAll('li')];
+      const cur = document.activeElement;
+      const idx = items.indexOf(cur);
+      if (e.key === 'ArrowDown') { e.preventDefault(); (items[idx+1]||items[0]).focus(); }
+      if (e.key === 'ArrowUp')   { e.preventDefault(); (items[idx-1]||items[items.length-1]).focus(); }
+      if (e.key === 'Enter' && idx >= 0) { e.preventDefault(); selectDest(items[idx]); }
     }
-    @keyframes ddSlide {
-      from { opacity:0; transform:translateY(-6px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
+    // Close dropdown on outside click
+    document.addEventListener('click', function(e) {
+      if (!document.getElementById('destDropdown').contains(e.target)) toggleDestDropdown(true);
+    });
 
     /* ── Validation champs ── */
     function showError(field, msg) {
@@ -2628,6 +2677,22 @@
       field.style.boxShadow = 'none';
     }
     function validateField(field) {
+      // Custom dropdown: validate via trigger visual instead
+      if (field.id === 'f-destination') {
+        const v = field.value.trim();
+        const trigger = document.getElementById('destTrigger');
+        const errEl = document.getElementById('err-destination');
+        if (!v) {
+          if (errEl) { errEl.textContent = 'Veuillez choisir une destination.'; errEl.style.display = 'block'; }
+          trigger.style.borderColor = '#dc2626';
+          trigger.style.boxShadow = '0 0 0 3px rgba(220,38,38,.1)';
+          return false;
+        }
+        if (errEl) errEl.style.display = 'none';
+        trigger.style.borderColor = '#10b981';
+        trigger.style.boxShadow = '0 0 0 3px rgba(16,185,129,.1)';
+        return true;
+      }
       const v = field.value.trim();
       if (field.required && !v) { showError(field, 'Ce champ est obligatoire.'); return false; }
       if (field.minLength > 0 && v.length < field.minLength) { showError(field, `Minimum ${field.minLength} caractères.`); return false; }
@@ -2639,71 +2704,9 @@
       return true;
     }
     function validateForm() {
-      let valid = true;
-      ['f-prenom', 'f-nom', 'f-email', 'f-tel'].forEach(id => {
-        if (!validateField(document.getElementById(id))) valid = false;
-      });
-      /* validation dropdown custom */
-      const destVal = document.getElementById('f-destination').value;
-      const errDest = document.getElementById('err-destination');
-      const trigger = document.getElementById('dest-trigger');
-      if (!destVal) {
-        errDest.textContent = 'Veuillez choisir une destination.';
-        errDest.style.display = 'block';
-        trigger.style.borderColor = '#dc2626';
-        trigger.style.boxShadow   = '0 0 0 3px rgba(220,38,38,.1)';
-        valid = false;
-      }
-      return valid;
+      const fields = ['f-prenom', 'f-nom', 'f-email', 'f-tel', 'f-destination'];
+      return fields.map(id => validateField(document.getElementById(id))).every(Boolean);
     }
-    /* ── Dropdown destination JS ── */
-    function toggleDestDropdown() {
-      const panel   = document.getElementById('dest-panel');
-      const trigger = document.getElementById('dest-trigger');
-      const chevron = document.getElementById('dest-chevron');
-      const isOpen  = panel.style.display === 'block';
-      panel.style.display = isOpen ? 'none' : 'block';
-      trigger.setAttribute('aria-expanded', !isOpen);
-      chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
-      if (!isOpen) {
-        trigger.style.borderColor  = '#6d28d9';
-        trigger.style.boxShadow    = '0 0 0 3px rgba(109,40,217,.12)';
-      } else {
-        trigger.style.borderColor  = '#e2e8f0';
-        trigger.style.boxShadow    = 'none';
-      }
-    }
-    function selectDest(el) {
-      const val = el.dataset.value;
-      document.getElementById('f-destination').value = val;
-      document.getElementById('dest-label').textContent = el.textContent.trim();
-      document.getElementById('dest-label').style.color = '#1e1b4b';
-      document.querySelectorAll('.dest-opt').forEach(o => o.classList.remove('selected'));
-      el.classList.add('selected');
-      toggleDestDropdown();
-      const errEl = document.getElementById('err-destination');
-      if (errEl) errEl.style.display = 'none';
-      const trigger = document.getElementById('dest-trigger');
-      trigger.style.borderColor = '#10b981';
-      trigger.style.boxShadow   = '0 0 0 3px rgba(16,185,129,.1)';
-    }
-    /* Fermer si clic en dehors */
-    document.addEventListener('click', function(e) {
-      if (!document.getElementById('dest-dropdown').contains(e.target)) {
-        const panel = document.getElementById('dest-panel');
-        if (panel.style.display === 'block') {
-          panel.style.display = 'none';
-          document.getElementById('dest-trigger').setAttribute('aria-expanded','false');
-          document.getElementById('dest-chevron').style.transform = '';
-          const trigger = document.getElementById('dest-trigger');
-          if (!document.getElementById('f-destination').value) {
-            trigger.style.borderColor = '#e2e8f0';
-            trigger.style.boxShadow   = 'none';
-          }
-        }
-      }
-    });
-
     /* ── Compteur message ── */
     document.getElementById('f-message').addEventListener('input', function () {
       document.getElementById('msg-count').textContent = this.value.length;
