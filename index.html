@@ -2115,50 +2115,66 @@
             </button>
           </div>
 
-          <form id="contactForm" class="space-y-5" onsubmit="handleFormSubmit(event)">
+          <form id="contactForm" class="space-y-5" onsubmit="handleFormSubmit(event)" novalidate>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Prénom *</label>
-                <input id="f-prenom" type="text" placeholder="Votre prénom" required maxlength="80" autocomplete="given-name"
+                <label for="f-prenom" class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Prénom
+                  *</label>
+                <input id="f-prenom" name="prenom" type="text" placeholder="Votre prénom" required minlength="2"
+                  maxlength="15" autocomplete="given-name"
                   class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
                   style="border:1px solid #e2e8f0;"
                   onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
-                  onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'" />
+                  onblur="validateField(this)" oninput="clearError(this)" />
+                <p class="field-error" id="err-prenom"
+                  style="display:none;color:#dc2626;font-size:.75rem;margin-top:4px;"></p>
               </div>
               <div>
-                <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Nom *</label>
-                <input id="f-nom" type="text" placeholder="Votre nom" required maxlength="80" autocomplete="family-name"
+                <label for="f-nom" class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Nom *</label>
+                <input id="f-nom" name="nom" type="text" placeholder="Votre nom" required minlength="2" maxlength="15"
+                  autocomplete="family-name"
                   class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
                   style="border:1px solid #e2e8f0;"
                   onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
-                  onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'" />
+                  onblur="validateField(this)" oninput="clearError(this)" />
+                <p class="field-error" id="err-nom" style="display:none;color:#dc2626;font-size:.75rem;margin-top:4px;">
+                </p>
               </div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Email *</label>
-                <input id="f-email" type="email" placeholder="votre@email.com" required maxlength="150" autocomplete="email"
+                <label for="f-email" class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Email
+                  *</label>
+                <input id="f-email" name="email" type="email" placeholder="votre@email.com" required maxlength="150"
+                  autocomplete="email"
                   class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
                   style="border:1px solid #e2e8f0;"
                   onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
-                  onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'" />
+                  onblur="validateField(this)" oninput="clearError(this)" />
+                <p class="field-error" id="err-email"
+                  style="display:none;color:#dc2626;font-size:.75rem;margin-top:4px;"></p>
               </div>
               <div>
-                <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Téléphone</label>
-                <input id="f-tel" type="tel" placeholder="+216 XX XXX XXX" maxlength="25" autocomplete="tel"
+                <label for="f-tel" class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Téléphone
+                  <span style="color:#94a3b8;font-size:.7rem;">(8 chiffres)</span></label>
+                <input id="f-tel" name="telephone" type="tel" placeholder="56 819 899" maxlength="8" pattern="[0-9]{8}"
+                  autocomplete="tel"
                   class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
                   style="border:1px solid #e2e8f0;"
                   onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
-                  onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'" />
+                  onblur="validateField(this)"
+                  oninput="this.value=this.value.replace(/\D/g,'').slice(0,8);clearError(this)" />
+                <p class="field-error" id="err-tel" style="display:none;color:#dc2626;font-size:.75rem;margin-top:4px;">
+                </p>
               </div>
             </div>
             <div>
-              <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Destination
-                souhaitée</label>
-              <select id="f-destination"
+              <label for="f-destination"
+                class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Destination souhaitée *</label>
+              <select id="f-destination" name="destination" required
                 class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all bg-white"
                 style="border:1px solid #e2e8f0;" onfocus="this.style.borderColor='#6d28d9'"
-                onblur="this.style.borderColor='#e2e8f0'">
+                onblur="validateField(this)" onchange="clearError(this)">
                 <option value="" disabled selected>Choisissez une destination</option>
                 <option>Lettonie 🇱🇻</option>
                 <option>Autriche 🇦🇹</option>
@@ -2166,21 +2182,28 @@
                 <option>Autre pays</option>
                 <option>Je ne sais pas encore — conseillez-moi</option>
               </select>
+              <p class="field-error" id="err-destination"
+                style="display:none;color:#dc2626;font-size:.75rem;margin-top:4px;"></p>
             </div>
             <div>
-              <label class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Votre message</label>
-              <textarea id="f-message" rows="4" placeholder="Décrivez votre projet d'études…"
+              <label for="f-message" class="block text-xs font-caps uppercase tracking-widest text-mid mb-2">Votre
+                message <span style="color:#94a3b8;font-size:.7rem;">(optionnel)</span></label>
+              <textarea id="f-message" name="message" rows="4" placeholder="Décrivez votre projet d'études…"
+                maxlength="1000"
                 class="w-full rounded-xl px-4 py-3 text-sm text-dark outline-none transition-all resize-none bg-white"
                 style="border:1px solid #e2e8f0;"
                 onfocus="this.style.borderColor='#6d28d9';this.style.boxShadow='0 0 0 3px rgba(109,40,217,.12)'"
                 onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'"></textarea>
+              <p style="color:#94a3b8;font-size:.7rem;text-align:right;margin-top:2px;"><span id="msg-count">0</span> /
+                1000</p>
             </div>
             <button type="submit"
               class="btn-shimmer w-full text-white font-bold py-4 rounded-xl text-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[.98] transition-transform shadow-lg">
               Envoyer ma demande
               <span class="material-symbols-outlined text-[18px]">send</span>
             </button>
-            <div id="formToast" style="display:none;align-items:center;gap:10px;padding:.85rem 1.1rem;border-radius:12px;font-size:.875rem;font-weight:600;background:#fef3c7;border:1px solid #fde68a;color:#92400e;">
+            <div id="formToast"
+              style="display:none;align-items:center;gap:10px;padding:.85rem 1.1rem;border-radius:12px;font-size:.875rem;font-weight:600;background:#fef3c7;border:1px solid #fde68a;color:#92400e;">
               <span class="material-symbols-outlined" style="font-size:18px;color:#d97706;">schedule</span>
               <span id="formToastMsg">Veuillez patienter quelques secondes avant de renvoyer.</span>
             </div>
@@ -2541,12 +2564,54 @@
       }
     }
 
+    /* ── Validation champs ── */
+    function showError(field, msg) {
+      const errEl = document.getElementById('err-' + field.id.replace('f-', ''));
+      if (!errEl) return;
+      errEl.textContent = msg;
+      errEl.style.display = 'block';
+      field.style.borderColor = '#dc2626';
+      field.style.boxShadow = '0 0 0 3px rgba(220,38,38,.1)';
+    }
+    function clearError(field) {
+      const errEl = document.getElementById('err-' + field.id.replace('f-', ''));
+      if (errEl) errEl.style.display = 'none';
+      field.style.borderColor = '#e2e8f0';
+      field.style.boxShadow = 'none';
+    }
+    function validateField(field) {
+      const v = field.value.trim();
+      if (field.required && !v) { showError(field, 'Ce champ est obligatoire.'); return false; }
+      if (field.minLength > 0 && v.length < field.minLength) { showError(field, `Minimum ${field.minLength} caractères.`); return false; }
+      if (field.id === 'f-email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { showError(field, 'Adresse email invalide.'); return false; }
+      if (field.id === 'f-tel' && v && !/^[0-9]{8}$/.test(v)) { showError(field, '8 chiffres requis (ex: 56819899).'); return false; }
+      clearError(field);
+      field.style.borderColor = '#10b981';
+      field.style.boxShadow = '0 0 0 3px rgba(16,185,129,.1)';
+      return true;
+    }
+    function validateForm() {
+      const fields = ['f-prenom', 'f-nom', 'f-email', 'f-tel', 'f-destination'];
+      return fields.map(id => validateField(document.getElementById(id))).every(Boolean);
+    }
+    /* ── Compteur message ── */
+    document.getElementById('f-message').addEventListener('input', function () {
+      document.getElementById('msg-count').textContent = this.value.length;
+    });
+
     /* ── Form submit ── */
     async function handleFormSubmit(e) {
       e.preventDefault();
       const form = e.target;
       const btn = form.querySelector('button[type="submit"]');
       const originalHTML = btn.innerHTML;
+
+      // Validation complète avant envoi
+      if (!validateForm()) {
+        const firstErr = form.querySelector('.field-error[style*="block"]');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
 
       // Show spinner
       btn.disabled = true;
@@ -3287,7 +3352,7 @@
         d.querySelectorAll('*').forEach(el => {
           [...el.attributes].forEach(attr => {
             const n = attr.name.toLowerCase();
-            const v = attr.value.toLowerCase().trim().replace(/\s/g,'');
+            const v = attr.value.toLowerCase().trim().replace(/\s/g, '');
             if (n.startsWith('on') || v.startsWith('javascript:') || v.startsWith('data:text/html')) el.removeAttribute(attr.name);
           });
         });
