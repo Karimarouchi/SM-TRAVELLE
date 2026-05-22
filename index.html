@@ -696,7 +696,8 @@
       display: flex;
       gap: 1.5rem;
       width: max-content;
-      animation: testi-scroll 36s linear infinite;
+      animation: testi-scroll 24s linear infinite;
+      will-change: transform;
     }
 
     .testi-track:hover {
@@ -1295,10 +1296,7 @@
           <span class="section-label">Destinations d'excellence</span>
           <h2 class="font-display font-bold text-4xl md:text-5xl text-dark mt-2">Les Programmes Populaires</h2>
         </div>
-        <p class="text-muted max-w-sm text-base leading-relaxed">
-          Explorez des universités de classe mondiale dans des pays offrant un équilibre parfait entre éducation et
-          qualité de vie.
-        </p>
+       
       </div>
 
       <!-- Cards grid -->
@@ -2944,8 +2942,8 @@
         '📞 Contact',
       ];
 
-      const OLLAMA_ENDPOINT = 'http://localhost:11434/api/generate';
-      const OLLAMA_TIMEOUT_MS = 120000;
+      const N8N_WEBHOOK_URL = 'https://antigoneconsulting.app.n8n.cloud/webhook/SmTravel';
+      const WEBHOOK_TIMEOUT_MS = 30000;
       const FALLBACK = 'Je n\'ai pas encore la réponse à cette question précise. Mais un de nos conseillers peut vous aider rapidement ! 📞 <strong>+216 56 819 899</strong> ou remplissez notre <a href="#contact" onclick="toggleChat()" style="color:#7c3aed;text-decoration:underline">formulaire de contact</a>.';
 
       /* ───── ÉTAT ───── */
@@ -3000,22 +2998,27 @@
         let timeoutId;
         try {
           const controller = new AbortController();
-          timeoutId = setTimeout(() => controller.abort(), OLLAMA_TIMEOUT_MS);
-          const res = await fetch(OLLAMA_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ model: 'smtravelle', prompt: raw, stream: false }),
+          timeoutId = setTimeout(() => controller.abort(), WEBHOOK_TIMEOUT_MS);
+          const url = N8N_WEBHOOK_URL + '?chatInput=' + encodeURIComponent(raw);
+          const res = await fetch(url, {
+            method: 'GET',
             signal: controller.signal
           });
-          if (!res.ok) throw new Error('Ollama indisponible');
-          const data = await res.json();
-          if (!data.response) throw new Error('Réponse vide depuis Ollama');
+          if (!res.ok) throw new Error('Webhook indisponible');
+          const raw_text = await res.text();
+          let reply = raw_text.trim();
+          try {
+            const data = JSON.parse(raw_text);
+            reply = data.output || data.response || data.text || data.message || raw_text;
+          } catch (_) {}
+          if (!reply) throw new Error('Réponse vide depuis le webhook');
           removeTyping();
-          addBotMsg(data.response.replace(/\n/g, '<br>'));
+          addBotMsg(reply.replace(/\n/g, '<br>'));
         } catch (e) {
-          console.error('Erreur Ollama:', e);
+          console.error('Erreur webhook n8n:', e.name, e.message);
           removeTyping();
-          const answer = findAnswer(raw);
+          addBotMsg('⚠️ Erreur: <strong>' + e.name + '</strong> – ' + e.message);
+          return;
           addBotMsg(answer);
         }
         finally {
