@@ -718,13 +718,14 @@
     #temoignages {
       background: #07001e;
       position: relative;
-      overflow-x: hidden;
+      overflow-x: clip;
+      overflow-y: visible;
     }
 
     .testi-track-wrapper {
       overflow: visible;
-      padding-top: 40px;
-      padding-bottom: 40px;
+      padding-top: 22px;
+      padding-bottom: 22px;
       position: relative;
     }
 
@@ -773,9 +774,9 @@
     }
 
     .testi-glass-card {
-      flex: 0 0 340px;
+      flex: 0 0 300px;
       border-radius: 24px;
-      padding: 2rem;
+      padding: 1.5rem;
       background: rgba(255, 255, 255, .04);
       border: 1px solid rgba(196, 181, 253, .12);
       backdrop-filter: blur(12px);
@@ -804,10 +805,10 @@
 
     .testi-quote {
       color: rgba(196, 181, 253, .8);
-      font-size: .88rem;
-      line-height: 1.75;
+      font-size: .84rem;
+      line-height: 1.62;
       font-style: italic;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.1rem;
     }
 
     .testi-name {
@@ -821,6 +822,13 @@
       font-size: .72rem;
       text-transform: uppercase;
       letter-spacing: .1em;
+    }
+
+    @media (max-width: 768px) {
+      .testi-glass-card {
+        flex: 0 0 270px;
+        padding: 1.25rem;
+      }
     }
 
     /* ═══ CTA BAND — Deep Purple (même style que Méthode) ═══ */
@@ -1574,7 +1582,7 @@
             <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Notre équipe d'experts gère
               l'intégralité de votre dossier visa avec 98% de taux d'acceptation et un traitement express disponible.
             </p>
-            <a href="#contact"
+            <a href="offres.html"
               class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
               Commencer maintenant <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
@@ -1593,7 +1601,7 @@
             <h3 class="font-display font-bold text-xl mb-3" style="color:#fff;">Consultation Stratégique</h3>
             <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Analyse personnalisée de votre
               profil pour identifier les meilleures destinations et programmes. Réseau dans 40+ pays.</p>
-            <a href="#contact"
+            <a href="offres.html"
               class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
               Prendre rendez-vous <span class="material-symbols-outlined text-[16px]">calendar_month</span>
             </a>
@@ -1611,7 +1619,7 @@
             <h3 class="font-display font-bold text-xl mb-3" style="color:#fff;">Accueil à l'Aéroport</h3>
             <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Chauffeurs bilingues, gestion
               des bagages et transfert vers votre logement. Suivi des vols en temps réel, 24h/24.</p>
-            <a href="#contact"
+            <a href="offres.html"
               class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
               Commencer maintenant <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
@@ -1723,13 +1731,6 @@
         </div>
       </div>
 
-      <div class="text-center methode-step s5" style="transition-delay:.8s;">
-        <a href="#contact"
-          class="btn-shimmer inline-flex items-center gap-2 text-white font-bold px-9 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-all">
-          Démarrer mon projet
-          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-        </a>
-      </div>
     </div>
   </section>
 
@@ -1812,7 +1813,7 @@
 
 
   <!-- ═══════════════════════════════════════ TÉMOIGNAGES ════ -->
-  <section id="temoignages" class="py-24 overflow-x-hidden">
+  <section id="temoignages" class="py-24">
     <div class="methode-grid"></div>
     <div class="methode-glow-1" style="background:radial-gradient(circle,rgba(109,0,200,.38) 0%,transparent 68%);">
     </div>
