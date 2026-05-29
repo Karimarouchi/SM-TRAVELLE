@@ -5,6 +5,26 @@ $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $listener = $null
 $prefix = $null
 
+# Build Tailwind CSS before starting the local server.
+# This removes stale styles and keeps production parity.
+Push-Location $root
+try {
+  if (Test-Path (Join-Path $root 'package.json') -PathType Leaf) {
+    Write-Host 'Compilation CSS en cours (npm run build:css)...'
+    & npm.cmd run build:css
+    if ($LASTEXITCODE -ne 0) {
+      throw 'Échec de la compilation CSS (npm run build:css).'
+    }
+    Write-Host 'Compilation CSS terminée.'
+  }
+  else {
+    Write-Host 'package.json introuvable, build CSS ignoré.'
+  }
+}
+finally {
+  Pop-Location
+}
+
 foreach ($port in $candidatePorts) {
   $testListener = [System.Net.HttpListener]::new()
   $testPrefix = "http://localhost:$port/"

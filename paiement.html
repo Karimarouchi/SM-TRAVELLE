@@ -6,36 +6,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="icon" type="image/png" href="IMAGE/faicone.png" />
     <title>Paiement – SM Travel</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="tailwind.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: "#6d28d9",
-                        "brand-dark": "#4c1d95",
-                        "brand-light": "#ede9fe",
-                        accent: "#0ea5e9",
-                        dark: "#0f172a",
-                        mid: "#334155",
-                        muted: "#64748b",
-                        surface: "#f8fafc",
-                        border: "#e2e8f0",
-                    },
-                    fontFamily: {
-                        display: ["Plus Jakarta Sans", "sans-serif"],
-                        body: ["Be Vietnam Pro", "sans-serif"],
-                        caps: ["Space Grotesk", "sans-serif"],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         html {
             scroll-behavior: smooth;
@@ -70,6 +46,7 @@
         body {
             background: linear-gradient(160deg, #07001e 0%, #0f172a 40%, #1e1040 70%, #07001e 100%);
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         /* CARD 3D FLIP */
@@ -334,6 +311,128 @@
         #mobileMenu.open {
             display: block;
         }
+
+        @media (max-width: 767px) {
+            .mobile-hide-summary {
+                display: none !important;
+            }
+
+            .mobile-top-back {
+                display: inline-flex !important;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .mobile-top-back {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-scene {
+                max-width: 100%;
+                height: 220px;
+            }
+
+            .glass-card {
+                border-radius: 22px;
+            }
+
+            .pay-input {
+                padding: 12px 14px;
+                font-size: .9rem;
+            }
+
+            .secure-badge {
+                font-size: .65rem;
+                padding: 5px 10px;
+            }
+        }
+
+        @media (max-width: 430px) {
+            main {
+                padding-left: .85rem;
+                padding-right: .85rem;
+                padding-bottom: 3rem;
+            }
+
+            .glass-card.p-7 {
+                padding: 1.1rem;
+            }
+
+            #payBtn {
+                font-size: .92rem !important;
+                padding-top: .85rem;
+                padding-bottom: .85rem;
+            }
+        }
+
+        @media (min-width: 394px) and (max-width: 412px) {
+            .card-scene {
+                height: 204px;
+            }
+
+            .glass-card.p-7 {
+                padding: 1.02rem;
+            }
+
+            #payBtn {
+                font-size: .9rem !important;
+            }
+        }
+
+        @media (min-width: 376px) and (max-width: 393px) {
+            .card-scene {
+                height: 198px;
+            }
+
+            .pay-input {
+                padding: 11px 13px;
+            }
+
+            #payBtn {
+                font-size: .88rem !important;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .card-scene {
+                height: 196px;
+            }
+
+            .pay-label {
+                font-size: .69rem;
+            }
+
+            .pay-input {
+                font-size: .86rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secure-badge {
+                display: none;
+            }
+
+            .card-scene {
+                height: 205px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            main {
+                padding-left: .7rem;
+                padding-right: .7rem;
+            }
+
+            .card-scene {
+                height: 186px;
+            }
+
+            .glass-card.p-7 {
+                padding: .95rem;
+            }
+        }
     </style>
 </head>
 
@@ -364,6 +463,13 @@
     <!-- ═══ MAIN ═══ -->
     <main class="min-h-screen pt-24 pb-16 px-4">
         <div class="max-w-5xl mx-auto">
+
+            <!-- Back to offers (mobile top) -->
+            <a href="offres.html"
+                class="mobile-top-back hidden items-center gap-1 text-white/70 hover:text-white text-sm transition-colors mb-4">
+                <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Changer d'offre
+            </a>
 
             <!-- Steps -->
             <div class="flex items-center justify-center gap-2 mb-10">
@@ -472,7 +578,7 @@
                         </div>
 
                         <!-- Expiry + CVV -->
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="pay-label">Date d'expiration</label>
                                 <input type="text" id="cardExpiry" class="pay-input mono" placeholder="MM/AA"
@@ -521,15 +627,8 @@
                 <!-- RIGHT — Order Summary -->
                 <div class="lg:col-span-2 space-y-5">
 
-                    <!-- Back to offers (mobile) -->
-                    <a href="offres.html"
-                        class="lg:hidden flex items-center gap-1 text-white/50 hover:text-white text-sm transition-colors mb-2">
-                        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                        Changer d'offre
-                    </a>
-
                     <!-- Summary Card -->
-                    <div class="glass-card p-6">
+                    <div class="glass-card p-6 mobile-hide-summary">
                         <p class="font-caps font-semibold text-xs uppercase tracking-widest text-white/40 mb-4">
                             Récapitulatif</p>
 
@@ -582,7 +681,7 @@
                     </div>
 
                     <!-- What's included -->
-                    <div class="glass-card p-6">
+                    <div class="glass-card p-6 mobile-hide-summary">
                         <p class="font-caps font-semibold text-xs uppercase tracking-widest text-white/40 mb-4">Ce qui
                             est inclus</p>
                         <ul id="packFeatures" class="space-y-3">

@@ -36,7 +36,7 @@
     <source src="SONG/bruit-decollage-avion_j3LekOTX.mp3" type="audio/mpeg" />
   </audio>
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="tailwind.css" />
   <script>
     const RECAPTCHA_SITE_KEY = '6LdWjgItAAAAAPeCw5_C8iZlAv2x0PIQ2lNvQssi';
     window._recaptchaWidgetId = null;
@@ -100,36 +100,13 @@
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: "#6d28d9",
-            "brand-dark": "#4c1d95",
-            "brand-light": "#ede9fe",
-            accent: "#0ea5e9",
-            "accent-light": "#e0f2fe",
-            teal: "#0d9488",
-            "teal-light": "#ccfbf1",
-            dark: "#0f172a",
-            mid: "#334155",
-            muted: "#64748b",
-            surface: "#f8fafc",
-            border: "#e2e8f0",
-          },
-          fontFamily: {
-            display: ["Plus Jakarta Sans", "sans-serif"],
-            body: ["Be Vietnam Pro", "sans-serif"],
-            caps: ["Space Grotesk", "sans-serif"],
-          }
-        }
-      }
-    }
-  </script>
   <style>
     html {
       scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
     }
 
     *,
@@ -831,6 +808,165 @@
       }
     }
 
+    @media (max-width: 1024px) {
+      .svc-card {
+        height: 440px;
+      }
+
+      #services.svc-active .svc-card.s1,
+      #services.svc-active .svc-card.s3 {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      .svc-card:hover {
+        transform: translateY(-10px) scale(1.01) !important;
+      }
+
+      .svc-card-content {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .testi-track {
+        gap: 1rem;
+        animation-duration: 30s;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .svc-card {
+        height: 390px;
+        border-radius: 22px;
+      }
+
+      .svc-card-content {
+        padding: 1.25rem 1rem;
+      }
+
+      .testi-track-wrapper {
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+
+      .testi-glass-card {
+        flex: 0 0 84vw;
+        max-width: 290px;
+        padding: 1.1rem;
+      }
+
+      .testi-quote {
+        font-size: .8rem;
+        line-height: 1.55;
+      }
+    }
+
+    @media (max-width: 430px) {
+      #navbar .max-w-7xl {
+        padding-left: .9rem;
+        padding-right: .9rem;
+      }
+
+      #services,
+      #methode,
+      #temoignages,
+      #faq,
+      #cta-band {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      #services h2,
+      #methode h2,
+      #temoignages h2,
+      #faq h2,
+      #cta-band h2 {
+        font-size: clamp(1.9rem, 7.8vw, 2.35rem);
+        line-height: 1.14;
+      }
+    }
+
+    @media (min-width: 394px) and (max-width: 412px) {
+
+      #services,
+      #methode,
+      #temoignages,
+      #faq,
+      #cta-band {
+        padding-top: 4.2rem;
+        padding-bottom: 4.2rem;
+      }
+
+      .svc-card {
+        height: 376px;
+      }
+
+      .testi-glass-card {
+        flex: 0 0 82vw;
+      }
+    }
+
+    @media (min-width: 376px) and (max-width: 393px) {
+      #navbar .max-w-7xl {
+        padding-left: .82rem;
+        padding-right: .82rem;
+      }
+
+      .svc-card {
+        height: 368px;
+      }
+
+      .testi-glass-card {
+        flex: 0 0 84vw;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .svc-card {
+        height: 365px;
+      }
+
+      .svc-card-content {
+        padding: 1rem .9rem;
+      }
+
+      .testi-glass-card {
+        flex: 0 0 86vw;
+      }
+
+      .faq-btn {
+        font-size: .92rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      #navbar .max-w-7xl {
+        padding-left: .75rem;
+        padding-right: .75rem;
+      }
+
+      #services h2,
+      #methode h2,
+      #temoignages h2,
+      #faq h2,
+      #cta-band h2 {
+        font-size: clamp(1.7rem, 8.3vw, 2rem);
+      }
+
+      .testi-glass-card {
+        max-width: 270px;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .svc-card {
+        height: 340px;
+      }
+
+      .faq-btn {
+        font-size: .88rem;
+      }
+    }
+
     /* ═══ CTA BAND — Deep Purple (même style que Méthode) ═══ */
     #cta-band {
       background: #07001e;
@@ -1172,6 +1308,103 @@
       display: block;
     }
 
+    @media (max-width: 767px) {
+      #burgerBtn {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        border: 1px solid rgba(196, 181, 253, .35);
+        background: rgba(15, 23, 42, .25);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      #mobileMenu {
+        display: block;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 12px;
+        right: 12px;
+        padding: .75rem;
+        max-height: min(78vh, 560px);
+        overflow: auto;
+        border-radius: 18px;
+        border: 1px solid rgba(196, 181, 253, .22);
+        background: linear-gradient(180deg, rgba(15, 23, 42, .95) 0%, rgba(30, 16, 64, .95) 100%);
+        box-shadow: 0 16px 40px rgba(7, 0, 30, .45);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px) scale(.98);
+        transition: opacity .22s ease, transform .22s ease, visibility .22s;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      #mobileMenu::-webkit-scrollbar {
+        display: none;
+      }
+
+      #mobileMenu.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      #mobileMenu .mobile-menu-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: rgba(196, 181, 253, .82);
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: .66rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .12em;
+        margin-bottom: .58rem;
+        padding: .25rem .35rem;
+      }
+
+      #mobileMenu a {
+        display: block;
+        color: rgba(226, 232, 240, .92);
+        font-size: .95rem;
+        font-weight: 600;
+        padding: .78rem .9rem;
+        border-radius: 12px;
+        border: 1px solid rgba(196, 181, 253, .14);
+        background: rgba(255, 255, 255, .03);
+        transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+      }
+
+      #mobileMenu a+a {
+        margin-top: .48rem;
+      }
+
+      #mobileMenu a:hover {
+        color: #fff;
+        border-color: rgba(196, 181, 253, .32);
+        background: rgba(109, 40, 217, .22);
+        transform: translateX(2px);
+      }
+
+      #mobileMenu .mobile-menu-cta {
+        text-align: center;
+        color: #fff;
+        border: none;
+        font-weight: 700;
+        margin-top: .7rem;
+        background: linear-gradient(90deg, #5b21b6 0%, #6d28d9 55%, #7c3aed 100%);
+        box-shadow: 0 10px 24px rgba(109, 40, 217, .35);
+      }
+
+      #mobileMenu .mobile-menu-cta:hover {
+        transform: translateY(-1px);
+        background: linear-gradient(90deg, #6d28d9 0%, #7c3aed 100%);
+      }
+    }
+
     /* ═══ FORM SUCCESS OVERLAY ═══ */
     #formSuccessOverlay {
       display: none;
@@ -1299,31 +1532,31 @@
   </div>
 
   <script>
-      (function () {
-        var splash = document.getElementById('splash-screen');
-        var btn = document.getElementById('splash-btn');
-        var audio = document.getElementById('intro-sound');
-        var alreadyPlayed = sessionStorage.getItem('introPlayed');
+    (function () {
+      var splash = document.getElementById('splash-screen');
+      var btn = document.getElementById('splash-btn');
+      var audio = document.getElementById('intro-sound');
+      var alreadyPlayed = sessionStorage.getItem('introPlayed');
 
-        function dismiss() {
-          // Lance le son (ici on est DANS un clic → jamais bloqué)
-          if (!alreadyPlayed) {
-            audio.currentTime = 0;
-            audio.play().catch(function () { });
-            sessionStorage.setItem('introPlayed', '1');
-          }
-          // Fait disparaître l'écran
-          splash.style.opacity = '0';
-          setTimeout(function () { splash.style.display = 'none'; }, 650);
+      function dismiss() {
+        // Lance le son (ici on est DANS un clic → jamais bloqué)
+        if (!alreadyPlayed) {
+          audio.currentTime = 0;
+          audio.play().catch(function () { });
+          sessionStorage.setItem('introPlayed', '1');
         }
+        // Fait disparaître l'écran
+        splash.style.opacity = '0';
+        setTimeout(function () { splash.style.display = 'none'; }, 650);
+      }
 
-        // Si déjà joué dans cette session, on cache l'écran instantanément
-        if (alreadyPlayed) {
-          splash.style.display = 'none';
-        } else {
-          splash.addEventListener('click', dismiss);
-        }
-      })();
+      // Si déjà joué dans cette session, on cache l'écran instantanément
+      if (alreadyPlayed) {
+        splash.style.display = 'none';
+      } else {
+        splash.addEventListener('click', dismiss);
+      }
+    })();
   </script>
 
   <!-- ═══════════════════════════════════════════ NAVIGATION ═══ -->
@@ -1362,7 +1595,11 @@
     </div>
 
     <!-- Mobile menu VRFRFRF-->
-    <div id="mobileMenu" class="md:hidden bg-white border-t border-border px-6 py-4 space-y-3">
+    <div id="mobileMenu" class="md:hidden">
+      <div class="mobile-menu-head">
+        <span>Navigation</span>
+        <span>SM Travel</span>
+      </div>
       <a href="#accueil" onclick="closeMobile()"
         class="block text-mid font-medium py-2 hover:text-brand transition-colors">Accueil</a>
       <a href="#programmes" onclick="closeMobile()"
@@ -1377,8 +1614,7 @@
         class="block text-mid font-medium py-2 hover:text-brand transition-colors">FAQ</a>
       <a href="#contact" onclick="closeMobile()"
         class="block text-mid font-medium py-2 hover:text-brand transition-colors">Contact</a>
-      <a href="#contact"
-        class="block w-full text-center bg-brand text-white font-bold py-3 rounded-full mt-2">Commencer</a>
+      <a href="#contact" class="mobile-menu-cta">Commencer</a>
     </div>
   </nav>
 
@@ -2079,7 +2315,7 @@
 
       <!-- Buttons -->
       <div class="cta-item d3 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#contact"
+        <a href="offres.html"
           class="btn-shimmer inline-flex items-center justify-center gap-2 text-white font-bold px-9 py-4 rounded-full shadow-xl hover:-translate-y-1 transition-all">
           Évaluer mon dossier
           <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
