@@ -207,6 +207,38 @@
       transition: transform .35s ease, box-shadow .35s ease;
     }
 
+    .programmes-more {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(18px);
+      pointer-events: none;
+      transition: max-height .7s ease, opacity .45s ease, transform .45s ease;
+    }
+
+    .programmes-more.open {
+      max-height: 4000px;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .programmes-more .card {
+      opacity: 0;
+      transform: translateY(26px) scale(.985);
+      transition: opacity .55s ease, transform .55s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .programmes-more.open .card.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .programmes-featured-center {
+      max-width: 46rem;
+      margin: 0 auto;
+    }
+
     .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 28px 56px rgba(109, 40, 217, .15);
@@ -226,6 +258,191 @@
       text-transform: uppercase;
       padding: .35rem .9rem;
       border-radius: 99px;
+    }
+
+    /* ═══ DESTINATION MODAL ═══ */
+    #destModal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(7, 0, 30, .58);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+
+    #destModal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #destModal .dm-inner {
+      background: #fff;
+      border-radius: 1.75rem;
+      width: 100%;
+      max-width: 44rem;
+      overflow: hidden;
+      box-shadow: 0 36px 90px rgba(7, 0, 30, .32);
+      transform: scale(.86) translateY(32px);
+      transition: transform .48s cubic-bezier(.34, 1.56, .64, 1), opacity .38s ease;
+      opacity: 0;
+    }
+
+    #destModal.open .dm-inner {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    .dm-img {
+      position: relative;
+      height: 15rem;
+      overflow: hidden;
+    }
+
+    .dm-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.06);
+      transition: transform .55s ease;
+    }
+
+    #destModal.open .dm-img img {
+      transform: scale(1);
+    }
+
+    .dm-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, .62) 0%, rgba(0, 0, 0, .08) 60%, transparent 100%);
+    }
+
+    .dm-img-title {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.75rem;
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 800;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, .4);
+    }
+
+    .dm-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, .42);
+      backdrop-filter: blur(6px);
+      border: none;
+      color: #fff;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+
+    .dm-close:hover {
+      background: rgba(0, 0, 0, .72);
+      transform: scale(1.12);
+    }
+
+    .dm-body {
+      padding: 1.75rem 2rem 2rem;
+    }
+
+    .dm-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #ede9fe;
+      color: #6d28d9;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 99px;
+      margin-bottom: 1.1rem;
+    }
+
+    .dm-sessions {
+      margin-bottom: 1.25rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .dm-session-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .65rem 1.1rem;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: .85rem;
+    }
+
+    .dm-session-row:last-child {
+      border-bottom: none;
+    }
+
+    .dm-session-label {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .dm-session-date {
+      color: #6d28d9;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .dm-desc {
+      font-size: .9rem;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .dm-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: .8rem 1.8rem;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: opacity .2s, gap .2s, transform .2s;
+      box-shadow: 0 8px 24px rgba(109, 40, 217, .3);
+    }
+
+    .dm-cta:hover {
+      opacity: .9;
+      gap: .8rem;
+      transform: translateY(-1px);
+    }
+
+    .dest-detail-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
     }
 
     /* ═══ HERO ═══ */
@@ -1128,6 +1345,11 @@
       animation: shimmer 3.5s linear infinite;
     }
 
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(167,139,250,.5); }
+      50%       { box-shadow: 0 0 0 8px rgba(167,139,250,0); }
+    }
+
     /* ═══ GRADIENT TEXT ═══ */
     .grad-text {
       background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
@@ -1657,7 +1879,7 @@
 
         <!-- CTAs -->
         <div class="flex flex-wrap gap-4">
-          <a href="offres.html"
+          <a href="paiement.html?pack=consultation&prix=120&currency=TND"
             class="btn-shimmer inline-flex items-center gap-2 text-white font-bold px-9 py-4 rounded-full shadow-xl hover:-translate-y-1 transition-all"
             style="font-size:.95rem;">
             Démarrer mon dossier
@@ -1702,90 +1924,232 @@
       </div>
 
       <!-- Cards grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-        <!-- Latvia -->
-        <article class="card group">
-          <div class="h-64 overflow-hidden relative">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrTaCeXhHa0Jb7pnLLuz-XYaiF2wtXwq2cE8y1czVPIyNFSBvw0hNX3RsiqMEBMcfZJtZpuNQgIkr1qZiCAV8N6iHwFtH352wtBwCoXQ43f6fGG0g9AuZ7xZHbXy-M_K_2UB9Y3-mRXcz5R_5npMuq5vOWcsEOVL6DkWg2IpElBMsmNo3Huu7pnOkZ8XwMPcAWOQ5dCiG3aiZWxIfNxmahREpEunmlHnP_bMoy7z1usqAC2ed9VqO4EZ8Qfbs5rRt7MIJrYB1jk6w"
-              alt="Riga, Lettonie"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            <div class="absolute top-4 right-4 bg-brand text-white text-xs font-caps px-3 py-1 rounded-full shadow">🇱🇻
-              Latvia</div>
+        <article class="card group reveal delay-1">
+          <div class="h-56 overflow-hidden relative"
+            style="background:linear-gradient(135deg,#0f172a 0%,#4c1d95 52%,#1d4ed8 100%);">
+            <img src="IMAGE/bled/italie.jpg" alt="Italie" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 opacity-25"
+              style="background:radial-gradient(circle at top right,rgba(255,255,255,.28),transparent 42%),radial-gradient(circle at bottom left,rgba(255,255,255,.18),transparent 40%);">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+            <div class="relative z-10 h-full p-6 flex items-start">
+              <span
+                class="inline-flex items-center rounded-full bg-black/45 text-white text-xs font-semibold px-3 py-1 backdrop-blur-sm">Italia</span>
+            </div>
           </div>
           <div class="p-7">
-            <div class="text-xs font-caps text-accent uppercase tracking-widest mb-1">Bachelor &amp; Master</div>
-            <h3 class="font-display font-bold text-xl text-dark mb-3">Riga Technical University</h3>
-            <p class="text-muted text-sm leading-relaxed mb-6">
-              Étudiez en Europe dès <strong class="text-brand">3 000 €/an</strong> en Lettonie — sans compte bloqué. Un
-              pôle d'innovation technologique au cœur des pays baltes.
-            </p>
-            <a href="#lettonie"
-              class="inline-flex items-center gap-1 text-brand font-bold text-sm hover:gap-3 transition-all">
-              Commencer maintenant <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-            </a>
+            <h3 class="font-display font-bold text-xl text-dark mb-3">Programme Italie</h3>
+            <div class="mb-4 text-sm text-slate-600 space-y-2">
+              <p><strong>Session septembre (Licence / Master):</strong> Du 01/01 au 15/07</p>
+              <p><strong>Compte bloqué Italia:</strong> 10 000 €</p>
+            </div>
+            <p class="text-muted text-sm leading-relaxed mb-6"><strong>🇮🇹 Italia • Licence /
+                Master</strong><br />Italie 🇮🇹 pour les profils qui veulent une destination académique prestigieuse,
+              un cadre d'études attractif et une préparation claire du dossier.</p>
+            <button type="button"
+              class="dest-detail-btn inline-flex items-center gap-2 text-brand font-bold text-sm hover:gap-3 transition-all"
+              data-dest="italia">Voir les détails <span
+                class="material-symbols-outlined text-[18px]">open_in_full</span></button>
           </div>
         </article>
 
-        <!-- Austria -->
-        <article class="card group md:-mt-10">
-          <div class="h-64 overflow-hidden relative">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzGGDmdE7jtNzaZnzV-L3GZPb6byQAHzPUmQZU8I-9bn_xhBZRabgZJx0yFUCPmZpfe6MZ9jX3EeV6Ta20nBCCcPt6jvqOa7RdVe5QmAAk5DHXzerUEmx9M68NdcakUvzuZGKZNS6WSnyK7EGMJLbfBpUzIkY36-GRNrVJ2sfuetZRv8qK7lKvBibwLh1PPqMrIJ4iyP-PEw_z2PDdE3wy5RRvkCedNYxjD-kfyrhRt28lwMIvB2biJFwib-eoP2sqMEGIRyefLTc"
-              alt="Vienne, Autriche"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            <div class="absolute top-4 right-4 bg-accent text-white text-xs font-caps px-3 py-1 rounded-full shadow">
-              🇦🇹 Autriche</div>
+        <article class="card group reveal delay-2 md:-mt-10">
+          <div class="h-56 overflow-hidden relative"
+            style="background:linear-gradient(135deg,#111827 0%,#0f766e 52%,#1d4ed8 100%);">
+            <img src="IMAGE/bled/Allemagne.jpg" alt="Allemagne" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 opacity-25"
+              style="background:radial-gradient(circle at top right,rgba(255,255,255,.28),transparent 42%),radial-gradient(circle at bottom left,rgba(255,255,255,.16),transparent 40%);">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+            <div class="relative z-10 h-full p-6 flex items-start">
+              <span
+                class="inline-flex items-center rounded-full bg-black/45 text-white text-xs font-semibold px-3 py-1 backdrop-blur-sm">Allemagne</span>
+            </div>
           </div>
           <div class="p-7">
-            <div class="text-xs font-caps text-accent uppercase tracking-widest mb-1">Bachelor &amp; Master</div>
-            <h3 class="font-display font-bold text-xl text-dark mb-3">Université de Vienne</h3>
-            <p class="text-muted text-sm leading-relaxed mb-6">
-              Vos études de rêve à partir de <strong class="text-brand">750 €/semestre</strong> — qualité, prestige et
-              prix imbattable. Sans compte bloqué.
-            </p>
-            <a href="#contact"
-              class="inline-flex items-center gap-1 text-brand font-bold text-sm hover:gap-3 transition-all">
-              Commencer maintenant <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-            </a>
+            <h3 class="font-display font-bold text-xl text-dark mb-3">Programme Allemagne</h3>
+            <div class="flex flex-wrap gap-2 mb-4 text-xs font-semibold text-slate-600">
+              <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1">Deadline Germany 🇩🇪</span>
+              <span class="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-emerald-700">Du 01/05 au
+                30/06</span>
+            </div>
+            <p class="text-muted text-sm leading-relaxed mb-6"><strong>🇩🇪 Allemagne • Licence /
+                Master</strong><br />Allemagne 🇩🇪 pour un projet académique ambitieux, une orientation sérieuse et une
+              prise en charge professionnelle de votre dossier.</p>
+            <button type="button"
+              class="dest-detail-btn inline-flex items-center gap-2 text-brand font-bold text-sm hover:gap-3 transition-all"
+              data-dest="allemagne">Voir les détails <span
+                class="material-symbols-outlined text-[18px]">open_in_full</span></button>
           </div>
         </article>
 
-        <!-- Lithuania -->
-        <article class="card group">
-          <div class="h-64 overflow-hidden relative">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcmH7tuLMFg3TtuR-p-Zc2zK0q774wOrEHj0Wfpe7zT79UaNyiipRKBNZf56MZ6zVmx_qpHWAyB6l0yyYlL5TJCVBdZ5yhWBuU9mlWUeMlvDnEF2jSpfN8c6YRxqIt7BBg-SfiBlcGSQcTu15uUAphPvkUzNO5jpB25rEeHAfGPXO9vzIY7kJy7qvxtI4GErllLJmHhJ26_pYkzndItWbCxnbZ7Q3Z2zcfUoNsKqOhgkdPKUHv7Xj2wlittSCtHfo_LHNX3SnuBYs"
-              alt="Vilnius, Lituanie"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            <div
-              class="absolute top-4 right-4 bg-purple-600 text-white text-xs font-caps px-3 py-1 rounded-full shadow">
-              🇱🇹 Lituanie</div>
+        <article class="card group reveal delay-3">
+          <div class="h-56 overflow-hidden relative"
+            style="background:linear-gradient(135deg,#312e81 0%,#7c3aed 52%,#2563eb 100%);">
+            <img src="IMAGE/bled/Hongrie.webp" alt="Hongrie" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 opacity-25"
+              style="background:radial-gradient(circle at top right,rgba(255,255,255,.28),transparent 42%),radial-gradient(circle at bottom left,rgba(255,255,255,.16),transparent 40%);">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+            <div class="relative z-10 h-full p-6 flex items-start">
+              <span
+                class="inline-flex items-center rounded-full bg-black/45 text-white text-xs font-semibold px-3 py-1 backdrop-blur-sm">Hongrie</span>
+            </div>
           </div>
           <div class="p-7">
-            <div class="text-xs font-caps text-accent uppercase tracking-widest mb-1">Bachelor &amp; Master</div>
-            <h3 class="font-display font-bold text-xl text-dark mb-3">Vilnius University</h3>
-            <p class="text-muted text-sm leading-relaxed mb-6">
-              Étudiez dans des universités européennes à coût réduit et sans compte bloqué. Une tradition académique
-              séculaire alliée à un dynamisme moderne.
-            </p>
-            <a href="#contact"
-              class="inline-flex items-center gap-1 text-brand font-bold text-sm hover:gap-3 transition-all">
-              Commencer maintenant <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-            </a>
+            <h3 class="font-display font-bold text-xl text-dark mb-3">Programme Hongrie</h3>
+            <div class="mb-4 text-sm text-slate-600 space-y-2">
+              <p><strong>Session Février (English course):</strong> 15/08 au 15/12</p>
+              <p><strong>Session Septembre (English course / Licence / Master):</strong> 01/01 au 15/07</p>
+            </div>
+            <p class="text-muted text-sm leading-relaxed mb-6"><strong>🇭🇺 Hongrie • English course / Licence /
+                Master</strong><br />Hongrie 🇭🇺 pour les étudiants qui veulent un programme en anglais, une procédure
+              claire et un bon rapport qualité / budget.</p>
+            <button type="button"
+              class="dest-detail-btn inline-flex items-center gap-2 text-brand font-bold text-sm hover:gap-3 transition-all"
+              data-dest="hongrie">Voir les détails <span
+                class="material-symbols-outlined text-[18px]">open_in_full</span></button>
           </div>
         </article>
 
       </div>
 
+      <div id="programmesMore" class="programmes-more mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article class="card group">
+            <div class="h-56 overflow-hidden relative"
+              style="background:linear-gradient(135deg,#082f49 0%,#0f766e 50%,#16a34a 100%);">
+              <img src="IMAGE/bled/Lithuania.webp" alt="Lituanie" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 opacity-25"
+                style="background:radial-gradient(circle at top right,rgba(255,255,255,.25),transparent 42%),radial-gradient(circle at bottom left,rgba(255,255,255,.14),transparent 40%);">
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+              <div class="relative z-10 h-full p-6 flex items-start">
+                <span
+                  class="inline-flex items-center rounded-full bg-black/45 text-white text-xs font-semibold px-3 py-1 backdrop-blur-sm">Lithuania</span>
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="font-display font-bold text-xl text-dark mb-3">Programme Lituanie</h3>
+              <div class="mb-4 text-sm text-slate-600 space-y-2">
+                <p><strong>Session septembre (Licence / Master):</strong> Du 01/01 au 31/05</p>
+                <p><strong>Session Février (licence seulement):</strong> Du 15/07 au 15/12</p>
+              </div>
+              <p class="text-muted text-sm leading-relaxed mb-6"><strong>🇱🇹 Lithuania • Licence /
+                  Master</strong><br />Lithuania 🇱🇹 pour une orientation accessible, une bonne lisibilité des
+                démarches et un accompagnement adapté à votre profil.</p>
+              <button type="button"
+                class="dest-detail-btn inline-flex items-center gap-2 text-brand font-bold text-sm hover:gap-3 transition-all"
+                data-dest="lituanie">Voir les détails <span
+                  class="material-symbols-outlined text-[18px]">open_in_full</span></button>
+            </div>
+          </article>
+
+          <article class="card group">
+            <div class="h-56 overflow-hidden relative"
+              style="background:linear-gradient(135deg,#0f172a 0%,#334155 50%,#7c2d12 100%);">
+              <img src="IMAGE/bled/Poland.jpg" alt="Pologne" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 opacity-25"
+                style="background:radial-gradient(circle at top right,rgba(255,255,255,.23),transparent 42%),radial-gradient(circle at bottom left,rgba(255,255,255,.12),transparent 40%);">
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+              <div class="relative z-10 h-full p-6 flex items-start">
+                <span
+                  class="inline-flex items-center rounded-full bg-black/45 text-white text-xs font-semibold px-3 py-1 backdrop-blur-sm">Poland</span>
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="font-display font-bold text-xl text-dark mb-3">Programme Pologne</h3>
+              <div class="flex flex-wrap gap-2 mb-4 text-xs font-semibold text-slate-600">
+                <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1">Sur étude de dossier</span>
+                <span class="inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-amber-700">Entrée
+                  flexible</span>
+              </div>
+              <p class="text-muted text-sm leading-relaxed mb-6"><strong>🇵🇱 Poland • Licence /
+                  Master</strong><br />Poland 🇵🇱 pour un parcours accessible et structuré, avec un accompagnement
+                personnalisé selon votre niveau et votre projet d'études.</p>
+              <button type="button"
+                class="dest-detail-btn inline-flex items-center gap-2 text-brand font-bold text-sm hover:gap-3 transition-all"
+                data-dest="pologne">Voir les détails <span
+                  class="material-symbols-outlined text-[18px]">open_in_full</span></button>
+            </div>
+          </article>
+
+          <article class="card group">
+            <div class="h-56 overflow-hidden relative"
+              style="background:linear-gradient(135deg,#1f2937 0%,#1d4ed8 52%,#7c3aed 100%);">
+              <img src="IMAGE/bled/Slovakia.jpg" alt="Slovaquie" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 opacity-25"
+                style="background:radial-gradient(circle at top right,rgba(255,255,255,.25),transparent 42%),radial-gradient(circle at bottom left,rgba(255,255,255,.14),transparent 40%);">
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+              <div class="relative z-10 h-full p-6 flex items-start">
+                <span
+                  class="inline-flex items-center rounded-full bg-black/45 text-white text-xs font-semibold px-3 py-1 backdrop-blur-sm">Slovakia</span>
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="font-display font-bold text-xl text-dark mb-3">Programme Slovaquie</h3>
+              <div class="flex flex-wrap gap-2 mb-4 text-xs font-semibold text-slate-600">
+                <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1">Programme disponible</span>
+                <span class="inline-flex items-center rounded-full bg-violet-100 px-3 py-1 text-violet-700">Sélection
+                  selon profil</span>
+                <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1">Sessions sur demande</span>
+              </div>
+              <p class="text-muted text-sm leading-relaxed mb-6"><strong>🇸🇰 Slovakia • Licence /
+                  Master</strong><br />Slovakia 🇸🇰 pour une orientation sur mesure, avec une prise en charge claire du
+                choix de la filière et du calendrier d'admission.</p>
+              <button type="button"
+                class="dest-detail-btn inline-flex items-center gap-2 text-brand font-bold text-sm hover:gap-3 transition-all"
+                data-dest="slovakia">Voir les détails <span
+                  class="material-symbols-outlined text-[18px]">open_in_full</span></button>
+            </div>
+          </article>
+          <article class="card group md:col-start-2 xl:col-start-2">
+            <div class="h-56 overflow-hidden relative"
+              style="background:linear-gradient(135deg,#7f1d1d 0%,#b91c1c 48%,#f59e0b 100%);">
+              <img src="IMAGE/bled/Romania.jpg" alt="Roumanie" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 opacity-25"
+                style="background:radial-gradient(circle at top right,rgba(255,255,255,.25),transparent 42%),radial-gradient(circle at bottom left,rgba(255,255,255,.14),transparent 40%);">
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+              <div class="relative z-10 h-full p-6 flex items-start">
+                <span
+                  class="inline-flex items-center rounded-full bg-black/45 text-white text-xs font-semibold px-3 py-1 backdrop-blur-sm">Romania</span>
+              </div>
+            </div>
+            <div class="p-7">
+              <h3 class="font-display font-bold text-xl text-dark mb-3">Programme Roumanie</h3>
+              <div class="flex flex-wrap gap-2 mb-4 text-xs font-semibold text-slate-600">
+                <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1">Sur dossier</span>
+                <span class="inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-amber-700">Selon la
+                  session</span>
+              </div>
+              <p class="text-muted text-sm leading-relaxed mb-6"><strong>🇷🇴 Romania • Licence /
+                  Master</strong><br />Romania 🇷🇴 pour les étudiants qui veulent un cadre structuré, une orientation
+                simple et une sélection adaptée à leur projet académique.</p>
+              <button type="button"
+                class="dest-detail-btn inline-flex items-center gap-2 text-brand font-bold text-sm hover:gap-3 transition-all"
+                data-dest="romania">Voir les détails <span
+                  class="material-symbols-outlined text-[18px]">open_in_full</span></button>
+            </div>
+          </article>
+        </div>
+      </div>
+
       <!-- CTA -->
       <div class="text-center mt-14">
-        <a href="#contact"
+        <button id="programmesToggleBtn" type="button"
           class="inline-flex items-center gap-2 border-2 border-brand text-brand font-bold px-8 py-4 rounded-full hover:bg-brand hover:text-white transition-all">
-          Voir tous les programmes
+          Voir tous les programmes disponibles
           <span class="material-symbols-outlined text-[20px]">open_in_new</span>
-        </a>
+        </button>
+        <p class="mt-4 text-sm text-muted max-w-3xl mx-auto leading-relaxed">
+          Destinations disponibles : Italia 🇮🇹, Allemagne 🇩🇪, Hongrie 🇭🇺, Lithuania 🇱🇹, Poland 🇵🇱, Slovakia
+          🇸🇰 et Romania 🇷🇴.
+        </p>
       </div>
 
     </div>
@@ -1818,7 +2182,7 @@
             <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Notre équipe d'experts gère
               l'intégralité de votre dossier visa avec 98% de taux d'acceptation et un traitement express disponible.
             </p>
-            <a href="offres.html"
+            <a href="paiement.html?pack=consultation&prix=120&currency=TND"
               class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
               Commencer maintenant <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
@@ -1837,7 +2201,7 @@
             <h3 class="font-display font-bold text-xl mb-3" style="color:#fff;">Consultation Stratégique</h3>
             <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Analyse personnalisée de votre
               profil pour identifier les meilleures destinations et programmes. Réseau dans 40+ pays.</p>
-            <a href="offres.html"
+            <a href="paiement.html?pack=consultation&prix=120&currency=TND"
               class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
               Prendre rendez-vous <span class="material-symbols-outlined text-[16px]">calendar_month</span>
             </a>
@@ -1855,7 +2219,7 @@
             <h3 class="font-display font-bold text-xl mb-3" style="color:#fff;">Accueil à l'Aéroport</h3>
             <p class="text-sm leading-relaxed mb-5" style="color:rgba(196,181,253,.8);">Chauffeurs bilingues, gestion
               des bagages et transfert vers votre logement. Suivi des vols en temps réel, 24h/24.</p>
-            <a href="offres.html"
+            <a href="paiement.html?pack=consultation&prix=120&currency=TND"
               class="liquid-glass-btn inline-flex items-center gap-2 font-bold px-5 py-2.5 rounded-full text-sm">
               Commencer maintenant <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
@@ -2315,7 +2679,7 @@
 
       <!-- Buttons -->
       <div class="cta-item d3 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="offres.html"
+        <a href="paiement.html?pack=consultation&prix=120&currency=TND"
           class="btn-shimmer inline-flex items-center justify-center gap-2 text-white font-bold px-9 py-4 rounded-full shadow-xl hover:-translate-y-1 transition-all">
           Évaluer mon dossier
           <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
@@ -2334,10 +2698,139 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════════════ CONTACT ════ -->
-  <section id="contact" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+  <!-- ══════════════════════════════════════════════ OFFRES ════ -->
+  <section id="contact" class="py-24 relative overflow-hidden"
+    style="background:linear-gradient(150deg,#f5f3ff 0%,#ede9fe 40%,#f0fdf4 100%);">
+
+    <!-- Orbes décoratifs -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full pointer-events-none"
+      style="background:radial-gradient(circle,rgba(109,40,217,.12) 0%,transparent 70%);"></div>
+    <div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full pointer-events-none"
+      style="background:radial-gradient(circle,rgba(124,58,237,.1) 0%,transparent 70%);"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 lg:px-12">
+
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- ── Gauche : pitch ── -->
+        <div class="reveal">
+          <span class="section-label">Notre offre</span>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-dark mt-3 mb-5" style="line-height:1.18;">
+            Découvrez <br/>Notre offre
+          </h2>
+          <p class="text-muted text-base leading-relaxed mb-8 max-w-md">
+            Une consultation sur-mesure pour poser les bonnes bases de votre projet d'études à l'étranger —
+            sans stress, sans prise de tête.
+          </p>
+
+          <!-- Stats rapides -->
+          <div class="flex flex-wrap gap-8 mb-10">
+            <div>
+              <p class="font-display font-extrabold text-3xl text-dark">+500</p>
+              <p class="text-muted text-xs mt-1 uppercase tracking-wide">Étudiants accompagnés</p>
+            </div>
+            <div>
+              <p class="font-display font-extrabold text-3xl text-dark">7</p>
+              <p class="text-muted text-xs mt-1 uppercase tracking-wide">Pays partenaires</p>
+            </div>
+            <div>
+              <p class="font-display font-extrabold text-3xl text-dark">24h</p>
+              <p class="text-muted text-xs mt-1 uppercase tracking-wide">Délai de réponse</p>
+            </div>
+          </div>
+
+          <!-- Contacts rapides -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/48451041469" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-full transition-all"
+              style="background:#dcfce7;color:#15803d;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href="tel:+21656819899"
+              class="inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-full transition-all"
+              style="background:#ede9fe;color:#6d28d9;">
+              <span class="material-symbols-outlined text-[16px]">call</span>
+              +216 56 819 899
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Droite : carte pricing ── -->
+        <div class="reveal" style="--reveal-delay:.15s;">
+          <!-- Badge populaire -->
+          <div class="flex justify-center mb-4">
+        
+           
+            
+          </div>
+
+          <!-- Carte dark featured -->
+          <div class="relative rounded-3xl flex flex-col"
+            style="background:linear-gradient(160deg,#0f172a 0%,#1e1040 60%,#0f172a 100%);border:2px solid #6d28d9;box-shadow:0 16px 60px rgba(109,40,217,.45);">
+
+            <div class="p-8 flex-1 flex flex-col">
+              <!-- Icône + nom -->
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style="background:rgba(139,92,246,.2);">
+                  <span class="material-symbols-outlined text-[22px]"
+                    style="color:#c4b5fd;font-variation-settings:'FILL' 1">support_agent</span>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest" style="color:rgba(196,181,253,.6);">Recommandé</p>
+                  <h3 class="font-display font-bold text-xl text-white">Consultation personnalisée</h3>
+                </div>
+              </div>
+
+              <!-- Prix -->
+              <div class="mb-8">
+                <div class="flex items-end gap-1">
+                  <span class="font-display font-extrabold text-5xl text-white leading-none">120</span>
+                  <span class="font-bold text-xl mb-1" style="color:rgba(196,181,253,.7);">TND</span>
+                </div>
+                <p class="text-sm mt-1" style="color:rgba(196,181,253,.55);">session de 30 minutes · paiement unique</p>
+              </div>
+
+              <!-- Features -->
+              <ul class="space-y-3 flex-1 mb-8">
+                <li class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center"
+                    style="background:rgba(139,92,246,.2);">
+                    <span class="material-symbols-outlined text-[13px]" style="color:#c4b5fd;font-variation-settings:'FILL' 1">check</span>
+                  </span>
+                  <span class="text-sm" style="color:#ddd6fe;">Choix de la destination adaptée à votre profil</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center"
+                    style="background:rgba(139,92,246,.2);">
+                    <span class="material-symbols-outlined text-[13px]" style="color:#c4b5fd;font-variation-settings:'FILL' 1">check</span>
+                  </span>
+                  <span class="text-sm" style="color:#ddd6fe;">Sélection des programmes et universités</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center"
+                    style="background:rgba(139,92,246,.2);">
+                    <span class="material-symbols-outlined text-[13px]" style="color:#c4b5fd;font-variation-settings:'FILL' 1">check</span>
+                  </span>
+                  <span class="text-sm" style="color:#ddd6fe;">Orientation sur les démarches et critères d'admission</span>
+                </li>
+              </ul>
+
+              <!-- CTA → paiement -->
+              <a href="paiement.html?pack=consultation&prix=120"
+                class="btn-shimmer flex items-center justify-center gap-2 text-white font-bold py-4 rounded-2xl text-sm transition-all hover:-translate-y-0.5">
+                Réserver ma consultation
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </a>
+              <p class="text-center text-xs mt-3" style="color:rgba(196,181,253,.45);">Paiement sécurisé · Réponse sous 24h</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div style="display:none;">
 
         <!-- Gauche : titre + info -->
         <div>
@@ -2545,9 +3038,7 @@
             </div>
           </form>
         </div>
-
       </div>
-    </div>
   </section>
 
 
@@ -2857,6 +3348,26 @@
         revealObserver.observe(el);
       }
     });
+
+    /* ── Programmes: reveal remaining destinations on demand ── */
+    const programmesToggleBtn = document.getElementById('programmesToggleBtn');
+    const programmesMore = document.getElementById('programmesMore');
+    if (programmesToggleBtn && programmesMore) {
+      const hiddenCards = Array.from(programmesMore.querySelectorAll('.card'));
+      programmesToggleBtn.addEventListener('click', () => {
+        if (programmesMore.classList.contains('open')) return;
+        programmesMore.classList.add('open');
+        programmesToggleBtn.disabled = true;
+        programmesToggleBtn.setAttribute('aria-expanded', 'true');
+        programmesToggleBtn.classList.add('opacity-70', 'cursor-default');
+        hiddenCards.forEach((card) => {
+          card.classList.add('visible');
+        });
+        window.setTimeout(() => {
+          programmesMore.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
+      });
+    }
 
     /* ── Animated counters ── */
     function animateCounter(el) {
@@ -3843,6 +4354,145 @@
 
       /* Notification initiale après 3s */
       setTimeout(() => { notif.style.opacity = '1'; }, 3000);
+    })();
+  </script>
+
+  <!-- ═══ DESTINATION MODAL ═══ -->
+  <div id="destModal" role="dialog" aria-modal="true" aria-labelledby="dmTitle">
+    <div class="dm-inner">
+      <div class="dm-img">
+        <img id="dmImg" src="" alt="" />
+        <div class="dm-img-overlay"></div>
+        <p class="dm-img-title" id="dmTitle"></p>
+        <button class="dm-close" id="dmClose" aria-label="Fermer">
+          <span class="material-symbols-outlined" style="font-size:20px">close</span>
+        </button>
+      </div>
+      <div class="dm-body">
+        <span class="dm-badge" id="dmBadge"></span>
+        <div class="dm-sessions" id="dmSessions"></div>
+        <p class="dm-desc" id="dmDesc"></p>
+        <a href="#contact" class="dm-cta" id="dmCta">
+          Nous contacter
+          <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ── Destination modal ── */
+    (function () {
+      var destData = {
+        italia: {
+          title: 'Programme Italie',
+          badge: '🇮🇹 Italia · Licence / Master',
+          img: 'IMAGE/bled/italie.jpg',
+          sessions: [
+            ['Session Septembre (Licence / Master)', 'Du 01/01 au 15/07'],
+            ['Compte bloqué Italia', '10 000 €']
+          ],
+          desc: "Italie pour les profils qui veulent une destination académique prestigieuse, un cadre d'études attractif et une préparation claire du dossier."
+        },
+        allemagne: {
+          title: 'Programme Allemagne',
+          badge: '🇩🇪 Allemagne · Licence / Master',
+          img: 'IMAGE/bled/Allemagne.jpg',
+          sessions: [
+            ['Deadline Germany', 'Du 01/05 au 30/06']
+          ],
+          desc: "Allemagne pour un projet académique ambitieux, une orientation sérieuse et une prise en charge professionnelle de votre dossier."
+        },
+        hongrie: {
+          title: 'Programme Hongrie',
+          badge: '🇭🇺 Hongrie · English course / Licence / Master',
+          img: 'IMAGE/bled/Hongrie.webp',
+          sessions: [
+            ['Session Février (English course)', '15/08 au 15/12'],
+            ['Session Septembre (Licence / Master)', '01/01 au 15/07']
+          ],
+          desc: "Hongrie pour les étudiants qui veulent un programme en anglais, une procédure claire et un bon rapport qualité / budget."
+        },
+        lituanie: {
+          title: 'Programme Lituanie',
+          badge: '🇱🇹 Lithuania · Licence / Master',
+          img: 'IMAGE/bled/Lithuania.webp',
+          sessions: [
+            ['Session Septembre (Licence / Master)', 'Du 01/01 au 31/05'],
+            ['Session Février (Licence seulement)', 'Du 15/07 au 15/12']
+          ],
+          desc: "Lithuania pour une orientation accessible, une bonne lisibilité des démarches et un accompagnement adapté à votre profil."
+        },
+        pologne: {
+          title: 'Programme Pologne',
+          badge: '🇵🇱 Poland · Licence / Master',
+          img: 'IMAGE/bled/Poland.jpg',
+          sessions: [
+            ['Admission', 'Sur étude de dossier'],
+            ['Entrée', 'Flexible']
+          ],
+          desc: "Poland pour un parcours accessible et structuré, avec un accompagnement personnalisé selon votre niveau et votre projet d'études."
+        },
+        slovakia: {
+          title: 'Programme Slovaquie',
+          badge: '🇸🇰 Slovakia · Licence / Master',
+          img: 'IMAGE/bled/Slovakia.jpg',
+          sessions: [
+            ['Programme', 'Disponible'],
+            ['Sélection', 'Selon profil'],
+            ['Sessions', 'Sur demande']
+          ],
+          desc: "Slovakia pour une orientation sur mesure, avec une prise en charge claire du choix de la filière et du calendrier d'admission."
+        },
+        romania: {
+          title: 'Programme Roumanie',
+          badge: '🇷🇴 Romania · Licence / Master',
+          img: 'IMAGE/bled/Romania.jpg',
+          sessions: [
+            ['Admission', 'Sur dossier'],
+            ['Session', 'Selon la période']
+          ],
+          desc: "Romania pour les étudiants qui veulent un cadre structuré, une orientation simple et une sélection adaptée à leur projet académique."
+        }
+      };
+
+      var modal = document.getElementById('destModal');
+      var dmImg = document.getElementById('dmImg');
+      var dmTitle = document.getElementById('dmTitle');
+      var dmBadge = document.getElementById('dmBadge');
+      var dmSess = document.getElementById('dmSessions');
+      var dmDesc = document.getElementById('dmDesc');
+      var dmClose = document.getElementById('dmClose');
+      var dmCta = document.getElementById('dmCta');
+
+      function openModal(key) {
+        var d = destData[key];
+        if (!d) return;
+        dmImg.src = d.img;
+        dmImg.alt = d.title;
+        dmTitle.textContent = d.title;
+        dmBadge.textContent = d.badge;
+        dmSess.innerHTML = d.sessions.map(function (s) {
+          return '<div class="dm-session-row"><span class="dm-session-label">' + s[0] + '</span><span class="dm-session-date">' + s[1] + '</span></div>';
+        }).join('');
+        dmDesc.textContent = d.desc;
+        document.body.style.overflow = 'hidden';
+        modal.classList.add('open');
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.dest-detail-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { openModal(btn.dataset.dest); });
+      });
+
+      dmClose.addEventListener('click', closeModal);
+      dmCta.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
     })();
   </script>
 

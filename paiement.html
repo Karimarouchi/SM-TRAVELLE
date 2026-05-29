@@ -452,10 +452,10 @@
                     Paiement sécurisé SSL
                 </span>
             </div>
-            <a href="offres.html"
+            <a href="index.html"
                 class="hidden md:inline-flex items-center gap-1 text-white/60 hover:text-white text-sm transition-colors">
                 <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                Changer d'offre
+                Retour
             </a>
         </div>
     </nav>
@@ -748,6 +748,12 @@
         const is3x = prixRaw.includes('x3');
 
         const packData = {
+            consultation: {
+                name: 'Consultation personnalisée',
+                desc: 'Orientation études à l\'étranger',
+                icon: 'support_agent',
+                features: ['Choix de la destination adaptée à votre profil', 'Sélection des programmes et universités', 'Orientation sur les démarches et critères d\'admission'],
+            },
             essentiel: {
                 name: 'Pack Essentiel',
                 desc: 'Dossier d\'admission',
@@ -769,8 +775,8 @@
         };
 
         const current = packData[pack] || packData.premium;
-        const displayPrix = Number(prix).toLocaleString('fr-FR') + ' €';
-        const displayLabel = is3x ? '3 × ' + Number(prix).toLocaleString('fr-FR') + ' €' : displayPrix;
+        const displayPrix = Number(prix).toLocaleString('fr-FR') + ' TND';
+        const displayLabel = is3x ? '3 × ' + Number(prix).toLocaleString('fr-FR') + ' TND' : displayPrix;
 
         // Fill UI
         document.getElementById('packName').textContent = current.name;
