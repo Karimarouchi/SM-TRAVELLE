@@ -34,12 +34,13 @@ Options -Indexes
   # - Bloque tout le reste (iframes, objets, etc.)
   Header always set Content-Security-Policy "\
 default-src 'self'; \
-script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; \
+script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; \
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
 font-src 'self' https://fonts.gstatic.com; \
 img-src 'self' data: https://lh3.googleusercontent.com; \
-connect-src 'self' https://antigoneconsulting.app.n8n.cloud; \
+connect-src 'self' https://antigoneconsulting.app.n8n.cloud https://www.google.com/recaptcha/; \
 media-src 'self'; \
+frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/; \
 frame-ancestors 'none'; \
 object-src 'none'; \
 base-uri 'self';"

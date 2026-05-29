@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -37,6 +37,64 @@
   </audio>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    const RECAPTCHA_SITE_KEY = '6LdWjgItAAAAAPeCw5_C8iZlAv2x0PIQ2lNvQssi';
+    window._recaptchaWidgetId = null;
+    window._recaptchaReady = false;
+
+    window.onRecaptchaLoad = function () {
+      window._recaptchaReady = true;
+    };
+
+    window.ensureRecaptchaWidget = function () {
+      const wrap = document.getElementById('recaptchaWrap');
+      const recaptchaError = document.getElementById('err-recaptcha');
+      if (!wrap) return null;
+
+      wrap.style.display = 'block';
+
+      if (typeof grecaptcha === 'undefined' || !window._recaptchaReady) {
+        if (recaptchaError) {
+          recaptchaError.textContent = 'reCAPTCHA indisponible. Réessayez dans quelques secondes.';
+          recaptchaError.style.display = 'block';
+        }
+        return null;
+      }
+
+      if (window._recaptchaWidgetId !== null) return window._recaptchaWidgetId;
+
+      try {
+        window._recaptchaWidgetId = grecaptcha.render('recaptchaWidget', {
+          sitekey: RECAPTCHA_SITE_KEY,
+          theme: 'light',
+          callback: function () {
+            if (recaptchaError) recaptchaError.style.display = 'none';
+          },
+          'expired-callback': function () {
+            if (recaptchaError) {
+              recaptchaError.textContent = 'Le reCAPTCHA a expiré. Veuillez le valider à nouveau.';
+              recaptchaError.style.display = 'block';
+            }
+          },
+          'error-callback': function () {
+            if (recaptchaError) {
+              recaptchaError.textContent = 'Erreur reCAPTCHA. Vérifiez la clé (v2 case à cocher) et le domaine autorisé.';
+              recaptchaError.style.display = 'block';
+            }
+          }
+        });
+      } catch (err) {
+        if (recaptchaError) {
+          recaptchaError.textContent = 'Type de clé reCAPTCHA non valide. Créez une clé reCAPTCHA v2 case à cocher.';
+          recaptchaError.style.display = 'block';
+        }
+        return null;
+      }
+
+      return window._recaptchaWidgetId;
+    };
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
     rel="stylesheet" />
@@ -2233,6 +2291,11 @@
               <p style="color:#94a3b8;font-size:.7rem;text-align:right;margin-top:2px;"><span id="msg-count">0</span> /
                 1000</p>
             </div>
+            <div id="recaptchaWrap" style="display:none;">
+              <div id="recaptchaWidget"></div>
+              <p class="field-error" id="err-recaptcha"
+                style="display:none;color:#dc2626;font-size:.75rem;margin-top:6px;">Veuillez valider le reCAPTCHA.</p>
+            </div>
             <button type="submit"
               class="btn-shimmer w-full text-white font-bold py-4 rounded-xl text-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[.98] transition-transform shadow-lg">
               Envoyer ma demande
@@ -2733,6 +2796,24 @@
         return;
       }
 
+      const recaptchaError = document.getElementById('err-recaptcha');
+      if (recaptchaError) recaptchaError.style.display = 'none';
+      const widgetId = window.ensureRecaptchaWidget ? window.ensureRecaptchaWidget() : null;
+      if (widgetId === null) {
+        if (recaptchaError) recaptchaError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const recaptchaToken = grecaptcha.getResponse(widgetId);
+      if (!recaptchaToken) {
+        if (recaptchaError) {
+          recaptchaError.textContent = 'Veuillez valider le reCAPTCHA puis cliquer à nouveau sur Envoyer.';
+          recaptchaError.style.display = 'block';
+          recaptchaError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
       // Show spinner
       btn.disabled = true;
       btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="animation:spin .8s linear infinite;margin-right:6px"><path d="M12 2a10 10 0 0 1 10 10"/></svg>Envoi en cours…';
@@ -2750,6 +2831,7 @@
         telephone: document.getElementById('f-tel').value,
         destination: document.getElementById('f-destination').value,
         message: document.getElementById('f-message').value,
+        recaptchaToken,
       };
 
       // Anti-spam : 30s de délai entre deux envois
@@ -2769,8 +2851,6 @@
         'https://antigoneconsulting.app.n8n.cloud/webhook/smfrom',
       ];
       const jsonStr = JSON.stringify(payload);
-
-      console.log('[SM Travel] Envoi du formulaire vers les webhooks…', payload);
 
       for (const url of urls) {
         // Méthode 1 : fetch normal avec application/json (n8n cloud supporte CORS)
@@ -2810,6 +2890,9 @@
       }
 
       form.reset();
+      if (typeof grecaptcha !== 'undefined' && window._recaptchaWidgetId !== null) {
+        grecaptcha.reset(window._recaptchaWidgetId);
+      }
       btn.disabled = false;
       btn.innerHTML = originalHTML;
 
@@ -2827,6 +2910,13 @@
       overlay.style.display = ''; // laisse le CSS reprendre (display:none par défaut)
       document.getElementById('contactForm').style.display = '';
       document.getElementById('formToast').style.display = 'none';
+      const recaptchaError = document.getElementById('err-recaptcha');
+      if (recaptchaError) recaptchaError.style.display = 'none';
+      if (typeof grecaptcha !== 'undefined' && window._recaptchaWidgetId !== null) {
+        grecaptcha.reset(window._recaptchaWidgetId);
+      }
+      const recaptchaWrap = document.getElementById('recaptchaWrap');
+      if (recaptchaWrap) recaptchaWrap.style.display = 'none';
     }
 
     function spawnSuccessParticles() {
