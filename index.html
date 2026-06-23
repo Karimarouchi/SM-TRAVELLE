@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -287,11 +287,23 @@
       border-radius: 1.75rem;
       width: 100%;
       max-width: 44rem;
-      overflow: hidden;
+      max-height: 90vh;
+      overflow-y: auto;
       box-shadow: 0 36px 90px rgba(7, 0, 30, .32);
       transform: scale(.86) translateY(32px);
       transition: transform .48s cubic-bezier(.34, 1.56, .64, 1), opacity .38s ease;
       opacity: 0;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    #destModal .dm-inner::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #destModal .dm-inner::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 99px;
     }
 
     #destModal.open .dm-inner {
@@ -352,6 +364,7 @@
       justify-content: center;
       cursor: pointer;
       transition: background .2s, transform .2s;
+      z-index: 10;
     }
 
     .dm-close:hover {
@@ -377,43 +390,151 @@
       margin-bottom: 1.1rem;
     }
 
-    .dm-sessions {
-      margin-bottom: 1.25rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-
-    .dm-session-row {
+    /* Tabs System */
+    .dm-tabs {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: .75rem;
-      padding: .65rem 1.1rem;
-      border-bottom: 1px solid #f1f5f9;
-      font-size: .85rem;
+      gap: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 1.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
-
-    .dm-session-row:last-child {
-      border-bottom: none;
+    .dm-tabs::-webkit-scrollbar {
+      display: none;
     }
-
-    .dm-session-label {
-      font-weight: 600;
-      color: #1e293b;
-    }
-
-    .dm-session-date {
-      color: #6d28d9;
+    
+    .dm-tab {
+      padding: 0.65rem 1.25rem;
       font-weight: 700;
-      flex-shrink: 0;
+      font-size: 0.9rem;
+      color: #64748b;
+      border: none;
+      background: none;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    .dm-tab::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #6d28d9;
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+    
+    .dm-tab.active {
+      color: #6d28d9;
+    }
+    
+    .dm-tab.active::after {
+      transform: scaleX(1);
     }
 
     .dm-desc {
-      font-size: .9rem;
-      color: #64748b;
+      font-size: .95rem;
+      color: #475569;
       line-height: 1.7;
       margin-bottom: 1.5rem;
+    }
+
+    /* Program Content Grid */
+    .dm-program-details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    
+    @media(min-width: 640px) {
+      .dm-program-details {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .dm-detail-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .dm-detail-card:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+    }
+    
+    .dm-detail-card .icon-wrapper {
+      background: #ede9fe;
+      color: #6d28d9;
+      border-radius: 0.75rem;
+      padding: 0.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dm-detail-card .detail-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .dm-detail-card .detail-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.15rem;
+    }
+    
+    .dm-detail-card .detail-val {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.4;
+    }
+    
+    /* Custom status colors */
+    .dm-detail-card.status-open {
+      border-color: #bbf7d0;
+      background: #f0fdf4;
+    }
+    .dm-detail-card.status-open .icon-wrapper {
+      background: #dcfce7;
+      color: #15803d;
+    }
+    .dm-detail-card.status-open .detail-val {
+      color: #15803d;
+    }
+    
+    /* Custom scholarship styling */
+    .dm-detail-card.scholarship-highlight {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #fef08a 0%, #fef3c7 100%);
+      border-color: #fde047;
+      box-shadow: 0 4px 12px rgba(254, 240, 138, 0.2);
+    }
+    
+    .dm-detail-card.scholarship-highlight .icon-wrapper {
+      background: #fef08a;
+      color: #a16207;
+    }
+    
+    .dm-detail-card.scholarship-highlight .detail-val {
+      color: #78350f;
+      font-weight: 800;
     }
 
     .dm-cta {
@@ -3026,113 +3147,80 @@
 
 
   <!-- ═══════════════════════════════════════════════ FOOTER ════ -->
-  <footer class="bg-dark text-white pt-20 pb-10">
+  <footer class="bg-dark text-white pt-12 pb-8">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-10 items-start">
 
-        <!-- Contact -->
-        <div class="md:col-span-1">
-          <h5 class="font-caps text-xs uppercase tracking-widest text-brand mb-6">Contact</h5>
-          <ul class="space-y-4">
-            <li>
-              <p class="text-slate-500 text-xs uppercase tracking-wide mb-0.5">Téléphone</p>
-              <a href="tel:+21656819899" class="text-slate-300 text-sm hover:text-white transition-colors">+216 56 819
-                899</a>
-            </li>
-            <li>
-              <p class="text-slate-500 text-xs uppercase tracking-wide mb-0.5">WhatsApp</p>
-              <a href="https://wa.me/48451041469" target="_blank" rel="noopener noreferrer"
-                class="text-slate-300 text-sm hover:text-white transition-colors">+48 451 041 469</a>
-            </li>
-            <li>
-              <p class="text-slate-500 text-xs uppercase tracking-wide mb-0.5">Email</p>
-              <a href="mailto:services@smtravel.fr"
-                class="text-slate-300 text-sm hover:text-white transition-colors">services@smtravel.fr</a>
-            </li>
-            <li>
-              <p class="text-slate-500 text-xs uppercase tracking-wide mb-0.5">Adresse</p>
-              <p class="text-slate-300 text-sm">4 Bis Rue du Mali, 4ᵉ étage,<br />bureau n°4, Jeanne d'Arc,<br />Tunis
-                1002</p>
-            </li>
-          </ul>
-          <div class="mt-6 pt-6 border-t border-slate-800">
-            <p class="text-slate-500 text-xs uppercase tracking-widest mb-3">Suivez-nous</p>
-            <div class="flex gap-2 flex-wrap">
-              <a href="https://www.facebook.com/Marstrip1/" target="_blank" rel="noopener noreferrer"
-                class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
-                aria-label="Facebook">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              </a>
-              <a href="https://www.instagram.com/smtravel_agency_/" target="_blank" rel="noopener noreferrer"
-                class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
-                aria-label="Instagram">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                </svg>
-              </a>
-              <a href="https://www.tiktok.com/@sahbi_mars1" target="_blank" rel="noopener noreferrer"
-                class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
-                aria-label="TikTok">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.01-8.28a8.26 8.26 0 004.83 1.55V5.12a4.84 4.84 0 01-1.05-.43z" />
-                </svg>
-              </a>
-              <a href="https://www.youtube.com/@sahbi_mars" target="_blank" rel="noopener noreferrer"
-                class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all"
-                aria-label="YouTube">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
-                </svg>
-              </a>
-            </div>
+        <!-- Telephone -->
+        <div>
+          <h5 class="text-slate-500 text-[10px] uppercase tracking-widest mb-2">Téléphone</h5>
+          <a href="tel:+21656819899" class="text-slate-200 text-sm font-semibold hover:text-brand transition-colors">+216 56 819 899</a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div>
+          <h5 class="text-slate-500 text-[10px] uppercase tracking-widest mb-2">WhatsApp</h5>
+          <a href="https://wa.me/48451041469" target="_blank" rel="noopener noreferrer"
+            class="text-slate-200 text-sm font-semibold hover:text-brand transition-colors">+48 451 041 469</a>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <h5 class="text-slate-500 text-[10px] uppercase tracking-widest mb-2">Email</h5>
+          <a href="mailto:services@smtravel.fr"
+            class="text-slate-200 text-sm font-semibold hover:text-brand transition-colors">services@smtravel.fr</a>
+        </div>
+
+        <!-- Adresse -->
+        <div>
+          <h5 class="text-slate-500 text-[10px] uppercase tracking-widest mb-2">Adresse</h5>
+          <p class="text-slate-200 text-sm font-semibold leading-relaxed">4 Bis Rue du Mali, 4ᵉ étage,<br />bureau n°4, Jeanne d'Arc,<br />Tunis 1002</p>
+        </div>
+
+        <!-- Suivez-nous -->
+        <div>
+          <h5 class="text-slate-500 text-[10px] uppercase tracking-widest mb-3">Suivez-nous</h5>
+          <div class="flex gap-2 flex-wrap">
+            <a href="https://www.facebook.com/Marstrip1/" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
+              aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/smtravel_agency_/" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
+              aria-label="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@sahbi_mars1" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-brand hover:text-white hover:border-brand transition-all"
+              aria-label="TikTok">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.01-8.28a8.26 8.26 0 004.83 1.55V5.12a4.84 4.84 0 01-1.05-.43z" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@sahbi_mars" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all"
+              aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
+              </svg>
+            </a>
           </div>
-        </div>
-
-        <!-- Destinations -->
-        <div class="hidden md:block">
-          <h5 class="font-caps text-xs uppercase tracking-widest text-brand mb-6">Destinations</h5>
-          <ul class="space-y-3 text-slate-400 text-sm">
-            <li><a href="#lettonie" class="hover:text-white transition-colors">🇱🇻 Lettonie</a></li>
-            <li><a href="#programmes" class="hover:text-white transition-colors">🇦🇹 Autriche</a></li>
-            <li><a href="#programmes" class="hover:text-white transition-colors">🇱🇹 Lituanie</a></li>
-          </ul>
-        </div>
-
-        <!-- Services -->
-        <div class="hidden md:block">
-          <h5 class="font-caps text-xs uppercase tracking-widest text-brand mb-6">Services</h5>
-          <ul class="space-y-3 text-slate-400 text-sm">
-            <li><a href="#services" class="hover:text-white transition-colors">Dossier Visa</a></li>
-            <li><a href="#services" class="hover:text-white transition-colors">Consultation</a></li>
-            <li><a href="#services" class="hover:text-white transition-colors">Accueil Aéroport</a></li>
-          </ul>
-        </div>
-
-        <!-- Newsletter -->
-        <div class="hidden md:block">
-          <h5 class="font-caps text-xs uppercase tracking-widest text-brand mb-6">Newsletter</h5>
-          <p class="text-slate-400 text-sm mb-4">Recevez les dernières offres et conseils voyage.</p>
-          <form class="flex gap-2" onsubmit="return false;">
-            <input type="email" placeholder="Email"
-              class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white w-full focus:outline-none focus:border-brand" />
-            <button
-              class="bg-brand px-4 py-2 rounded-lg text-white hover:bg-brand-dark transition-colors flex-shrink-0">
-              <span class="material-symbols-outlined text-[18px]">send</span>
-            </button>
-          </form>
         </div>
 
       </div>
 
       <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-slate-500 text-xs uppercase tracking-widest">© 2026 Antigoneagency. Tous droits réservés.</p>
-        <div class="hidden md:flex gap-6 text-slate-500 text-xs uppercase tracking-widest">
+        <div class="flex gap-6 text-slate-500 text-xs uppercase tracking-widest">
           <a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a>
           <a href="#" class="hover:text-white transition-colors">Conditions d'utilisation</a>
           <a href="#contact" class="hover:text-white transition-colors">Contact</a>
@@ -4353,8 +4441,16 @@
       </div>
       <div class="dm-body">
         <span class="dm-badge" id="dmBadge"></span>
-        <div class="dm-sessions" id="dmSessions"></div>
+        
+        <!-- Onglets dynamiques (si plusieurs programmes) -->
+        <div class="dm-tabs" id="dmTabs"></div>
+        
+        <!-- Description du programme -->
         <p class="dm-desc" id="dmDesc"></p>
+        
+        <!-- Grille de caractéristiques premium -->
+        <div class="dm-program-details" id="dmProgramDetails"></div>
+        
         <a href="#contact" class="dm-cta" id="dmCta">
           Nous contacter
           <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
@@ -4369,73 +4465,195 @@
       var destData = {
         italia: {
           title: 'Programme Italie',
-          badge: '🇮🇹 Italia · Licence / Master',
+          badge: '🇮🇹 Italie · Licence / Master',
           img: 'IMAGE/bled/italie.jpg',
-          sessions: [
-            ['Session Septembre (Licence / Master)', 'Du 01/01 au 15/07'],
-            ['Compte bloqué Italia', '10 000 €']
-          ],
-          desc: "Italie pour les profils qui veulent une destination académique prestigieuse, un cadre d'études attractif et une préparation claire du dossier."
+          programs: [
+            {
+              name: 'Licence',
+              desc: "Pour les étudiants titulaires d'un diplôme de Baccalauréat et souhaitant poursuivre leurs études en Licence, ce programme est enseigné en italien ou en anglais.",
+              details: {
+                lang: 'Italien ou Anglais',
+                fees: 'De 100€ à 300€ par an',
+                dates: 'Du 01/01/2026 au 30/04/2026',
+                status: 'Inscription ouverte',
+                scholarship: 'Les universités italiennes offrent des bourses allant de 7 000 à 10 000 euros par an.'
+              }
+            },
+            {
+              name: 'Master',
+              desc: "Pour les étudiants titulaires d'un diplôme de Licence et souhaitant poursuivre leurs études en Master, ce programme est enseigné en italien ou en anglais.",
+              details: {
+                lang: 'Italien ou Anglais',
+                fees: 'De 100€ à 300€ par an',
+                dates: 'Du 01/10/2025 au 30/09/2026',
+                status: 'Inscription ouverte',
+                scholarship: 'Les universités italiennes offrent des bourses allant de 7 000 à 8 000 euros par an.'
+              }
+            }
+          ]
         },
         allemagne: {
           title: 'Programme Allemagne',
           badge: '🇩🇪 Allemagne · Licence / Master',
           img: 'IMAGE/bled/Allemagne.jpg',
-          sessions: [
-            ['Deadline Germany', 'Du 01/05 au 30/06']
-          ],
-          desc: "Allemagne pour un projet académique ambitieux, une orientation sérieuse et une prise en charge professionnelle de votre dossier."
+          programs: [
+            {
+              name: 'Licence / Master',
+              desc: "L'Allemagne propose un projet académique ambitieux avec une excellente qualité d'enseignement. Idéal pour les profils rigoureux souhaitant intégrer des universités de renommée mondiale.",
+              details: {
+                lang: 'Allemand ou Anglais',
+                fees: 'Frais d\'inscription faibles (environ 100€ à 350€ par semestre)',
+                dates: 'Du 01/05 au 30/06',
+                status: 'Inscription ouverte',
+                scholarship: 'Compte bloqué requis : ~11 904 € par an.'
+              }
+            }
+          ]
         },
         hongrie: {
           title: 'Programme Hongrie',
-          badge: '🇭🇺 Hongrie · English course / Licence / Master',
+          badge: '🇭🇺 Hongrie · Préparatoire / Licence / Master',
           img: 'IMAGE/bled/Hongrie.webp',
-          sessions: [
-            ['Session Février (English course)', '15/08 au 15/12'],
-            ['Session Septembre (Licence / Master)', '01/01 au 15/07']
-          ],
-          desc: "Hongrie pour les étudiants qui veulent un programme en anglais, une procédure claire et un bon rapport qualité / budget."
+          programs: [
+            {
+              name: 'English Language Courses',
+              desc: "Pour les étudiants souhaitant améliorer leurs compétences en anglais, nous proposons les Cours de Langue Anglaise. La durée du programme est d’un semestre.",
+              details: {
+                lang: 'Anglais',
+                fees: '4100€ (remboursables en cas de refus de visa)',
+                dates: 'Session Février : Du 01/09/2025 au 15/11/2025',
+                status: 'Inscription ouverte',
+                scholarship: 'Un niveau d’anglais A2 est obligatoire'
+              }
+            },
+            {
+              name: 'Diplôme de Licence',
+              desc: "Pour les étudiants titulaires d'un diplôme de Baccalauréat et souhaitant poursuivre leurs études en licence, ce programme est enseigné en anglais.",
+              details: {
+                lang: 'Anglais',
+                fees: 'Environ 6 000€ à 8 000€ par an',
+                dates: 'Du 01/01 au 15/07 (Session Septembre)',
+                status: 'Inscription ouverte',
+                scholarship: 'Diplômes reconnus dans toute l\'Union Européenne.'
+              }
+            },
+            {
+              name: 'Diplôme de Master',
+              desc: "Pour les étudiants titulaires d'un diplôme de Licence et souhaitant poursuivre leurs études en master, ce programme est enseigné en anglais.",
+              details: {
+                lang: 'Anglais',
+                fees: 'Environ 6 000€ à 8 000€ par an',
+                dates: 'Du 01/01 au 15/07 (Session Septembre)',
+                status: 'Inscription ouverte',
+                scholarship: 'Diplômes reconnus dans toute l\'Union Européenne.'
+              }
+            }
+          ]
         },
         lituanie: {
           title: 'Programme Lituanie',
-          badge: '🇱🇹 Lithuania · Licence / Master',
+          badge: '🇱🇹 Lituanie · Préparatoire / Licence / Master',
           img: 'IMAGE/bled/Lithuania.webp',
-          sessions: [
-            ['Session Septembre (Licence / Master)', 'Du 01/01 au 31/05'],
-            ['Session Février (Licence seulement)', 'Du 15/07 au 15/12']
-          ],
-          desc: "Lithuania pour une orientation accessible, une bonne lisibilité des démarches et un accompagnement adapté à votre profil."
+          programs: [
+            {
+              name: 'English Preparatory Course',
+              desc: "Pour les étudiants ayant besoin d'améliorer leurs compétences en anglais, nous proposons le Programme de Fondation en Anglais. La durée du programme est d'un semestre, ou de deux semestres si nécessaire.",
+              details: {
+                lang: 'Anglais',
+                fees: '2800€ par an (remboursables en cas de refus de visa)',
+                dates: 'Session Septembre : Du 01/01/2025 au 30/04/2025 / Session Février : Du 01/09/2025 au 31/12/2025',
+                status: 'Inscription ouverte',
+                scholarship: 'Un niveau d’anglais A2 est obligatoire'
+              }
+            },
+            {
+              name: 'Diplôme de Licence',
+              desc: "Pour les étudiants titulaires d'un diplôme de Baccalauréat et souhaitant poursuivre leurs études en licence, ce programme est enseigné en anglais.",
+              details: {
+                lang: 'Anglais',
+                fees: 'de 2800€ au 5000€ par an (remboursables en cas de refus de visa)',
+                dates: 'Session Septembre : Du 01/01/2025 au 30/04/2025 / Session Février : Du 01/09/2025 au 31/12/2025',
+                status: 'Inscription ouverte',
+                scholarship: 'Un niveau d’anglais B2 est obligatoire'
+              }
+            },
+            {
+              name: 'Diplôme de Master',
+              desc: "Pour les étudiants titulaires d'un diplôme de Licence et souhaitant poursuivre leurs études en master, ce programme est enseigné en anglais.",
+              details: {
+                lang: 'Anglais',
+                fees: 'de 3300€ au 6000€ par an (remboursables en cas de refus de visa)',
+                dates: 'Session Septembre : Du 01/01/2025 au 30/04/2025',
+                status: 'Inscription ouverte',
+                scholarship: 'Un niveau d’anglais B2 est obligatoire'
+              }
+            }
+          ]
         },
         pologne: {
           title: 'Programme Pologne',
-          badge: '🇵🇱 Poland · Licence / Master',
+          badge: '🇵🇱 Pologne · Licence / Master',
           img: 'IMAGE/bled/Poland.jpg',
-          sessions: [
-            ['Admission', 'Sur étude de dossier'],
-            ['Entrée', 'Flexible']
-          ],
-          desc: "Poland pour un parcours accessible et structuré, avec un accompagnement personnalisé selon votre niveau et votre projet d'études."
+          programs: [
+            {
+              name: 'Licence',
+              desc: "Pour les étudiants titulaires d'un diplôme de Baccalauréat et souhaitant poursuivre leurs études en licence, ce programme est enseigné en anglais.",
+              details: {
+                lang: 'Anglais',
+                fees: 'De 3200€ à 5000€ par an (remboursables en cas de refus de visa)',
+                dates: 'Du 01/05/2025 au 10/07/2025',
+                status: 'Inscription ouverte',
+                scholarship: 'Remboursement des frais garanti en cas de refus de visa.'
+              }
+            },
+            {
+              name: 'Master',
+              desc: "Pour les étudiants titulaires d'un diplôme de Licence et souhaitant poursuivre leurs études en master, ce programme est enseigné en anglais.",
+              details: {
+                lang: 'Anglais',
+                fees: 'De 4200€ à 6000€ par an (remboursables en cas de refus de visa)',
+                dates: 'Du 01/10/2025 au 31/12/2025',
+                status: 'Inscription ouverte',
+                scholarship: 'Remboursement des frais garanti en cas de refus de visa.'
+              }
+            }
+          ]
         },
         slovakia: {
           title: 'Programme Slovaquie',
-          badge: '🇸🇰 Slovakia · Licence / Master',
+          badge: '🇸🇰 Slovaquie · Licence / Master',
           img: 'IMAGE/bled/Slovakia.jpg',
-          sessions: [
-            ['Programme', 'Disponible'],
-            ['Sélection', 'Selon profil'],
-            ['Sessions', 'Sur demande']
-          ],
-          desc: "Slovakia pour une orientation sur mesure, avec une prise en charge claire du choix de la filière et du calendrier d'admission."
+          programs: [
+            {
+              name: 'Licence / Master',
+              desc: "Profitez d'un parcours sur mesure dans un pays dynamique au cœur de l'Europe. Sélection basée sur profil avec des débouchés internationaux de premier plan.",
+              details: {
+                lang: 'Anglais ou Slovaque',
+                fees: 'Sur demande (variable selon l\'université)',
+                dates: 'Sélection selon profil (Sur demande)',
+                status: 'Inscription ouverte',
+                scholarship: 'Accompagnement complet de A à Z pour votre dossier.'
+              }
+            }
+          ]
         },
         romania: {
           title: 'Programme Roumanie',
-          badge: '🇷🇴 Romania · Licence / Master',
+          badge: '🇷🇴 Roumanie · Licence / Master',
           img: 'IMAGE/bled/Romania.jpg',
-          sessions: [
-            ['Admission', 'Sur dossier'],
-            ['Session', 'Selon la période']
-          ],
-          desc: "Romania pour les étudiants qui veulent un cadre structuré, une orientation simple et une sélection adaptée à leur projet académique."
+          programs: [
+            {
+              name: 'Licence / Master',
+              desc: "Un cadre d'études chaleureux et structuré en Europe de l'Est. Idéal pour les étudiants recherchant des procédures d'admission simplifiées sur dossier.",
+              details: {
+                lang: 'Français, Anglais ou Roumain',
+                fees: 'Sur étude de dossier (Coût modéré)',
+                dates: 'Selon la période de recrutement',
+                status: 'Inscription ouverte',
+                scholarship: 'Nombreuses filières francophones disponibles.'
+              }
+            }
+          ]
         }
       };
 
@@ -4443,22 +4661,115 @@
       var dmImg = document.getElementById('dmImg');
       var dmTitle = document.getElementById('dmTitle');
       var dmBadge = document.getElementById('dmBadge');
-      var dmSess = document.getElementById('dmSessions');
+      var dmTabs = document.getElementById('dmTabs');
       var dmDesc = document.getElementById('dmDesc');
+      var dmDetails = document.getElementById('dmProgramDetails');
       var dmClose = document.getElementById('dmClose');
       var dmCta = document.getElementById('dmCta');
+
+      var activeKey = null;
+
+      function renderProgram(key, tabIdx) {
+        var d = destData[key];
+        if (!d || !d.programs || !d.programs[tabIdx]) return;
+        var p = d.programs[tabIdx];
+        
+        dmDesc.textContent = p.desc;
+        
+        var isStatusOpen = p.details.status && p.details.status.toLowerCase().indexOf('ouverte') !== -1;
+        var statusClass = isStatusOpen ? 'status-open' : '';
+        
+        var html = '';
+        
+        // 1. Language Card
+        if (p.details.lang) {
+          html += '<div class="dm-detail-card">' +
+                    '<div class="icon-wrapper"><span class="material-symbols-outlined">translate</span></div>' +
+                    '<div class="detail-info">' +
+                      '<span class="detail-label">Langue d\'enseignement</span>' +
+                      '<span class="detail-val">' + p.details.lang + '</span>' +
+                    '</div>' +
+                  '</div>';
+        }
+        
+        // 2. Fees Card
+        if (p.details.fees) {
+          html += '<div class="dm-detail-card">' +
+                    '<div class="icon-wrapper"><span class="material-symbols-outlined">payments</span></div>' +
+                    '<div class="detail-info">' +
+                      '<span class="detail-label">Frais d\'études</span>' +
+                      '<span class="detail-val">' + p.details.fees + '</span>' +
+                    '</div>' +
+                  '</div>';
+        }
+        
+        // 3. Dates Card
+        if (p.details.dates) {
+          html += '<div class="dm-detail-card">' +
+                    '<div class="icon-wrapper"><span class="material-symbols-outlined">calendar_month</span></div>' +
+                    '<div class="detail-info">' +
+                      '<span class="detail-label">Période d\'inscription</span>' +
+                      '<span class="detail-val">' + p.details.dates + '</span>' +
+                    '</div>' +
+                  '</div>';
+        }
+        
+        // 4. Status Card
+        if (p.details.status) {
+          html += '<div class="dm-detail-card ' + statusClass + '">' +
+                    '<div class="icon-wrapper"><span class="material-symbols-outlined">check_circle</span></div>' +
+                    '<div class="detail-info">' +
+                      '<span class="detail-label">Statut</span>' +
+                      '<span class="detail-val">' + p.details.status + '</span>' +
+                    '</div>' +
+                  '</div>';
+        }
+        
+        // 5. Scholarship Card (Highlight)
+        if (p.details.scholarship) {
+          html += '<div class="dm-detail-card scholarship-highlight">' +
+                    '<div class="icon-wrapper"><span class="material-symbols-outlined">school</span></div>' +
+                    '<div class="detail-info">' +
+                      '<span class="detail-label">Bourses & Avantages</span>' +
+                      '<span class="detail-val">' + p.details.scholarship + '</span>' +
+                    '</div>' +
+                  '</div>';
+        }
+        
+        dmDetails.innerHTML = html;
+      }
 
       function openModal(key) {
         var d = destData[key];
         if (!d) return;
+        activeKey = key;
+        
         dmImg.src = d.img;
         dmImg.alt = d.title;
         dmTitle.textContent = d.title;
         dmBadge.textContent = d.badge;
-        dmSess.innerHTML = d.sessions.map(function (s) {
-          return '<div class="dm-session-row"><span class="dm-session-label">' + s[0] + '</span><span class="dm-session-date">' + s[1] + '</span></div>';
-        }).join('');
-        dmDesc.textContent = d.desc;
+        
+        dmTabs.innerHTML = '';
+        if (d.programs && d.programs.length > 1) {
+          dmTabs.style.display = 'flex';
+          d.programs.forEach(function (p, idx) {
+            var tabBtn = document.createElement('button');
+            tabBtn.type = 'button';
+            tabBtn.className = 'dm-tab' + (idx === 0 ? ' active' : '');
+            tabBtn.textContent = p.name;
+            tabBtn.addEventListener('click', function () {
+              dmTabs.querySelectorAll('.dm-tab').forEach(function (btn) { btn.classList.remove('active'); });
+              tabBtn.classList.add('active');
+              renderProgram(key, idx);
+            });
+            dmTabs.appendChild(tabBtn);
+          });
+        } else {
+          dmTabs.style.display = 'none';
+        }
+        
+        renderProgram(key, 0);
+        
         document.body.style.overflow = 'hidden';
         modal.classList.add('open');
       }
