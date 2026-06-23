@@ -4400,7 +4400,7 @@
       function addBotMsg(html, delay = 0) {
         const wrap = document.createElement('div');
         wrap.className = 'msg bot';
-        wrap.innerHTML = `<div class="msg-avatar"><img src="IMAGE/chatbot.jpeg" alt="Avatar" /></div><div class="msg-bubble">${sanitizeBotHtml(html)}</div>`;
+        wrap.innerHTML = `<div class="msg-bubble">${sanitizeBotHtml(html)}</div>`;
         wrap.style.opacity = '0';
         wrap.style.transform = 'translateY(8px)';
         msgs.appendChild(wrap);
@@ -4424,7 +4424,7 @@
       function showTyping() {
         const t = document.createElement('div');
         t.className = 'msg bot'; t.id = 'typing';
-        t.innerHTML = '<div class="msg-avatar"><img src="IMAGE/chatbot.jpeg" alt="Avatar" /></div><div class="msg-bubble"><div class="typing-bubble"><span></span><span></span><span></span></div></div>';
+        t.innerHTML = '<div class="msg-bubble"><div class="typing-bubble"><span></span><span></span><span></span></div></div>';
         msgs.appendChild(t);
         msgs.scrollTop = msgs.scrollHeight;
       }
