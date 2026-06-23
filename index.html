@@ -399,10 +399,11 @@
       overflow-x: auto;
       scrollbar-width: none;
     }
+
     .dm-tabs::-webkit-scrollbar {
       display: none;
     }
-    
+
     .dm-tab {
       padding: 0.65rem 1.25rem;
       font-weight: 700;
@@ -416,7 +417,7 @@
       transition: color 0.2s ease;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
-    
+
     .dm-tab::after {
       content: '';
       position: absolute;
@@ -428,11 +429,11 @@
       transform: scaleX(0);
       transition: transform 0.25s ease;
     }
-    
+
     .dm-tab.active {
       color: #6d28d9;
     }
-    
+
     .dm-tab.active::after {
       transform: scaleX(1);
     }
@@ -451,13 +452,13 @@
       gap: 1rem;
       margin-bottom: 1.75rem;
     }
-    
+
     @media(min-width: 640px) {
       .dm-program-details {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    
+
     .dm-detail-card {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -473,7 +474,7 @@
       transform: translateY(-2px);
       border-color: #cbd5e1;
     }
-    
+
     .dm-detail-card .icon-wrapper {
       background: #ede9fe;
       color: #6d28d9;
@@ -484,12 +485,12 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    
+
     .dm-detail-card .detail-info {
       display: flex;
       flex-direction: column;
     }
-    
+
     .dm-detail-card .detail-label {
       font-size: 0.7rem;
       font-weight: 700;
@@ -498,27 +499,29 @@
       letter-spacing: 0.05em;
       margin-bottom: 0.15rem;
     }
-    
+
     .dm-detail-card .detail-val {
       font-size: 0.9rem;
       font-weight: 700;
       color: #1e293b;
       line-height: 1.4;
     }
-    
+
     /* Custom status colors */
     .dm-detail-card.status-open {
       border-color: #bbf7d0;
       background: #f0fdf4;
     }
+
     .dm-detail-card.status-open .icon-wrapper {
       background: #dcfce7;
       color: #15803d;
     }
+
     .dm-detail-card.status-open .detail-val {
       color: #15803d;
     }
-    
+
     /* Custom scholarship styling */
     .dm-detail-card.scholarship-highlight {
       grid-column: 1 / -1;
@@ -526,12 +529,12 @@
       border-color: #fde047;
       box-shadow: 0 4px 12px rgba(254, 240, 138, 0.2);
     }
-    
+
     .dm-detail-card.scholarship-highlight .icon-wrapper {
       background: #fef08a;
       color: #a16207;
     }
-    
+
     .dm-detail-card.scholarship-highlight .detail-val {
       color: #78350f;
       font-weight: 800;
@@ -2243,7 +2246,7 @@
         </button>
         <p class="mt-4 text-sm text-muted max-w-3xl mx-auto leading-relaxed">
           Destinations disponibles : Italia , Allemagne , Hongrie , Lithuania , Poland , Slovakia
-           et Romania 🇷🇴.
+          et Romania 🇷🇴.
         </p>
       </div>
 
@@ -3154,7 +3157,8 @@
         <!-- Telephone -->
         <div>
           <h5 class="text-slate-500 text-[10px] uppercase tracking-widest mb-2">Téléphone</h5>
-          <a href="tel:+21656819899" class="text-slate-200 text-sm font-semibold hover:text-brand transition-colors">+216 56 819 899</a>
+          <a href="tel:+21656819899"
+            class="text-slate-200 text-sm font-semibold hover:text-brand transition-colors">+216 56 819 899</a>
         </div>
 
         <!-- WhatsApp -->
@@ -3174,7 +3178,8 @@
         <!-- Adresse -->
         <div>
           <h5 class="text-slate-500 text-[10px] uppercase tracking-widest mb-2">Adresse</h5>
-          <p class="text-slate-200 text-sm font-semibold leading-relaxed">4 Bis Rue du Mali, 4ᵉ étage,<br />bureau n°4, Jeanne d'Arc,<br />Tunis 1002</p>
+          <p class="text-slate-200 text-sm font-semibold leading-relaxed">4 Bis Rue du Mali, 4ᵉ étage,<br />bureau n°4,
+            Jeanne d'Arc,<br />Tunis 1002</p>
         </div>
 
         <!-- Suivez-nous -->
@@ -3784,17 +3789,27 @@
     <!-- En-tête -->
     <div id="chat-header">
       <div id="chat-header-avatar"><img src="IMAGE/chatbot.jpeg" alt="Avatar" /></div>
-      <div>
-        <div id="chat-header-name">Conseiller SM Travel</div>
+      <div style="flex: 1;">
+        <div id="chat-header-name">SMio</div>
         <div id="chat-header-status"><span id="chat-dot"></span>En ligne</div>
       </div>
-      <button id="chat-close-btn" onclick="toggleChat()" aria-label="Fermer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
-          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button id="chat-more-btn" aria-label="Plus d'options" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0.8; transition: opacity 0.2s;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="1"></circle>
+            <circle cx="19" cy="12" r="1"></circle>
+            <circle cx="5" cy="12" r="1"></circle>
+          </svg>
+        </button>
+        <button id="chat-close-btn" onclick="toggleChat()" aria-label="Fermer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Messages -->
@@ -3918,7 +3933,8 @@
       flex-shrink: 0;
     }
 
-    #chat-header-avatar img, .msg-avatar img {
+    #chat-header-avatar img,
+    .msg-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -4017,16 +4033,17 @@
     }
 
     .msg.bot .msg-bubble {
-      background: #fff;
-      color: #0f172a;
-      border-bottom-left-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, .07);
+      background: #f4f6fc;
+      color: #1e293b;
+      border-radius: 18px 18px 18px 4px;
+      box-shadow: none;
     }
 
     .msg.user .msg-bubble {
-      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      background: #4f46e5;
       color: #fff;
-      border-bottom-right-radius: 4px;
+      border-radius: 18px 18px 4px 18px;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
     }
 
     /* Indicateur "..." */
@@ -4434,16 +4451,16 @@
       </div>
       <div class="dm-body">
         <span class="dm-badge" id="dmBadge"></span>
-        
+
         <!-- Onglets dynamiques (si plusieurs programmes) -->
         <div class="dm-tabs" id="dmTabs"></div>
-        
+
         <!-- Description du programme -->
         <p class="dm-desc" id="dmDesc"></p>
-        
+
         <!-- Grille de caractéristiques premium -->
         <div class="dm-program-details" id="dmProgramDetails"></div>
-        
+
         <a href="#contact" class="dm-cta" id="dmCta">
           Nous contacter
           <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
@@ -4666,69 +4683,69 @@
         var d = destData[key];
         if (!d || !d.programs || !d.programs[tabIdx]) return;
         var p = d.programs[tabIdx];
-        
+
         dmDesc.textContent = p.desc;
-        
+
         var isStatusOpen = p.details.status && p.details.status.toLowerCase().indexOf('ouverte') !== -1;
         var statusClass = isStatusOpen ? 'status-open' : '';
-        
+
         var html = '';
-        
+
         // 1. Language Card
         if (p.details.lang) {
           html += '<div class="dm-detail-card">' +
-                    '<div class="icon-wrapper"><span class="material-symbols-outlined">translate</span></div>' +
-                    '<div class="detail-info">' +
-                      '<span class="detail-label">Langue d\'enseignement</span>' +
-                      '<span class="detail-val">' + p.details.lang + '</span>' +
-                    '</div>' +
-                  '</div>';
+            '<div class="icon-wrapper"><span class="material-symbols-outlined">translate</span></div>' +
+            '<div class="detail-info">' +
+            '<span class="detail-label">Langue d\'enseignement</span>' +
+            '<span class="detail-val">' + p.details.lang + '</span>' +
+            '</div>' +
+            '</div>';
         }
-        
+
         // 2. Fees Card
         if (p.details.fees) {
           html += '<div class="dm-detail-card">' +
-                    '<div class="icon-wrapper"><span class="material-symbols-outlined">payments</span></div>' +
-                    '<div class="detail-info">' +
-                      '<span class="detail-label">Frais d\'études</span>' +
-                      '<span class="detail-val">' + p.details.fees + '</span>' +
-                    '</div>' +
-                  '</div>';
+            '<div class="icon-wrapper"><span class="material-symbols-outlined">payments</span></div>' +
+            '<div class="detail-info">' +
+            '<span class="detail-label">Frais d\'études</span>' +
+            '<span class="detail-val">' + p.details.fees + '</span>' +
+            '</div>' +
+            '</div>';
         }
-        
+
         // 3. Dates Card
         if (p.details.dates) {
           html += '<div class="dm-detail-card">' +
-                    '<div class="icon-wrapper"><span class="material-symbols-outlined">calendar_month</span></div>' +
-                    '<div class="detail-info">' +
-                      '<span class="detail-label">Période d\'inscription</span>' +
-                      '<span class="detail-val">' + p.details.dates + '</span>' +
-                    '</div>' +
-                  '</div>';
+            '<div class="icon-wrapper"><span class="material-symbols-outlined">calendar_month</span></div>' +
+            '<div class="detail-info">' +
+            '<span class="detail-label">Période d\'inscription</span>' +
+            '<span class="detail-val">' + p.details.dates + '</span>' +
+            '</div>' +
+            '</div>';
         }
-        
+
         // 4. Status Card
         if (p.details.status) {
           html += '<div class="dm-detail-card ' + statusClass + '">' +
-                    '<div class="icon-wrapper"><span class="material-symbols-outlined">check_circle</span></div>' +
-                    '<div class="detail-info">' +
-                      '<span class="detail-label">Statut</span>' +
-                      '<span class="detail-val">' + p.details.status + '</span>' +
-                    '</div>' +
-                  '</div>';
+            '<div class="icon-wrapper"><span class="material-symbols-outlined">check_circle</span></div>' +
+            '<div class="detail-info">' +
+            '<span class="detail-label">Statut</span>' +
+            '<span class="detail-val">' + p.details.status + '</span>' +
+            '</div>' +
+            '</div>';
         }
-        
+
         // 5. Scholarship Card (Highlight)
         if (p.details.scholarship) {
           html += '<div class="dm-detail-card scholarship-highlight">' +
-                    '<div class="icon-wrapper"><span class="material-symbols-outlined">school</span></div>' +
-                    '<div class="detail-info">' +
-                      '<span class="detail-label">Bourses & Avantages</span>' +
-                      '<span class="detail-val">' + p.details.scholarship + '</span>' +
-                    '</div>' +
-                  '</div>';
+            '<div class="icon-wrapper"><span class="material-symbols-outlined">school</span></div>' +
+            '<div class="detail-info">' +
+            '<span class="detail-label">Bourses & Avantages</span>' +
+            '<span class="detail-val">' + p.details.scholarship + '</span>' +
+            '</div>' +
+            '</div>';
         }
-        
+
         dmDetails.innerHTML = html;
       }
 
@@ -4736,12 +4753,12 @@
         var d = destData[key];
         if (!d) return;
         activeKey = key;
-        
+
         dmImg.src = d.img;
         dmImg.alt = d.title;
         dmTitle.textContent = d.title;
         dmBadge.textContent = d.badge;
-        
+
         dmTabs.innerHTML = '';
         if (d.programs && d.programs.length > 1) {
           dmTabs.style.display = 'flex';
@@ -4760,9 +4777,9 @@
         } else {
           dmTabs.style.display = 'none';
         }
-        
+
         renderProgram(key, 0);
-        
+
         document.body.style.overflow = 'hidden';
         modal.classList.add('open');
       }
