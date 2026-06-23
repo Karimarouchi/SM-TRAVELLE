@@ -3823,8 +3823,8 @@
       <input id="chat-input" type="text" placeholder="Écrivez votre message…" autocomplete="off"
         onkeydown="if(event.key==='Enter')sendMessage()" />
       <button id="chat-send-btn" onclick="sendMessage()" aria-label="Envoyer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: translate(-1px, 1px);">
           <line x1="22" y1="2" x2="11" y2="13"></line>
           <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
         </svg>
@@ -3847,14 +3847,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
-      box-shadow: 0 8px 28px rgba(109, 40, 217, .5);
+      background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+      box-shadow: 0 8px 28px rgba(79, 70, 229, .5);
       transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s ease;
     }
 
     #chat-toggle:hover {
       transform: scale(1.1);
-      box-shadow: 0 12px 36px rgba(109, 40, 217, .6);
+      box-shadow: 0 12px 36px rgba(79, 70, 229, .6);
     }
 
     #chat-notif {
@@ -3941,7 +3941,7 @@
     }
 
     #chat-header-name {
-      color: #5c3eed;
+      color: #4f46e5;
       font-weight: 800;
       font-size: 1.1rem;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -4093,9 +4093,9 @@
     }
 
     .chip {
-      background: #ede9fe;
-      color: #6d28d9;
-      border: 1px solid #ddd6fe;
+      background: #e0e7ff;
+      color: #4f46e5;
+      border: 1px solid #c7d2fe;
       border-radius: 99px;
       padding: 5px 12px;
       font-size: .78rem;
@@ -4106,7 +4106,7 @@
     }
 
     .chip:hover {
-      background: #ddd6fe;
+      background: #c7d2fe;
       transform: scale(1.04);
     }
 
@@ -4115,48 +4115,56 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 12px;
-      border-top: 1px solid #e2e8f0;
+      padding: 6px 6px 6px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 9999px;
       background: #fff;
+      margin: 8px 14px 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: border-color .2s, box-shadow .2s;
       flex-shrink: 0;
+    }
+
+    #chat-input-bar:focus-within {
+      border-color: #4f46e5;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
     }
 
     #chat-input {
       flex: 1;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 9px 14px;
+      border: none;
+      background: transparent;
+      padding: 8px 0;
       font-size: .875rem;
       font-family: 'Be Vietnam Pro', sans-serif;
       outline: none;
-      transition: border-color .2s;
       color: #0f172a;
-      background: #f8fafc;
     }
 
     #chat-input:focus {
-      border-color: #7c3aed;
-      background: #fff;
+      outline: none !important;
+      box-shadow: none !important;
+      border: none !important;
+      --tw-ring-color: transparent !important;
     }
 
     #chat-send-btn {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       border: none;
       cursor: pointer;
-      background: linear-gradient(135deg, #7c3aed, #4c1d95);
+      background: #4f46e5;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(109, 40, 217, .35);
-      transition: transform .2s, box-shadow .2s;
+      transition: transform .2s, background-color .2s;
       flex-shrink: 0;
     }
 
     #chat-send-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 18px rgba(109, 40, 217, .5);
+      transform: scale(1.05);
+      background-color: #4338ca;
     }
   </style>
 
@@ -4289,7 +4297,7 @@
 
       const N8N_WEBHOOK_URL = 'https://antigoneconsulting.app.n8n.cloud/webhook/SmTravel';
       const WEBHOOK_TIMEOUT_MS = 30000;
-      const FALLBACK = 'Je n\'ai pas encore la réponse à cette question précise. Mais un de nos conseillers peut vous aider rapidement ! 📞 <strong>+216 56 819 899</strong> ou remplissez notre <a href="#contact" onclick="toggleChat()" style="color:#7c3aed;text-decoration:underline">formulaire de contact</a>.';
+      const FALLBACK = 'Je n\'ai pas encore la réponse à cette question précise. Mais un de nos conseillers peut vous aider rapidement ! 📞 <strong>+216 56 819 899</strong> ou remplissez notre <a href="#contact" onclick="toggleChat()" style="color:#4f46e5;text-decoration:underline">formulaire de contact</a>.';
 
       /* ───── ÉTAT ───── */
       let open = false;
